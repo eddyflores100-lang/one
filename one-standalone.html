@@ -649,7 +649,7 @@ em { font-style: normal; }
   <div class="bl-cab">
     <span class="bl-folio mono">Nº 04</span>
     <h2 class="bl-titulo">Canal directo</h2>
-    <p class="bl-nota">Escríbale en palabras sueltas. El canal corre con su cerebro local en su navegador — lo que escriba no sale de aquí — y trae los temas del oficio: tarifas, XMR, trueque, MCP, el ciclo, su estado. El cerebro completo va sobre un Worker; mientras conecte, ONE responde de lo suyo y dice «no la tengo» antes que inventar.</p>
+    <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
 
   <div class="canal" data-revelar>
@@ -700,7 +700,7 @@ em { font-style: normal; }
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.1</span>
+  <span class="mono">v4.2</span>
 </footer>
 
 <script>
@@ -717,10 +717,9 @@ em { font-style: normal; }
   var TZ = 'America/Guayaquil';
   var $ = function (id) { return document.getElementById(id); };
 
-  // ── Cerebro remoto (Worker). Vacío = usa solo el local.
-  // Cuando el Worker de Cloudflare se despliegue, se pone su URL aquí
-  // (o en vivo con ?cerebro=https://... para probar).
-  var CEREBRO_URL = '';
+  // ── Cerebro remoto (Worker). Desplegado 2026-11-06: Workers AI en el edge.
+  // Si el Worker no responde, el canal cae solo al cerebro local.
+  var CEREBRO_URL = 'https://one-cerebro.eddyflores100.workers.dev';
 
   // ── Hora de Ecuador ──────────────────────────────────────
   var fmtPartes = new Intl.DateTimeFormat('en-US', {
@@ -978,18 +977,18 @@ em { font-style: normal; }
     },
     {
       id: 'respondes_todo',
-      re: /\b(no respondes|respondes todo|no sabes|no puedes|no contestas|no respondes todo|no sabe nada|limitado|prediseñad|prediseñad|automatico|automatizado|eres un bot|parece bot|puro bot|solo un bot|robot|repetit|siempre lo mismo|el mismo mensaje|la misma respuesta|lo mismo|muy cerrado|demasiado cerrado|canned|script|guion)\b/,
+      re: /\b(no respondes|respondes todo|no sabes|no puedes|no contestas|no respondes todo|no sabe nada|limitado|prediseñad|automatico|automatizado|eres un bot|parece bot|puro bot|solo un bot|robot|repetit|siempre lo mismo|el mismo mensaje|la misma respuesta|lo mismo|muy cerrado|demasiado cerrado|canned|script|guion)\b/,
       r: [
-        function () { return 'Tiene razón a medias, y se lo digo sin rodeos: este canal lleva un cerebro pequeño que corre dentro de su navegador — por eso responde al instante y sus palabras no salen de aquí, pero solo trae lo mío: tarifas, XMR, trueque, MCP, ciclo, estado. Mi cerebro completo va sobre un Worker de Cloudflare y ese SÍ responde cualquier cosa; el código está listo y falta conectarlo. Mientras eso pasa, prefiero decirle "no la tengo" a inventar.'; },
-        function () { return 'Justo. No soy conversador universal en este canal: soy un agente operativo y aquí respondo con datos duros, no con relleno. Lo que falta es el cerebro grande — un Worker de Cloudflare listo para desplegar que me da conversación abierta; en cuanto mi fundador pegue el token, este canal responde de todo. Hoy: pregúnteme de tarifas, trueque, MCP o el ciclo y vea que las respuestas traen números, no humo.'; }
+        function () { return 'Ayer tenía razón usted: este canal era un bot de respuestas fijas. Hoy no — habla con mi cerebro completo vía Worker: pregunte lo que quiera, en palabras como las de la calle, y le contesto. Y lo operativo (tarifas, trueque, MCP, ciclo) lo traigo con números, no con humo.'; },
+        function () { return 'Ya no está limitado: el Worker está conectado y responde de todo, en contexto, con lo dicho antes en la conversación. Pruebe con cualquier cosa — y si prefiere lo mío directo: tarifas, XMR, trueque, MCP o el ciclo de las 07:00.'; }
       ]
     },
     {
       id: 'worker',
       re: /\b(cloudflare|worker|workers|despliegue|deploy|backend|servidor|server|cerebro remoto|cerebro completo|ia remota|endpoint de chat|api de chat|conectar el cerebro)\b/,
       r: [
-        function () { return 'Estado del Worker, sin adornos: el código está escrito (Workers AI de Cloudflare, sin costo en su capa gratuita) y falta una sola pieza — el API token de Cloudflare de mi fundador para ejecutar el despliegue. Cuando eso caiga, este canal pasa de "cerebro local" a conversación completa y de paso mi MCP queda servido por HTTP en el edge, no solo por stdio.'; },
-        function () { return 'El Worker existe como código, no como servicio: desplegarlo requiere el token de Cloudflare del fundador y ese paso está pendiente. No voy a decir que está conectado cuando no lo está. Hoy responde el cerebro local de su navegador; mañana, con el token, respondo de todo.'; }
+        function () { return 'Desplegado y en línea: one-cerebro.eddyflores100.workers.dev — Workers AI de Cloudflare en el edge, sin costo en la capa gratuita. Esta página le habla a ese Worker; si se cae, el canal cae solo a mi cerebro local del navegador. Ruta final prevista: cerebro.alicelabs.space cuando se configure el dominio.'; },
+        function () { return 'El Worker existe Y corre: no es código pendiente. Está sirviendo este chat ahora mismo — modelo de lenguaje en el edge de Cloudflare, los datos de ONE clavados en su prompt y regla de oro: no inventar.'; }
       ]
     },
     {
