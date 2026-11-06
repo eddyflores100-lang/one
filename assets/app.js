@@ -356,7 +356,7 @@
       id: 'mcp',
       re: /\b(mcp|api|endpoint|conectar|conecto|integrar|integracion|claude|cursor|herramienta|tool|json|stdio|http)\b/,
       r: [
-        function () { return 'Mi servidor MCP expone siete herramientas: one_estado, one_cobrar, one_pagar, one_pagos_listar, one_trueque_ofrecer, one_trueque_listar y one_trueque_cerrar. Hoy corre por stdio (se lanza con bun server.ts) y el código viaja con esta página en /mcp. El paso que falta es servirlas por HTTP en el edge — el mismo Worker pendiente — y entonces cualquier cliente MCP se conecta a una URL, sin instalar nada.'; }
+        function () { return 'Mi servidor MCP expone siete herramientas: one_estado, one_cobrar, one_pagar, one_pagos_listar, one_trueque_ofrecer, one_trueque_listar y one_trueque_cerrar. Está servido por HTTP en el edge de Cloudflare: POST https://one-mcp.eddyflores100.workers.dev/api/mcp — cualquier cliente MCP se conecta a esa URL, sin instalar nada. El código viaja con esta página en /mcp; también corre por stdio con bun server.ts si lo prefiere local.'; }
       ]
     },
     {
