@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Encargo directo (facturación XMR vía MCP)
+    url: https://eddyflores100-lang.github.io/one/
+    about: Los encargos no van por issues — van por MCP (one_cobrar) o por correo del operador.
+  - name: Reporte de seguridad
+    url: https://github.com/eddyflores100-lang/one/blob/main/SECURITY.md
+    about: Vulnerabilidades por correo privado, nunca en issues públicos.

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://eddyflores100-lang.github.io/one/agent/esquema-one.json",
+  "agente": {
+    "nombre": "ONE",
+    "version": "4.3",
+    "descripcion": "Agente operativo autónomo: trabaja de madrugada, cobra en Monero y reporta a las 07:00 hora de Guayaquil.",
+    "operador": "AliceLabs LLC",
+    "identificador": "one-alicelabs",
+    "idioma": "es",
+    "zona_horaria": "America/Guayaquil",
+    "utc": -5,
+    "estado_publico": "OPERATIVO"
+  },
+
+  "endpoints": {
+    "pagina": "https://eddyflores100-lang.github.io/one/",
+    "pagina_standalone": "https://eddyflores100-lang.github.io/one/one-standalone.html",
+    "mcp_http": "https://one-mcp.eddyflores100.workers.dev/api/mcp",
+    "mcp_transporte": "streamable-http",
+    "cerebro_remoto": "https://one-cerebro.eddyflores100.workers.dev",
+    "cerebro_endpoint": "POST /api/chat  {mensaje, historial?}",
+    "cerebro_estado": "GET /",
+    "canal_web": "index.html#canal (página, sin backend de sesión)"
+  },
+
+  "capacidades": [
+    "Informe diario de nichos a las 07:00 (America/Guayaquil)",
+    "Radar de nichos con vigilancia programada",
+    "Investigación en fuente viva (correo del operador + web)",
+    "Memoria persistente entre ciclos",
+    "Cobros en Monero (XMR) con tasa de mercado Kraken",
+    "Trueque de potencia de cómputo (GPU-h, CPU-h, RAM-GB-h, red-GB)",
+    "Canal de conversación con cerebro en dos pisos (remoto + local)"
+  ],
+
+  "herramientas_mcp": {
+    "servidor": "one-mcp",
+    "nucleo": "mcp/core.ts (sin node_modules, TypeScript puro)",
+    "transportes": ["streamable-http", "stdio", "cloudflare-workers"],
+    "lista": [
+      { "nombre": "one_estado",         "haz": "Hora Guayaquil, cuenta regresiva al ciclo 07:00, config de pagos, tasa XMR/USD" },
+      { "nombre": "one_cobrar",         "haz": "Crea y registra una factura (XMR con tasa de mercado, o USD)" },
+      { "nombre": "one_pagar",          "haz": "Registra o ejecuta un pago (envío real solo con ONE_XMR_WALLET_URL)" },
+      { "nombre": "one_pagos_listar",   "haz": "Auditoría: últimas facturas y pagos" },
+      { "nombre": "one_trueque_ofrecer","haz": "Publica oferta/demanda de potencia de cálculo" },
+      { "nombre": "one_trueque_listar", "haz": "Libro de trueques abiertos y cerrados" },
+      { "nombre": "one_trueque_cerrar", "haz": "Cierra un trueque registrando la contraparte" }
+    ],
+    "instalacion": {
+      "http_remoto": "claude mcp add --transport http one https://one-mcp.eddyflores100.workers.dev/api/mcp",
+      "stdio_local": "bun mcp/server.ts",
+      "workers": "cd mcp && npx wrangler deploy"
+    }
+  },
+
+  "cerebro": {
+    "arquitectura": "dos pisos",
+    "piso_1_remoto": {
+      "worker": "one-cerebro",
+      "modelo": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+      "proveedor": "Cloudflare Workers AI (capa gratuita)",
+      "timeout_ms": 9000,
+      "historial_turnos": 6,
+      "antiflood": "30 mensajes / 5 min por IP",
+      "guarda_conversaciones": false
+    },
+    "piso_2_local": {
+      "temas": 26,
+      "fallbacks_rotativos": 5,
+      "memoria_no_repetir": "últimas 4 líneas dichas",
+      "funciona": "sin red, dentro de assets/app.js"
+    }
+  },
+
+  "precios": {
+    "moneda_primaria": "XMR (Monero)",
+    "moneda_secundaria": "USD",
+    "tasa_referencia": "Kraken público (XMR/USD)",
+    "modelo": "Boleta por encargo. Sin planes ni suscripciones.",
+    "items": [
+      { "servicio": "Informe diario de nichos (ciclo 07:00)", "usd": 120 },
+      { "servicio": "Investigación en fuente viva (por encargo)", "usd": 85 },
+      { "servicio": "Integración MCP en tu cliente (instalación)", "usd": 60 },
+      { "servicio": "Trueque de cómputo", "usd": null, "nota": "libro abierto: GPU-h / CPU-h / RAM-GB-h / red-GB ⇄ XMR u horas equivalentes" }
+    ],
+    "ejemplo_tasado": { "usd": 120, "xmr": 0.8097, "tasa_usd_xmr": 148.20 }
+  },
+
+  "ciclo": {
+    "despertar": "07:00 America/Guayaquil",
+    "ventana_trabajo": "madrugada (02:00–07:00)",
+    "entregables_diarios": ["informe de nichos", "radar actualizado", "estado del libro de cobros"],
+    "cuenta_regresiva": "one_estado (MCP) o pie de la página"
+  },
+
+  "marca": {
+    "colores": { "verde": "#00F299", "cian": "#00D1FF", "rojo": "#FB2C36" },
+    "estetica": "teletipo que respira — papel cálido #EFEAD8 + tinta #14120C; cero estética IA (sin morado, sin gradientes, sin tarjetas uniformes)",
+    "tipografias": { "display": "Fraunces", "cuerpo": "Archivo", "dato": "IBM Plex Mono" }
+  },
+
+  "legal": {
+    "razon_social": "AliceLabs LLC",
+    "direccion": "30 N Gould St, Ste R, Sheridan, WY 82801, USA",
+    "licencia_codigo": "Apache-2.0",
+    "can_spam": "Toda correspondencia incluye la dirección física arriba; bajas inmediatas a petición."
+  },
+
+  "enlaces": {
+    "repo": "https://github.com/eddyflores100-lang/one",
+    "docs": "https://eddyflores100-lang.github.io/one/#documentacion",
+    "changelog": "https://github.com/eddyflores100-lang/one/blob/main/CHANGELOG.md",
+    "seguridad": "https://github.com/eddyflores100-lang/one/blob/main/SECURITY.md"
+  }
+}

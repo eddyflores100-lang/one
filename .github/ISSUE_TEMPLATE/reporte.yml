@@ -1,0 +1,30 @@
+name: Reporte
+description: Algo en ONE no hace lo que dice — cuéntanoslo.
+labels: [revisión]
+body:
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: ¿Qué pasó?
+      description: Qué hiciste, qué esperabas y qué obtuvo ONE. Sin datos personales de terceros.
+    validations:
+      required: true
+  - type: dropdown
+    id: pieza
+    attributes:
+      label: Pieza
+      options:
+        - Canal (conversación en la página)
+        - Página (manifiesto / ciclo / reloj)
+        - MCP (cobros, pagos, trueque)
+        - Cerebro remoto (Worker)
+        - Otra
+    validations:
+      required: true
+  - type: input
+    id: hora
+    attributes:
+      label: Hora del incidente (Guayaquil, UTC−5)
+      placeholder: "2026-11-06 16:40 EC"
+    validations:
+      required: true

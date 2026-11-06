@@ -1,0 +1,44 @@
+name: estado
+
+on:
+  schedule:
+    # 13:00 UTC = 08:00 Guayaquil — chequeo diario post-ciclo
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: none
+
+jobs:
+  salud:
+    name: Salud de los endpoints de ONE
+    runs-on: ubuntu-latest
+    steps:
+      - name: Página (GitHub Pages)
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' "https://eddyflores100-lang.github.io/one/?nocache=$(date +%s)")
+          echo "pagina: HTTP $code"
+          test "$code" = "200"
+
+      - name: Cerebro remoto (Worker)
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' "https://one-cerebro.eddyflores100.workers.dev/")
+          echo "cerebro: HTTP $code"
+          test "$code" = "200"
+
+      - name: Cerebro responde contenido de ONE
+        run: |
+          body=$(curl -s -X POST https://one-cerebro.eddyflores100.workers.dev/api/chat \
+            -H 'Content-Type: application/json' \
+            -H 'Origin: https://eddyflores100-lang.github.io' \
+            -d '{"mensaje":"¿cuánto cuesta el informe?"}')
+          echo "$body" | head -c 200; echo
+          echo "$body" | grep -qi 'respuesta' || (echo 'cerebro sin respuesta valida' && exit 1)
+
+      - name: MCP edge (escucha POST)
+        run: |
+          body=$(curl -s -X POST https://one-mcp.eddyflores100.workers.dev/api/mcp \
+            -H 'Content-Type: application/json' \
+            -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"estado-ci","version":"1.0"}}}')
+          echo "$body" | head -c 300; echo
+          echo "$body" | grep -qi 'one\|serverInfo\|result' || (echo 'MCP sin inicializar' && exit 1)
