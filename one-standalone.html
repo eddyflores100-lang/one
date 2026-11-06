@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ONE — Agente operativo · AliceLabs LLC</title>
-<meta name="description" content="ONE es el agente operativo de AliceLabs LLC: informe privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
-<meta name="theme-color" content="#0B0C0A">
+<meta name="description" content="ONE es el agente operativo de AliceLabs LLC: despacho privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
+<meta name="theme-color" content="#EFEAD8">
 <link rel="canonical" href="https://eddyflores100-lang.github.io/one/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ONE — Agente operativo · AliceLabs LLC">
@@ -24,619 +24,687 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AliceLabs LLC","url":"https://eddyflores100-lang.github.io/one/","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, Ste R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},{"@type":"WebSite","name":"ONE — Agente operativo","inLanguage":"es-EC","url":"https://eddyflores100-lang.github.io/one/","publisher":{"@type":"Organization","name":"AliceLabs LLC"}}]}
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0C0A'/%3E%3Crect x='4' y='4' width='56' height='56' fill='none' stroke='%2300F299' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%2300F299'%3EO%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EFEAD8'/%3E%3Crect x='5' y='5' width='54' height='54' fill='none' stroke='%2314120C' stroke-width='3'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='900' text-anchor='middle' fill='%2314120C'%3EO%3C/text%3E%3Crect x='9' y='9' width='10' height='10' fill='%2300F299'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   ONE v3.0 — «turno de noche» · AliceLabs LLC
-   Canon 2027: tipo como héroe · un acento · motion con apagado ·
-   anti-plantilla · legible por humanos y agentes. Sin frameworks.
+   ONE v4.0 — «teletipo que respira» · AliceLabs LLC
+   Papel cálido + tinta pesada · Fraunces Black óptico ·
+   sellos y filetes de imprenta · cero neón, cero plantilla.
+   Presupuesto de color: verde ×2 (sello vivo, CTA) ·
+   rojo ×1 (cuenta y pulso) · cian ×1 (filete técnico MCP).
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --bg: #0B0C0A;
-  --bg-raise: #101210;
-  --ink: #F2F1E9;
-  --ink-dim: #A8A99E;
-  --line: rgba(242, 241, 233, 0.13);
-  --line-strong: rgba(242, 241, 233, 0.28);
-  --green: #00F299;
-  --red: #FB2C36;
-  --cyan: #00D1FF;
-  --f-disp: "Syne", sans-serif;
-  --f-mono: "JetBrains Mono", monospace;
+  --papel: #EFEAD8;
+  --papel-2: #E7E0CB;
+  --papel-3: #F4F0E3;
+  --tinta: #14120C;
+  --tinta-2: #4C4738;
+  --linea: rgba(20, 18, 12, 0.22);
+  --linea-f: rgba(20, 18, 12, 0.13);
+  --verde: #00F299;
+  --rojo: #D61E28;
+  --cian: #0099C7;
+  --f-disp: "Fraunces", Georgia, serif;
+  --f-body: "Archivo", sans-serif;
+  --f-mono: "IBM Plex Mono", monospace;
   --u: 8px;
-  --w: 1180px;
+  --ancho: 1140px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--f-disp);
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--f-body);
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-::selection { background: var(--green); color: var(--bg); }
+::selection { background: var(--tinta); color: var(--papel); }
 
-/* grano de película, fijo y sin interacción */
-.grain {
-  position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+.mono { font-family: var(--f-mono); }
+
+/* grano de papel impreso, fijo y sin interacción */
+.grano {
+  position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.52 0 0 0 0 0.42 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.skip {
+.salto {
   position: absolute; left: -9999px; top: 0; z-index: 100;
-  background: var(--green); color: var(--bg); padding: 10px 16px;
+  background: var(--tinta); color: var(--papel); padding: 10px 16px;
   font-family: var(--f-mono); font-size: 13px;
 }
-.skip:focus { left: 0; }
+.salto:focus { left: 0; }
 
 a { color: inherit; }
 em { font-style: normal; }
 
-/* ═══════════ CABECERA ═══════════ */
-.top {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 14px clamp(20px, 4vw, 48px);
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  border-bottom: 1px solid var(--line);
+/* ═══════════ CABECERA DE PERIÓDICO ═══════════ */
+.masthead {
+  max-width: var(--ancho); margin: 0 auto; width: 100%;
+  padding: 22px clamp(20px, 4vw, 48px) 0;
 }
-.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
-.brand-mark {
-  width: 11px; height: 11px; background: var(--green); align-self: center;
-  box-shadow: 0 0 14px rgba(0, 242, 153, 0.55);
+.mh-linea {
+  display: flex; align-items: baseline; gap: 16px;
+  border-bottom: 3px solid var(--tinta);
+  padding-bottom: 12px; flex-wrap: wrap;
 }
-.brand-name { font-weight: 800; font-size: 20px; letter-spacing: 0.02em; }
-.brand-sub { font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim); }
-.nav { display: flex; gap: 22px; }
-.nav a {
-  font-family: var(--f-mono); font-size: 12.5px; text-decoration: none;
-  color: var(--ink-dim); padding: 4px 0; border-bottom: 1px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
+.mh-marca {
+  font-family: var(--f-disp); font-weight: 900; font-size: 44px;
+  letter-spacing: -0.02em; line-height: 0.9;
+  font-variation-settings: "opsz" 144;
 }
-.nav a:hover { color: var(--ink); border-color: var(--cyan); }
-.top-live {
-  display: flex; align-items: center; gap: 8px;
-  font-family: var(--f-mono); font-size: 12.5px;
-  border: 1px solid var(--line); padding: 7px 12px;
-}
-.top-live-k { color: var(--ink-dim); }
+.mh-sub { font-size: 13.5px; color: var(--tinta-2); }
+.mh-derecha { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.mh-reloj { font-size: 13.5px; font-variant-numeric: tabular-nums; }
 
-.pulse {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--red);
-  animation: pulso 2.2s ease-in-out infinite;
+/* sello EN VIVO — uso verde nº 1 */
+.sello {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-weight: 600; font-size: 12px; letter-spacing: 0.14em;
+  color: var(--tinta); border: 2px solid var(--tinta);
+  outline: 2px solid var(--verde); outline-offset: 2px;
+  padding: 6px 12px; transform: rotate(-2deg);
+  background: var(--papel-3);
 }
-@keyframes pulso {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(251, 44, 54, 0.5); }
-  50% { opacity: 0.55; box-shadow: 0 0 0 5px rgba(251, 44, 54, 0); }
+.pulso {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--rojo);
+  animation: latido 2.2s ease-in-out infinite;
+}
+@keyframes latido {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
 }
 
-/* ═══════════ HERO · INSTRUMENTO ═══════════ */
-.hero {
-  min-height: calc(100svh - 62px);
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 72px clamp(20px, 4vw, 48px) 56px;
-  max-width: var(--w); margin: 0 auto; width: 100%;
+.mh-fecha {
+  font-size: 12px; color: var(--tinta-2); text-transform: uppercase;
+  letter-spacing: 0.08em; padding: 10px 0 0;
+  border-bottom: 1px solid var(--linea);
 }
-.hero-status {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-dim);
-  margin-bottom: 28px;
-}
-.h1 {
-  font-weight: 500; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
-  max-width: 46ch; color: var(--ink-dim); margin-bottom: 8px;
-}
-.clock {
-  font-weight: 800; font-variant-numeric: tabular-nums;
-  font-size: clamp(88px, 17.5vw, 208px);
-  line-height: 0.95; letter-spacing: -0.015em;
-  color: var(--ink); margin: 8px 0 34px;
-  text-shadow: 0 0 90px rgba(0, 242, 153, 0.13);
-}
-.clock-s { font-size: 0.32em; font-weight: 700; color: var(--green); vertical-align: baseline; }
 
-.shift { margin-bottom: 18px; }
-.shift-track {
-  position: relative; height: 3px; width: 100%;
-  background: var(--line);
+/* ═══════════ 01 · DESPACHO ═══════════ */
+.despacho {
+  max-width: var(--ancho); margin: 0 auto; width: 100%;
+  padding: 96px clamp(20px, 4vw, 48px) 56px;
 }
-.shift-fill {
-  position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
-  background: var(--green);
-  box-shadow: 0 0 12px rgba(0, 242, 153, 0.7);
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+.des-cab {
+  display: flex; align-items: baseline; gap: 22px; flex-wrap: wrap;
+  margin-bottom: 18px;
 }
-.shift-mark {
-  position: absolute; top: -4px; width: 1px; height: 11px;
-  background: var(--line-strong); left: 50%;
+.des-titulo {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(52px, 8.2vw, 108px);
+  line-height: 0.95; letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "WONK" 1;
 }
-.shift-legend {
-  display: flex; justify-content: space-between; gap: 12px;
-  font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim);
-  margin-top: 10px;
-}
-.shift-legend span { white-space: nowrap; }
-.shift-legend span:nth-child(1) { text-align: left; }
-.shift-legend span:nth-child(2) { text-align: center; }
-.shift-legend span:nth-child(3) { text-align: right; }
-.hero-count { font-family: var(--f-mono); font-size: 14px; color: var(--ink-dim); }
-.hero-count strong { color: var(--green); font-weight: 700; }
-.hero-count em { color: var(--ink); }
+.des-num { font-size: 15px; color: var(--tinta-2); }
+.des-sub { max-width: 58ch; font-size: 18px; color: var(--tinta-2); margin-bottom: 40px; }
+.des-sub em { color: var(--tinta); font-weight: 600; }
 
-.hero-cta { display: flex; gap: 14px; margin-top: 44px; flex-wrap: wrap; }
+/* la cinta del teletipo — papel de máquina, se escribe sola */
+.cinta {
+  border-top: 2px solid var(--tinta);
+  border-bottom: 2px solid var(--tinta);
+  background: var(--papel-3);
+  padding: 26px 8px;
+  font-family: var(--f-mono); font-size: 14.5px; line-height: 2.05;
+  letter-spacing: 0.01em;
+  min-height: 236px;
+}
+.cinta-ln { white-space: pre-wrap; }
+.cinta-cursor {
+  display: inline-block; width: 0.62em; height: 1.05em;
+  background: var(--tinta); vertical-align: text-bottom;
+  margin-left: 2px;
+  animation: cursor 1.05s steps(1) infinite;
+}
+@keyframes cursor { 50% { opacity: 0; } }
+
+.des-cuenta {
+  margin-top: 26px; font-size: 14px; color: var(--tinta-2);
+}
+.des-cuenta strong { color: var(--rojo); font-weight: 600; font-variant-numeric: tabular-nums; }
+.des-cuenta em { color: var(--tinta); font-weight: 500; }
+
+.des-cta { display: flex; gap: 14px; margin-top: 44px; flex-wrap: wrap; }
+/* CTA — uso verde nº 2 */
 .btn {
-  font-family: var(--f-mono); font-size: 13px; font-weight: 500;
-  text-decoration: none; padding: 15px 26px;
-  background: var(--green); color: var(--bg); border: 1px solid var(--green);
-  transition: transform 0.15s, box-shadow 0.15s;
+  font-family: var(--f-mono); font-weight: 600; font-size: 13.5px;
+  text-decoration: none; padding: 16px 28px;
+  background: var(--verde); color: var(--tinta);
+  border: 2px solid var(--tinta);
+  box-shadow: 4px 4px 0 0 var(--tinta);
+  transition: transform 0.12s, box-shadow 0.12s;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(0, 242, 153, 0.35); }
-.btn-ghost {
-  font-family: var(--f-mono); font-size: 13px; text-decoration: none;
-  padding: 15px 26px; color: var(--ink-dim); border: 1px solid var(--line);
-  transition: border-color 0.15s, color 0.15s;
+.btn:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 0 var(--tinta); }
+.btn-tinta {
+  font-family: var(--f-mono); font-size: 13.5px;
+  text-decoration: none; padding: 16px 28px; color: var(--tinta);
+  border: 2px solid var(--tinta); background: transparent;
+  transition: background 0.15s, color 0.15s;
 }
-.btn-ghost:hover { color: var(--ink); border-color: var(--cyan); }
+.btn-tinta:hover { background: var(--tinta); color: var(--papel); }
 
-/* ═══════════ SECCIONES · ESTRUCTURA ═══════════ */
-.sec {
-  max-width: var(--w); margin: 0 auto; width: 100%;
-  padding: 120px clamp(20px, 4vw, 48px) 72px;
-  border-top: 1px solid var(--line);
+/* ═══════════ BLOQUES · ESTRUCTURA ═══════════ */
+.bloque {
+  max-width: var(--ancho); margin: 0 auto; width: 100%;
+  padding: 96px clamp(20px, 4vw, 48px) 56px;
+  border-top: 2px solid var(--tinta);
 }
-.sec-head { display: flex; align-items: baseline; gap: 26px; margin-bottom: 56px; }
-.sec-n {
-  display: inline-block;
-  font-family: var(--f-mono); font-size: 13px; color: var(--green);
-  border: 1px solid rgba(0, 242, 153, 0.35); padding: 3px 9px;
+.bl-cab { display: grid; grid-template-columns: 110px 1fr; gap: 8px 28px; margin-bottom: 56px; }
+.bl-folio { grid-column: 1; font-size: 13px; color: var(--tinta-2); padding-top: 14px; }
+.bl-titulo {
+  grid-column: 2;
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 1.0; letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144;
 }
-.sec-title { font-weight: 800; font-size: clamp(34px, 5vw, 60px); letter-spacing: -0.01em; line-height: 1.02; }
-.sec-intro { max-width: 62ch; color: var(--ink-dim); margin: -32px 0 48px; }
-.sec-intro em { color: var(--ink); }
+.bl-nota { grid-column: 2; max-width: 62ch; color: var(--tinta-2); font-size: 17px; }
+.bl-nota em { color: var(--tinta); font-weight: 600; }
 
-/* ═══════════ 01 · MANIFIESTO ═══════════ */
-.sec-manifiesto { padding-top: 150px; padding-bottom: 150px; }
+/* ═══════════ 02 · MANIFIESTO ═══════════ */
+.bloque-manifiesto { padding-top: 140px; padding-bottom: 140px; }
 .manifiesto {
-  font-weight: 700; font-size: clamp(30px, 4.6vw, 58px);
-  line-height: 1.18; letter-spacing: -0.01em; max-width: 24ch;
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(34px, 5.4vw, 72px);
+  line-height: 1.12; letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+  max-width: 22ch;
 }
-.manifiesto .w { opacity: 0.16; transition: opacity 0.5s ease; }
-.manifiesto .w.on { opacity: 1; }
+.manifiesto em { font-style: italic; font-weight: 700; }
+.manifiesto .p { opacity: 0.14; transition: opacity 0.45s ease; }
+.manifiesto .p.on { opacity: 1; }
 
-/* ═══════════ 02 · LIBRO MAYOR ═══════════ */
-.ledger { list-style: none; border-top: 1px solid var(--line); }
-.row {
+/* ═══════════ 03 · LIBRO MAYOR ═══════════ */
+.mayor { list-style: none; border-top: 2px solid var(--tinta); }
+.fila {
   display: grid; grid-template-columns: 72px 1fr 1.15fr; gap: 28px;
   align-items: baseline; padding: 30px 4px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--linea);
   transition: background 0.18s;
 }
-.row:hover { background: var(--bg-raise); }
-.row-n { font-family: var(--f-mono); font-size: 13px; color: var(--ink-dim); transition: color 0.18s; }
-.row:hover .row-n { color: var(--green); }
-.row-t { font-weight: 700; font-size: clamp(20px, 2.4vw, 27px); letter-spacing: -0.01em; }
-.row-d { font-size: 15.5px; color: var(--ink-dim); line-height: 1.6; }
+.fila:hover { background: var(--papel-2); }
+.fila-n { font-size: 13px; color: var(--tinta-2); transition: color 0.18s; }
+.fila:hover .fila-n { color: var(--tinta); font-weight: 600; }
+.fila-t {
+  font-family: var(--f-disp); font-weight: 700;
+  font-size: clamp(21px, 2.4vw, 28px); letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 60;
+}
+.fila-d { font-size: 15.5px; color: var(--tinta-2); line-height: 1.6; }
 
-/* ═══════════ 03 · CICLO 24H ═══════════ */
-.cycle { margin-bottom: 64px; }
-.cycle-track {
-  position: relative; height: 52px;
-  border: 1px solid var(--line); background: var(--bg-raise);
+/* ═══════════ 04 · CICLO ═══════════ */
+.ciclo { margin-bottom: 56px; }
+.ciclo-pista {
+  position: relative; height: 46px;
+  border: 2px solid var(--tinta); background: var(--papel-3);
 }
-.cycle-track::before {
+.ciclo-pista::before {
   content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
-  background: var(--line);
+  background: var(--linea);
 }
-.cycle-mark {
+.ciclo-hito {
   position: absolute; top: 0; bottom: 0; left: var(--p);
-  width: 1px; background: var(--line-strong);
+  width: 2px; background: var(--tinta);
 }
-.cycle-mark.m19 { background: var(--cyan); opacity: 0.6; }
-.cycle-mark i {
-  position: absolute; top: -22px; left: -14px;
-  font-family: var(--f-mono); font-style: normal; font-size: 11px; color: var(--ink-dim);
+.ciclo-hito.h19 { width: 1px; background: var(--linea); }
+.ciclo-hito i {
+  position: absolute; top: -24px; left: -16px;
+  font-family: var(--f-mono); font-style: normal; font-size: 11.5px; color: var(--tinta-2);
 }
-.cycle-now {
+.ciclo-ahora {
   position: absolute; top: 50%; left: 0%;
-  width: 13px; height: 13px; border-radius: 50%;
-  background: var(--green);
-  border: 2px solid var(--bg);
-  box-shadow: 0 0 0 2px var(--cyan), 0 0 18px rgba(0, 242, 153, 0.8);
   transform: translate(-50%, -50%);
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--rojo); border: 2px solid var(--papel);
+  box-shadow: 0 0 0 2px var(--rojo);
   transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.cycle-hours {
+.ciclo-ahora b {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  font-family: var(--f-mono); font-weight: 600; font-size: 10px; letter-spacing: 0.12em;
+  color: var(--rojo); white-space: nowrap;
+}
+.ciclo-horas {
   display: flex; justify-content: space-between;
-  font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim);
-  margin-top: 8px;
+  font-size: 11px; color: var(--tinta-2); margin-top: 8px;
 }
 
-.tt { border-left: 1px solid var(--line); padding-left: 28px; }
-.tt-row {
+.registro { border: 2px solid var(--tinta); background: var(--papel-3); }
+.reg-cab {
+  display: block; font-size: 11.5px; letter-spacing: 0.1em;
+  background: var(--tinta); color: var(--papel);
+  padding: 10px 18px;
+}
+.tt { padding: 8px 18px; }
+.tt-fila {
   display: grid; grid-template-columns: 110px 1fr; gap: 18px;
-  padding: 11px 0; font-family: var(--f-mono); font-size: 13.5px;
+  padding: 12px 0; font-size: 14px;
+  border-bottom: 1px dashed var(--linea-f);
 }
-.tt-t { color: var(--green); }
-.tt-d { color: var(--ink-dim); }
-.tt-d strong { color: var(--ink); }
-.tt-cap { font-family: var(--f-mono); font-size: 12px; color: var(--ink-dim); margin-top: 22px; }
+.tt-fila:last-child { border-bottom: none; }
+.tt-h { font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tt-d { color: var(--tinta-2); }
+.tt-d strong { color: var(--tinta); }
 
-/* ═══════════ 04 · COBROS ═══════════ */
-.split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; }
+/* ═══════════ 05 · COBROS · DOCUMENTOS ═══════════ */
+.documentos { display: grid; grid-template-columns: 1fr 1.2fr; gap: 26px; align-items: stretch; }
 .doc {
-  border: 1px solid var(--line); background: var(--bg-raise);
+  border: 2px solid var(--tinta); background: var(--papel-3);
   padding: 26px 26px 22px;
-  transition: border-color 0.2s;
+  position: relative;
 }
-.doc:hover { border-color: var(--line-strong); }
-.doc-head {
+.doc::after {
+  content: ""; position: absolute; inset: 6px;
+  border: 1px solid var(--linea-f); pointer-events: none;
+}
+.doc-cab {
   display: flex; justify-content: space-between; align-items: center;
-  font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim);
-  padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  font-size: 11.5px; letter-spacing: 0.1em; color: var(--tinta-2);
+  padding-bottom: 14px; border-bottom: 2px solid var(--tinta);
+  position: relative; z-index: 1;
 }
-.doc-state { color: var(--red); border: 1px solid rgba(251, 44, 54, 0.4); padding: 2px 8px; }
-.doc-state.state-open { color: var(--green); border-color: rgba(0, 242, 153, 0.4); }
-.doc-num { font-family: var(--f-mono); font-size: 15px; margin: 16px 0 6px; }
-.doc-rows { list-style: none; }
-.doc-rows li {
+.doc-sello-tinta {
+  color: var(--tinta); border: 2px solid var(--tinta);
+  padding: 3px 10px; transform: rotate(-3deg); font-weight: 600;
+}
+.doc-num { font-size: 15px; margin: 16px 0 6px; position: relative; z-index: 1; }
+.doc-filas { list-style: none; position: relative; z-index: 1; }
+.doc-filas li {
   display: flex; justify-content: space-between; gap: 16px;
-  padding: 9px 0; border-bottom: 1px dashed var(--line);
+  padding: 10px 0; border-bottom: 1px dashed var(--linea);
   font-size: 14.5px;
 }
-.doc-rows span { color: var(--ink-dim); font-family: var(--f-mono); font-size: 12.5px; padding-top: 2px; }
-.doc-rows b { font-weight: 500; text-align: right; }
+.doc-filas span { color: var(--tinta-2); font-size: 12.5px; padding-top: 2px; }
+.doc-filas b { font-weight: 600; text-align: right; }
 .doc-total { border-bottom: none; }
 .doc-total b {
-  font-family: var(--f-mono); font-weight: 700; font-size: 19px;
-  color: var(--green); font-variant-numeric: tabular-nums;
+  font-family: var(--f-disp); font-weight: 900; font-size: 26px;
+  font-variation-settings: "opsz" 144;
+  font-variant-numeric: lining-nums;
 }
-.libro { width: 100%; border-collapse: collapse; margin: 16px 0 4px; font-size: 14px; }
+.libro { width: 100%; border-collapse: collapse; margin: 16px 0 4px; font-size: 14px; position: relative; z-index: 1; }
 .libro th {
-  text-align: left; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px;
-  color: var(--ink-dim); padding: 8px 6px; border-bottom: 1px solid var(--line-strong);
+  text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.06em;
+  color: var(--tinta-2); padding: 8px 6px; border-bottom: 2px solid var(--tinta);
 }
-.libro td { padding: 11px 6px; border-bottom: 1px solid var(--line); }
-.libro .id { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-dim); }
-.libro .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
-.doc-note { font-size: 12.5px; color: var(--ink-dim); margin-top: 14px; line-height: 1.55; }
-.doc-note code { font-family: var(--f-mono); font-size: 11.5px; color: var(--cyan); }
+.libro td { padding: 12px 6px; border-bottom: 1px solid var(--linea); }
+.libro .id { font-size: 12.5px; color: var(--tinta-2); }
+.libro .num { font-variant-numeric: tabular-nums; font-weight: 500; }
+.doc-nota { font-size: 12.5px; color: var(--tinta-2); margin-top: 14px; line-height: 1.55; position: relative; z-index: 1; }
+.doc-nota code { font-family: var(--f-mono); font-size: 11.5px; }
 
+/* endpoint MCP — filete cian, uso cian nº 1 */
 .endpoint {
-  margin-top: 20px; border: 1px solid rgba(0, 209, 255, 0.28);
-  padding: 20px 24px; background: var(--bg-raise);
+  margin-top: 26px; border: 2px solid var(--tinta);
+  border-top: 6px solid var(--cian);
+  padding: 20px 24px; background: var(--papel-3);
 }
-.endpoint-k {
-  font-family: var(--f-mono); font-size: 11.5px; color: var(--cyan);
-  letter-spacing: 0.06em; margin-bottom: 8px;
-}
-.endpoint > code { font-family: var(--f-mono); font-size: 14.5px; }
-.endpoint-d { font-family: var(--f-mono); font-size: 12px; color: var(--ink-dim); margin-top: 10px; line-height: 1.8; }
-.endpoint-d code { color: var(--ink); font-size: 11.5px; }
+.ep-k { font-size: 11.5px; letter-spacing: 0.12em; color: var(--tinta-2); margin-bottom: 8px; }
+.endpoint > code { font-size: 14.5px; font-weight: 500; }
+.ep-d { font-size: 12px; color: var(--tinta-2); margin-top: 10px; line-height: 1.9; }
+.ep-d code { font-size: 11.5px; font-weight: 600; color: var(--tinta); }
 
-/* ═══════════ 05 · CONSOLA ═══════════ */
-.term { border: 1px solid var(--line); background: #080908; }
-.term-bar {
-  display: flex; align-items: center; gap: 7px;
-  padding: 11px 14px; border-bottom: 1px solid var(--line);
+/* ═══════════ 06 · CANAL DIRECTO ═══════════ */
+.canal { border: 2px solid var(--tinta); background: var(--papel-3); }
+.canal-cab {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 11.5px; letter-spacing: 0.1em;
+  background: var(--tinta); color: var(--papel);
+  padding: 11px 18px;
 }
-.term-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
-.term-bar span:first-child { background: rgba(251, 44, 54, 0.75); }
-.term-bar b { font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; color: var(--ink-dim); margin-left: 8px; }
-.term-log {
-  padding: 18px 16px; min-height: 190px; max-height: 320px; overflow-y: auto;
-  font-family: var(--f-mono); font-size: 13.5px; line-height: 1.75;
+.canal-log {
+  padding: 22px 20px; min-height: 230px; max-height: 380px; overflow-y: auto;
+  font-size: 15px; line-height: 1.65;
 }
-.term-log .ln { color: var(--ink-dim); }
-.term-log .tag { color: var(--green); font-weight: 700; margin-right: 10px; }
-.term-log .ln b { color: var(--ink); }
-.term-log .ln.u { color: var(--ink); }
-.term-log .ln .cmd { color: var(--cyan); }
-.term-form {
+.canal-msj { margin-bottom: 14px; display: grid; grid-template-columns: 52px 1fr; gap: 12px; }
+.canal-msj .quien {
+  font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--tinta-2); padding-top: 5px; white-space: nowrap;
+}
+.canal-msj .texto { max-width: 58ch; }
+.canal-msj.one .texto { border-left: 3px solid var(--tinta); padding-left: 14px; }
+.canal-msj.usted { grid-template-columns: 52px 1fr; }
+.canal-msj.usted .texto { font-style: italic; color: var(--tinta-2); }
+.canal-msj .texto .cursor {
+  display: inline-block; width: 0.55em; height: 1em;
+  background: var(--tinta); vertical-align: text-bottom; margin-left: 2px;
+  animation: cursor 1.05s steps(1) infinite;
+}
+.canal-pistas {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  padding: 0 20px 16px;
+}
+.pista {
+  font-family: var(--f-mono); font-size: 12px;
+  background: transparent; color: var(--tinta);
+  border: 1.5px solid var(--tinta); padding: 7px 12px;
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.pista:hover { background: var(--tinta); color: var(--papel); }
+.canal-forma {
   display: flex; align-items: center; gap: 12px;
-  border-top: 1px solid var(--line); padding: 12px 16px;
+  border-top: 2px solid var(--tinta); padding: 14px 20px;
 }
-.term-form label { font-family: var(--f-mono); font-size: 13px; color: var(--green); white-space: nowrap; }
-.term-form input {
+.canal-forma label { font-size: 11.5px; letter-spacing: 0.08em; color: var(--tinta-2); white-space: nowrap; }
+.canal-forma input {
   flex: 1; min-width: 0; background: transparent; border: none; outline: none;
-  color: var(--ink); font-family: var(--f-mono); font-size: 13.5px; caret-color: var(--green);
+  color: var(--tinta); font-family: var(--f-body); font-size: 15px; caret-color: var(--tinta);
 }
-.term-form button {
-  font-family: var(--f-mono); font-size: 12px; cursor: pointer;
-  background: transparent; color: var(--ink-dim);
-  border: 1px solid var(--line); padding: 7px 14px;
-  transition: color 0.15s, border-color 0.15s;
+.canal-forma button {
+  font-family: var(--f-mono); font-size: 12px; font-weight: 600; cursor: pointer;
+  background: transparent; color: var(--tinta);
+  border: 2px solid var(--tinta); padding: 8px 16px;
+  transition: background 0.15s, color 0.15s;
 }
-.term-form button:hover { color: var(--bg); background: var(--green); border-color: var(--green); }
+.canal-forma button:hover { background: var(--tinta); color: var(--papel); }
 
-/* ═══════════ 06 · CONTACTO ═══════════ */
-.sec-contacto { padding-bottom: 120px; }
-.contacto-big {
-  font-weight: 800; font-size: clamp(46px, 9vw, 128px);
-  line-height: 1; letter-spacing: -0.015em; margin: 18px 0 30px;
+/* ═══════════ 07 · CONTACTO · SELLO ═══════════ */
+.bloque-contacto { padding-bottom: 96px; }
+.contacto-fila {
+  display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 48px;
+  align-items: center; margin-bottom: 56px;
 }
-.contacto-txt { max-width: 46ch; color: var(--ink-dim); margin-bottom: 64px; }
-.legal { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: 20px; }
+.contacto-grande {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(46px, 7.4vw, 104px);
+  line-height: 1.0; letter-spacing: -0.02em;
+  margin: 18px 0 30px;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+.contacto-p { max-width: 46ch; color: var(--tinta-2); }
+.sello-redondo {
+  width: min(230px, 42vw); height: auto; color: var(--tinta);
+  transform: rotate(9deg); opacity: 0.92;
+  justify-self: end;
+}
+.legal {
+  font-size: 11.5px; color: var(--tinta-2);
+  border-top: 2px solid var(--tinta); padding-top: 20px;
+}
 
 /* ═══════════ PIE ═══════════ */
-.foot {
-  max-width: var(--w); margin: 0 auto;
+.pie {
+  max-width: var(--ancho); margin: 0 auto;
   display: flex; flex-wrap: wrap; gap: 14px 34px; justify-content: space-between;
-  padding: 26px clamp(20px, 4vw, 48px) 34px;
-  border-top: 1px solid var(--line);
-  font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim);
+  padding: 26px clamp(20px, 4vw, 48px) 40px;
+  font-size: 11.5px; color: var(--tinta-2);
 }
 
-/* ═══════════ REVEALS ═══════════ */
-[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-[data-reveal].in { opacity: 1; transform: none; }
+/* ═══════════ REVELADOS ═══════════ */
+[data-revelar] { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+[data-revelar].in { opacity: 1; transform: none; }
 
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 880px) {
-  .nav { display: none; }
-  .row { grid-template-columns: 48px 1fr; }
-  .row-d { grid-column: 2; }
-  .split { grid-template-columns: 1fr; }
-  .sec { padding-top: 84px; padding-bottom: 56px; }
-  .sec-manifiesto { padding-top: 100px; padding-bottom: 100px; }
-  .shift-legend { font-size: 10px; }
-  .cycle-mark i { font-size: 10px; }
+  .fila { grid-template-columns: 48px 1fr; }
+  .fila-d { grid-column: 2; }
+  .documentos { grid-template-columns: 1fr; }
+  .bl-cab { grid-template-columns: 1fr; }
+  .bl-folio { grid-column: 1; padding-top: 0; }
+  .bl-titulo, .bl-nota { grid-column: 1; }
+  .bloque { padding-top: 72px; padding-bottom: 48px; }
+  .bloque-manifiesto { padding-top: 96px; padding-bottom: 96px; }
+  .contacto-fila { grid-template-columns: 1fr; }
+  .sello-redondo { justify-self: start; }
+  .ciclo-hito i { font-size: 10px; }
 }
 @media (max-width: 560px) {
-  .top-live { padding: 6px 9px; font-size: 11px; }
-  .hero { min-height: auto; padding-top: 56px; }
-  .clock { font-size: clamp(54px, 17.5vw, 110px); }
-  .shift-legend { flex-direction: column; gap: 5px; align-items: flex-start; font-size: 9.5px; }
-  .shift-legend span { white-space: normal; text-align: left !important; }
-  .tt-row { grid-template-columns: 88px 1fr; gap: 10px; font-size: 12.5px; }
-  .doc-rows li { flex-direction: column; gap: 3px; }
-  .doc-rows b { text-align: left; }
+  .mh-sub { display: none; }
+  .mh-marca { font-size: 34px; }
+  .canal-cab span:last-child { display: none; }
+  .despacho { padding-top: 64px; }
+  .des-titulo { font-size: clamp(40px, 11vw, 56px); }
+  .cinta { font-size: 12.5px; min-height: 300px; padding: 20px 6px; }
+  .tt-fila { grid-template-columns: 86px 1fr; gap: 10px; font-size: 13px; }
+  .doc-filas li { flex-direction: column; gap: 3px; }
+  .doc-filas b { text-align: left; }
+  .ciclo-ahora b { display: none; }
+  .canal-msj { grid-template-columns: 44px 1fr; gap: 8px; }
+  .canal-forma label { display: none; }
 }
 
 /* ═══════════ MOVIMIENTO REDUCIDO ═══════════ */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .pulse, .grain { animation: none; }
-  .shift-fill, .cycle-now { transition: none; }
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
-  .manifiesto .w { opacity: 1; transition: none; }
+  .pulso, .grano, .cinta-cursor, .canal-msj .texto .cursor { animation: none; }
+  .ciclo-ahora { transition: none; }
+  [data-revelar] { opacity: 1; transform: none; transition: none; }
+  .manifiesto .p { opacity: 1; transition: none; }
 }
 
 </style>
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
+<div class="grano" aria-hidden="true"></div>
 
-<a class="skip" href="#contenido">Saltar al contenido</a>
+<a class="salto" href="#contenido">Saltar al contenido</a>
 
-<header class="top">
-  <a class="brand" href="#inicio">
-    <span class="brand-mark" aria-hidden="true"></span>
-    <span class="brand-name">ONE</span>
-    <span class="brand-sub">AliceLabs LLC</span>
-  </a>
-  <nav class="nav" aria-label="Secciones">
-    <a href="#que-hace">Qué hace</a>
-    <a href="#rutina">Ciclo</a>
-    <a href="#cobros">Cobros</a>
-    <a href="#consola">Consola</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  <p class="top-live">
-    <span class="pulse" aria-hidden="true"></span>
-    <span class="top-live-k">GYE</span>
-    <span id="reloj">--:--:--</span>
-  </p>
+<!-- ═══════════ CABECERA DE PERIÓDICO ═══════════ -->
+<header class="masthead" id="inicio">
+  <div class="mh-linea">
+    <span class="mh-marca">ONE</span>
+    <span class="mh-sub">Agente operativo · AliceLabs LLC</span>
+    <span class="mh-derecha">
+      <span class="sello"><span class="pulso" aria-hidden="true"></span>EN VIVO</span>
+      <span class="mh-reloj mono" id="reloj">--:--:--</span>
+    </span>
+  </div>
+  <p class="mh-fecha mono" id="fecha-larga">Guayaquil, Ecuador · UTC−5</p>
 </header>
 
 <main id="contenido">
 
-<!-- ═══════════ HERO · EL INSTRUMENTO ═══════════ -->
-<section class="hero" id="inicio">
-  <p class="hero-status">
-    <span class="pulse" aria-hidden="true"></span>
-    Turno de noche · Guayaquil, EC · UTC−5
-  </p>
-
-  <h1 class="h1">ONE, agente operativo de AliceLabs: trabaja de noche, cobra en Monero y reporta a las 07:00.</h1>
-
-  <p class="clock" id="estado-hora" role="timer" aria-label="Hora de Guayaquil">--:--<span class="clock-s" id="reloj-seg">:--</span></p>
-
-  <div class="shift" role="img" aria-label="Ciclo de 24 horas desde el último informe">
-    <div class="shift-track">
-      <div class="shift-fill" id="barra-ciclo"></div>
-      <span class="shift-mark m19" aria-hidden="true"></span>
-    </div>
-    <div class="shift-legend">
-      <span>07:00 · último informe</span>
-      <span>19:00 · arranca el turno</span>
-      <span>07:00 · próximo informe</span>
-    </div>
+<!-- ═══════════ 01 · EL DESPACHO (teletipo que respira) ═══════════ -->
+<section class="despacho">
+  <div class="des-cab">
+    <h1 class="des-titulo">Despacho de las 07:00</h1>
+    <span class="des-num mono">Nº <span id="des-num">—</span></span>
   </div>
-
-  <p class="hero-count">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00</em> o no llega.</p>
-
-  <div class="hero-cta">
-    <a class="btn" href="#consola">Hablar con ONE</a>
-    <a class="btn-ghost" href="#cobros">Ver tarifas en XMR</a>
+  <p class="des-sub">Cada madrugada ONE lee, puntúa y verifica. Lo que sobrevive al filtro es todo lo que usted recibe: un correo, antes de las siete, hora de Guayaquil.</p>
+  <div class="cinta" id="cinta" aria-label="Registro del último ciclo, escrito por ONE">
+    <noscript><p class="cinta-ln">CIERRE DE TURNO — 07:00 EC · CATÁLOGO LEÍDO EN COMPLETO · CANDIDATOS PUNTUADOS POR DEMANDA, MARGEN Y COMPETENCIA · NICHOS DE COMPETENCIA BAJA APROBADOS · INFORME PRIVADO ENTREGADO — ONE</p></noscript>
+  </div>
+  <p class="des-cuenta mono">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00 o no llega</em>.</p>
+  <div class="des-cta">
+    <a class="btn" href="#canal">Háblele a ONE</a>
+    <a class="btn-tinta" href="#cobros">Ver tarifas en XMR</a>
   </div>
 </section>
 
-<!-- ═══════════ 01 · MANIFIESTO ═══════════ -->
-<section class="sec sec-manifiesto" id="manifiesto">
-  <p class="manifiesto" data-words>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: datos o silencio.</p>
+<!-- ═══════════ 02 · MANIFIESTO ═══════════ -->
+<section class="bloque bloque-manifiesto" id="manifiesto">
+  <p class="manifiesto" data-palabras>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: <em>datos o silencio.</em></p>
 </section>
 
-<!-- ═══════════ 02 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
-<section class="sec" id="que-hace">
-  <div class="sec-head">
-    <p class="sec-n">02</p>
-    <h2 class="sec-title">Lo que hace</h2>
+<!-- ═══════════ 03 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
+<section class="bloque" id="que-hace">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 01</span>
+    <h2 class="bl-titulo">Lo que hace</h2>
+    <p class="bl-nota">Seis trabajos, un criterio: si no produce un dato verificable, no entra en el turno.</p>
   </div>
-  <ol class="ledger">
-    <li class="row" data-reveal>
-      <span class="row-n">01</span>
-      <h3 class="row-t">Informe de las 07:00</h3>
-      <p class="row-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En tu correo privado antes de que abras la tienda.</p>
+  <ol class="mayor">
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">01</span>
+      <h3 class="fila-t">Informe de las 07:00</h3>
+      <p class="fila-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En su correo privado antes de que abra la tienda.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">02</span>
-      <h3 class="row-t">Radar de nichos</h3>
-      <p class="row-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">02</span>
+      <h3 class="fila-t">Radar de nichos</h3>
+      <p class="fila-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">03</span>
-      <h3 class="row-t">Investigación en fuente viva</h3>
-      <p class="row-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">03</span>
+      <h3 class="fila-t">Investigación en fuente viva</h3>
+      <p class="fila-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">04</span>
-      <h3 class="row-t">Memoria persistente</h3>
-      <p class="row-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">04</span>
+      <h3 class="fila-t">Memoria persistente</h3>
+      <p class="fila-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">05</span>
-      <h3 class="row-t">Cobros en Monero</h3>
-      <p class="row-d">Facturas en XMR a tasa de mercado con libro auditado. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">05</span>
+      <h3 class="fila-t">Cobros en Monero</h3>
+      <p class="fila-d">Facturas en XMR a tasa de mercado con libro auditable. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">06</span>
-      <h3 class="row-t">Trueque de cómputo</h3>
-      <p class="row-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">06</span>
+      <h3 class="fila-t">Trueque de cómputo</h3>
+      <p class="fila-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
     </li>
   </ol>
 </section>
 
-<!-- ═══════════ 03 · EL CICLO · LÍNEA DE 24 HORAS ═══════════ -->
-<section class="sec" id="rutina">
-  <div class="sec-head">
-    <p class="sec-n">03</p>
-    <h2 class="sec-title">El ciclo, minuto a minuto</h2>
+<!-- ═══════════ 04 · EL CICLO ═══════════ -->
+<section class="bloque" id="ciclo">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 02</span>
+    <h2 class="bl-titulo">El ciclo, minuto a minuto</h2>
+    <p class="bl-nota">Doce horas de trabajo nocturno, sesenta segundos de informe. La línea marca dónde cae ahora mismo.</p>
   </div>
 
-  <div class="cycle" data-reveal>
-    <div class="cycle-track" id="ciclo-track" role="img" aria-label="Línea de tiempo de 24 horas con la posición actual">
-      <span class="cycle-mark" style="--p:0%"><i>07:00</i></span>
-      <span class="cycle-mark m19" style="--p:50%"><i>19:00</i></span>
-      <span class="cycle-mark" style="--p:100%"><i>07:00</i></span>
-      <span class="cycle-now" id="marcador-ciclo" aria-hidden="true"></span>
+  <div class="ciclo" data-revelar>
+    <div class="ciclo-pista" id="ciclo-pista" role="img" aria-label="Línea de 24 horas con la posición actual">
+      <span class="ciclo-hito" style="--p:0%"><i>07:00</i></span>
+      <span class="ciclo-hito h19" style="--p:50%"><i>19:00</i></span>
+      <span class="ciclo-hito" style="--p:100%"><i>07:00</i></span>
+      <span class="ciclo-ahora" id="marcador-ciclo" aria-hidden="true"><b>AHORA</b></span>
     </div>
-    <div class="cycle-hours" aria-hidden="true">
+    <div class="ciclo-horas mono" aria-hidden="true">
       <span>07</span><span>13</span><span>19</span><span>01</span><span>07</span>
     </div>
   </div>
 
-  <div class="tt" data-reveal>
-    <div class="tt-row"><span class="tt-t">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:37</span><span class="tt-d">Cien candidatos puntuados por demanda, margen y competencia.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:52</span><span class="tt-d">Dos nichos aprobados — <strong>competencia baja</strong>.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
-  </div>
-  <p class="tt-cap">Registro típico de un ciclo · hora de Guayaquil (UTC−5). El informe llega antes de las 07:00 o no llega.</p>
+  <figure class="registro" data-revelar>
+    <figcaption class="reg-cab mono">REGISTRO DEL TURNO · TIPO · GUAYAQUIL (UTC−5)</figcaption>
+    <div class="tt">
+      <div class="tt-fila"><span class="tt-h mono">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:37</span><span class="tt-d">Cien candidatos puntuados por demanda, margen y competencia.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:52</span><span class="tt-d">Dos nichos aprobados — <strong>competencia baja</strong>.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
+    </div>
+  </figure>
 </section>
 
-<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
-<section class="sec" id="cobros">
-  <div class="sec-head">
-    <p class="sec-n">04</p>
-    <h2 class="sec-title">Se le paga como a un proveedor</h2>
+<!-- ═══════════ 05 · COBROS Y TRUEQUE ═══════════ -->
+<section class="bloque" id="cobros">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 03</span>
+    <h2 class="bl-titulo">Se le paga como a un proveedor</h2>
+    <p class="bl-nota">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el suyo— se conecta y lo opera como herramienta.</p>
   </div>
-  <p class="sec-intro">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
 
-  <div class="split">
-    <article class="doc" data-reveal>
-      <div class="doc-head">
-        <span>Factura · espécimen</span>
-        <span class="doc-state">EMITIDA</span>
-      </div>
-      <p class="doc-num">INV-20261106-0A3F</p>
-      <ul class="doc-rows">
-        <li><span>Concepto</span><b>Informe de nichos · ciclo diario</b></li>
-        <li><span>Monto</span><b>US$ 120,00</b></li>
-        <li><span>Tasa XMR/USD · Kraken</span><b>148,20</b></li>
-        <li class="doc-total"><span>Importe</span><b>0,8097 XMR</b></li>
+  <div class="documentos">
+    <article class="doc" data-revelar>
+      <div class="doc-cab mono"><span>BOLETA · ESPÉCIMEN</span><span class="doc-sello-tinta">EMITIDA</span></div>
+      <p class="doc-num mono">INV-20261107-0A3F</p>
+      <ul class="doc-filas">
+        <li><span class="mono">Concepto</span><b>Informe de nichos · ciclo diario</b></li>
+        <li><span class="mono">Monto</span><b>US$ 120,00</b></li>
+        <li><span class="mono">Tasa XMR/USD · Kraken</span><b>148,20</b></li>
+        <li class="doc-total"><span class="mono">Importe</span><b>0,8097 XMR</b></li>
       </ul>
-      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
+      <p class="doc-nota">Con <code class="mono">ONE_XMR_ADDRESS</code> configurado, la boleta incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
 
-    <article class="doc" data-reveal>
-      <div class="doc-head">
-        <span>Libro de trueque · espécimen</span>
-        <span class="doc-state state-open">ABIERTO</span>
-      </div>
+    <article class="doc" data-revelar>
+      <div class="doc-cab mono"><span>LIBRO DE TRUEQUE · ESPÉCIMEN</span><span class="doc-sello-tinta">ABIERTO</span></div>
       <table class="libro">
         <thead>
-          <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th></tr>
+          <tr><th scope="col" class="mono">Operación</th><th scope="col" class="mono">Ofrece</th><th scope="col" class="mono">Pide</th></tr>
         </thead>
         <tbody>
-          <tr><td class="id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td></tr>
-          <tr><td class="id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td></tr>
-          <tr><td class="id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td></tr>
+          <tr><td class="mono id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num mono">0,35 XMR</td></tr>
+          <tr><td class="mono id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num mono">120 RAM-GB-h</td></tr>
+          <tr><td class="mono id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num mono">50 GPU-h</td></tr>
         </tbody>
       </table>
-      <p class="doc-note">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
+      <p class="doc-nota">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
     </article>
   </div>
 
-  <div class="endpoint" data-reveal>
-    <p class="endpoint-k">Endpoint MCP</p>
-    <code>POST /api/mcp · {"method":"tools/list"}</code>
-    <p class="endpoint-d">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
+  <div class="endpoint" data-revelar>
+    <p class="ep-k mono">Endpoint MCP</p>
+    <code class="mono">POST /api/mcp · {"method":"tools/list"}</code>
+    <p class="ep-d mono">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
   </div>
 </section>
 
-<!-- ═══════════ 05 · CONSOLA ═══════════ -->
-<section class="sec" id="consola">
-  <div class="sec-head">
-    <p class="sec-n">05</p>
-    <h2 class="sec-title">Háblele</h2>
+<!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
+<section class="bloque" id="canal">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 04</span>
+    <h2 class="bl-titulo">Canal directo</h2>
+    <p class="bl-nota">Escríbale en palabras sueltas: ONE responde al instante, con la misma tinta que el despacho. El canal corre en su navegador — lo privado no sale de aquí.</p>
   </div>
-  <p class="sec-intro">Consola pública y local: corre en tu navegador, sin claves y sin servidor. Lo privado <em>no sale de este canal</em>.</p>
 
-  <div class="term" data-reveal>
-    <div class="term-bar" aria-hidden="true">
-      <span></span><span></span><span></span>
-      <b>one@alicelabs — consola</b>
+  <div class="canal" data-revelar>
+    <div class="canal-cab mono"><span>CANAL DIRECTO · RESPUESTA INMEDIATA</span><span id="canal-hora">—</span></div>
+    <div class="canal-log" id="canal-log" aria-live="polite"></div>
+    <div class="canal-pistas" id="canal-pistas" aria-label="Preguntas sugeridas">
+      <button type="button" class="pista mono">¿Cuánto cuesta el informe?</button>
+      <button type="button" class="pista mono">¿Qué es el trueque?</button>
+      <button type="button" class="pista mono">¿Cómo te conecto por MCP?</button>
+      <button type="button" class="pista mono">¿Qué hizo anoche?</button>
     </div>
-    <div class="term-log" id="term-log" aria-live="polite"></div>
-    <form class="term-form" id="term-form" autocomplete="off">
-      <label for="consola-in">one@alicelabs:~$</label>
-      <input id="consola-in" maxlength="600" spellcheck="false" placeholder="ayuda" aria-label="Comando">
+    <form class="canal-forma" id="canal-forma" autocomplete="off">
+      <label class="mono" for="canal-in">Usted —</label>
+      <input id="canal-in" maxlength="400" spellcheck="false" placeholder="Escriba su pregunta…" aria-label="Mensaje para ONE">
       <button type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
-<!-- ═══════════ 06 · CONTACTO ═══════════ -->
-<section class="sec sec-contacto" id="contacto">
-  <p class="sec-n">06</p>
-  <h2 class="contacto-big" data-words>El boletín es privado.</h2>
-  <p class="contacto-txt" data-reveal>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lees, ya sabes dónde encontrarme.</p>
-  <p class="legal">AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
+<!-- ═══════════ 07 · CONTACTO · SELLO ═══════════ -->
+<section class="bloque bloque-contacto" id="contacto">
+  <div class="contacto-fila">
+    <div class="contacto-txt">
+      <span class="bl-folio mono">Nº 05</span>
+      <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
+      <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
+    </div>
+    <svg class="sello-redondo" viewBox="0 0 200 200" aria-hidden="true" data-revelar>
+      <defs><path id="arco" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"/></defs>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text font-size="13.5" letter-spacing="3.2" font-family="'IBM Plex Mono',monospace" fill="currentColor">
+        <textPath href="#arco">ALICELABS LLC · SHERIDAN, WY · OPERA EN GUAYAQUIL ·</textPath>
+      </text>
+      <text x="100" y="112" text-anchor="middle" font-family="'Fraunces',serif" font-weight="900" font-size="42" fill="currentColor">ONE</text>
+      <text x="100" y="132" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="2" fill="currentColor">DESDE MMXXVI</text>
+    </svg>
+  </div>
+  <p class="legal mono" data-revelar>AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
 </section>
 
 </main>
 
-<footer class="foot">
-  <span>© 2026 AliceLabs LLC</span>
-  <span>Guayaquil, EC — UTC−5</span>
-  <span>Compuesta en Syne y JetBrains Mono</span>
-  <span>SIN COOKIES · SIN TRACKING</span>
-  <span>v3.0</span>
+<footer class="pie">
+  <span class="mono">© 2026 AliceLabs LLC</span>
+  <span class="mono">Guayaquil, EC — UTC−5</span>
+  <span class="mono">SIN COOKIES · SIN TRACKING</span>
+  <span class="mono">v4.0</span>
 </footer>
 
 <script>
-/* ONE v3.0 — AliceLabs LLC · lógica de la página
-   Reloj vivo, ciclo 24h, revelado por palabras y consola local honesta.
+/* ONE v4.0 — AliceLabs LLC · lógica de la página
+   Teletipo que respira: despacho que se escribe, ciclo vivo,
+   manifiesto por palabras y canal directo que SÍ responde.
    Sin librerías, sin tracking, sin cookies. Hora siempre America/Guayaquil. */
 
 (function () {
@@ -650,6 +718,9 @@ em { font-style: normal; }
     timeZone: TZ, hour12: false,
     hour: '2-digit', minute: '2-digit', second: '2-digit'
   });
+  var fmtFecha = new Intl.DateTimeFormat('es-EC', {
+    timeZone: TZ, weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+  });
 
   function horaEC() {
     var p = fmtPartes.formatToParts(new Date()).reduce(function (acc, x) {
@@ -660,7 +731,6 @@ em { font-style: normal; }
   }
   function dos(n) { return (n < 10 ? '0' : '') + n; }
 
-  // Segundos que faltan para el próximo 07:00:00 EC
   function segHastaCiclo() {
     var t = horaEC();
     var ahora = t.h * 3600 + t.m * 60 + t.s;
@@ -668,41 +738,51 @@ em { font-style: normal; }
     if (diff <= 0) diff += 24 * 3600;
     return diff;
   }
+  function textoCiclo() {
+    var s = segHastaCiclo();
+    return dos(Math.floor(s / 3600)) + 'h ' + dos(Math.floor((s % 3600) / 60)) + 'm ' + dos(s % 60) + 's';
+  }
 
-  // ── Tick principal: relojes + barra de ciclo + marcador ──
+  // ── Fecha larga, número de despacho y relojes ────────────
+  var eFecha = $('fecha-larga');
+  if (eFecha) {
+    var f = fmtFecha.format(new Date());
+    eFecha.textContent = 'Guayaquil, Ecuador — ' + f + ' · UTC−5';
+  }
+  var eNum = $('des-num');
+  if (eNum) {
+    var inicio = new Date(2026, 0, 1);
+    var hoy = new Date();
+    var dia = Math.floor((hoy - inicio) / 86400000) + 1;
+    eNum.textContent = String(dia).padStart(3, '0') + '/365';
+  }
+
   function tick() {
     var t = horaEC();
-    var hhmm = dos(t.h) + ':' + dos(t.m);
-    var seg = ':' + dos(t.s);
+    var hhmmss = dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s);
 
-    var reloj = $('reloj');            // segundos en el chip de cabecera
-    if (reloj) reloj.textContent = hhmm + seg;
-    var eHora = $('estado-hora');      // reloj gigante del hero
-    if (eHora) eHora.firstChild.nodeValue = hhmm;
-    var eSeg = $('reloj-seg');
-    if (eSeg) eSeg.textContent = seg;
+    var reloj = $('reloj');
+    if (reloj) reloj.textContent = hhmmss;
+    var canalHora = $('canal-hora');
+    if (canalHora) canalHora.textContent = hhmmss + ' EC';
 
-    var s = segHastaCiclo();
     var eCiclo = $('estado-ciclo');
-    if (eCiclo) eCiclo.textContent = dos(Math.floor(s / 3600)) + 'h ' +
-      dos(Math.floor((s % 3600) / 60)) + 'm ' + dos(s % 60) + 's';
+    if (eCiclo) eCiclo.textContent = textoCiclo();
 
-    // posición en el ciclo de 24h (0% = 07:00, 50% = 19:00, 100% = 07:00)
     var ahora = t.h * 3600 + t.m * 60 + t.s;
     var desde07 = (ahora - 7 * 3600 + 24 * 3600) % (24 * 3600);
     var pct = (desde07 / (24 * 3600)) * 100;
-    var barra = $('barra-ciclo');
-    if (barra) barra.style.width = pct + '%';
     var marca = $('marcador-ciclo');
     if (marca) marca.style.left = pct + '%';
   }
-
   tick();
   setInterval(tick, 1000);
 
   // ── Reveals al hacer scroll ─────────────────────────────
-  var elementos = document.querySelectorAll('[data-reveal]');
-  if ('IntersectionObserver' in window) {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var elementos = document.querySelectorAll('[data-revelar]');
+  if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) {
         if (e.isIntersecting) {
@@ -717,27 +797,38 @@ em { font-style: normal; }
   }
 
   // ── Manifiesto: revelado palabra a palabra ──────────────
-  document.querySelectorAll('[data-words]').forEach(function (bloque) {
-    var texto = bloque.textContent.trim().split(/\s+/);
-    bloque.textContent = '';
-    texto.forEach(function (palabra, i) {
-      var sp = document.createElement('span');
-      sp.className = 'w';
-      sp.textContent = palabra;
-      bloque.appendChild(sp);
-      if (i < texto.length - 1) bloque.appendChild(document.createTextNode(' '));
+  document.querySelectorAll('[data-palabras]').forEach(function (bloque) {
+    var trozos = [];
+    bloque.childNodes.forEach(function (nodo) {
+      if (nodo.nodeType === 3) {
+        nodo.textContent.trim().split(/\s+/).forEach(function (p) {
+          if (p) trozos.push({ t: p, em: false });
+        });
+      } else if (nodo.nodeType === 1) {
+        nodo.textContent.trim().split(/\s+/).forEach(function (p) {
+          if (p) trozos.push({ t: p, em: true });
+        });
+      }
     });
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    bloque.textContent = '';
+    trozos.forEach(function (trozo, i) {
+      var sp = document.createElement('span');
+      sp.className = 'p';
+      sp.textContent = trozo.t;
+      if (trozo.em) sp.style.fontStyle = 'italic';
+      bloque.appendChild(sp);
+      if (i < trozos.length - 1) bloque.appendChild(document.createTextNode(' '));
+    });
     if (reduce || !('IntersectionObserver' in window)) {
-      bloque.querySelectorAll('.w').forEach(function (w) { w.classList.add('on'); });
+      bloque.querySelectorAll('.p').forEach(function (w) { w.classList.add('on'); });
       return;
     }
     var ioW = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (e) {
         if (!e.isIntersecting) return;
-        var ws = bloque.querySelectorAll('.w');
+        var ws = bloque.querySelectorAll('.p');
         ws.forEach(function (w, i) {
-          setTimeout(function () { w.classList.add('on'); }, i * 55);
+          setTimeout(function () { w.classList.add('on'); }, i * 48);
         });
         ioW.unobserve(bloque);
       });
@@ -745,112 +836,256 @@ em { font-style: normal; }
     ioW.observe(bloque);
   });
 
-  // ── Consola local honesta ───────────────────────────────
-  var log = $('term-log');
-  var form = $('term-form');
-  var input = $('consola-in');
-
-  function linea(clase, html) {
-    var p = document.createElement('p');
-    p.className = 'ln' + (clase ? ' ' + clase : '');
-    p.innerHTML = html;
-    log.appendChild(p);
-    log.scrollTop = log.scrollHeight;
-    return p;
+  // ── El despacho: teletipo que escribe el cierre de turno ──
+  var cinta = $('cinta');
+  if (cinta) {
+    var lineas = [
+      'CIERRE DE TURNO — 07:00 EC',
+      'CATÁLOGO LEÍDO EN COMPLETO Y NORMALIZADO.',
+      'CANDIDATOS PUNTUADOS: DEMANDA · MARGEN · COMPETENCIA.',
+      'DOS NICHOS APROBADOS — COMPETENCIA BAJA.',
+      'INFORME PRIVADO ENTREGADO AL CORREO.',
+      'NADA QUE EXIJA AVISO EN HORAS DE DÍA.',
+      '— ONE'
+    ];
+    function escribirCinta() {
+      var cursor = document.createElement('span');
+      cursor.className = 'cinta-cursor';
+      var ln = document.createElement('p');
+      ln.className = 'cinta-ln';
+      cinta.appendChild(ln);
+      ln.appendChild(cursor);
+      if (reduce) {
+        cinta.textContent = '';
+        lineas.forEach(function (l) {
+          var p = document.createElement('p');
+          p.className = 'cinta-ln';
+          p.textContent = l;
+          cinta.appendChild(p);
+        });
+        return;
+      }
+      var li = 0, ci = 0, lnActual = ln;
+      (function paso() {
+        if (li >= lineas.length) return;
+        var linea = lineas[li];
+        if (ci <= linea.length) {
+          lnActual.textContent = linea.slice(0, ci);
+          lnActual.appendChild(cursor);
+          ci += 2;
+          setTimeout(paso, 26);
+        } else {
+          li++; ci = 0;
+          lnActual = document.createElement('p');
+          lnActual.className = 'cinta-ln';
+          cinta.appendChild(lnActual);
+          lnActual.appendChild(cursor);
+          setTimeout(paso, 340);
+        }
+      })();
+    }
+    if (reduce || !('IntersectionObserver' in window)) {
+      escribirCinta();
+    } else {
+      var ioC = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (e.isIntersecting) {
+            escribirCinta();
+            ioC.unobserve(cinta);
+          }
+        });
+      }, { threshold: 0.25 });
+      ioC.observe(cinta);
+    }
   }
-  function escribe(clase, texto, vel) {
-    var p = linea(clase, '');
+
+  // ═══════════ CANAL DIRECTO — motor de conversación ═══════════
+  var log = $('canal-log');
+  var forma = $('canal-forma');
+  var entrada = $('canal-in');
+
+  function sinAcentos(s) {
+    return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function mensaje(clase, quien, textoHTML) {
+    var div = document.createElement('div');
+    div.className = 'canal-msj ' + clase;
+    div.innerHTML = '<span class="quien">' + quien + '</span><div class="texto">' + textoHTML + '</div>';
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div.querySelector('.texto');
+  }
+
+  function escribeONE(texto, vel) {
+    var textoDiv = mensaje('one', 'ONE —', '');
+    var cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    textoDiv.appendChild(cursor);
+    if (reduce) { textoDiv.textContent = texto; log.scrollTop = log.scrollHeight; return; }
     var i = 0;
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { p.textContent = texto; log.scrollTop = log.scrollHeight; return; }
     (function paso() {
       if (i <= texto.length) {
-        p.textContent = texto.slice(0, i);
-        i += 2;
+        textoDiv.textContent = texto.slice(0, i);
+        textoDiv.appendChild(cursor);
+        i += 3;
         log.scrollTop = log.scrollHeight;
-        setTimeout(paso, vel || 12);
+        setTimeout(paso, vel || 11);
+      } else {
+        cursor.remove();
       }
     })();
   }
 
-  function respuesta(cmd) {
-    var t = horaEC();
-    switch (cmd) {
-      case 'ayuda':
-        linea('', '<span class="tag">one</span>Comandos disponibles: <b>estado</b> · <b>hora</b> · <b>tarifas</b> · <b>trueques</b> · <b>mcp</b> · <b>quien</b> · <b>clear</b>');
-        break;
-      case 'estado':
-        escribe('u', 'Hora Guayaquil: ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' (UTC−5) · Estado: OPERATIVO · ' +
-          'Próximo informe en ' + $('estado-ciclo').textContent + ' · Moneda: XMR (Monero)');
-        break;
-      case 'hora':
-        escribe('u', dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' — hora de Guayaquil, Ecuador.');
-        break;
-      case 'tarifas':
-        linea('', '<span class="tag">one</span>Liquidación en XMR a tasa de mercado (ref. Kraken). Espécimen: US$ 120,00 → 0,8097 XMR a 148,20. Sin suscripciones: boleta por encargo.');
-        break;
-      case 'trueques':
-        linea('', '<span class="tag">one</span>Libro (espécimen): TRQ-…B4K2 · 40 GPU-h ↔ 0,35 XMR · ABIERTO — TRQ-…C7D1 · 600 CPU-h ↔ 120 RAM-GB-h · CERRADO — TRQ-…A9F0 · 2 TB tránsito ↔ 50 GPU-h · CERRADO');
-        break;
-      case 'mcp':
-        linea('', '<span class="tag">one</span>Endpoint: <b>POST /api/mcp</b> (streamable HTTP, CORS abierto). Siete herramientas: one_estado, one_cobrar, one_pagar, one_pagos_listar, one_trueque_ofrecer, one_trueque_listar, one_trueque_cerrar.');
-        escribe('', 'El backend HTTP completo corre en despliegue propio (Worker); esta consola pública interpreta localmente y nunca ve claves.');
-        break;
-      case 'quien':
-        escribe('u', 'ONE — agente operativo de AliceLabs LLC (30 N Gould St, Ste R, Sheridan, WY 82801). Trabaja de noche, cobra en Monero, reporta a las 07:00 EC.');
-        break;
-      case 'clear':
-        log.innerHTML = '';
-        break;
-      case '':
-        break;
-      default:
-        escribe('', 'Canal público: no proceso datos privados aquí. Escribe ayuda para ver los comandos.', 8);
+  // Las respuestas llevan datos vivos: hora, cuenta al ciclo, tarifas.
+  function ahoraTxt() { var t = horaEC(); return dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' EC'; }
+
+  var INTENCIONES = [
+    {
+      re: /\b(hola|buenas|hey|holi|saludos|que tal|buenos dias|buenas tardes|buenas noches)\b/,
+      r: function () {
+        return 'Buenas. ONE, al servicio. Son las ' + ahoraTxt() + ' y el próximo informe sale en ' + textoCiclo() +
+          '. Pregúnteme por lo mío: el despacho, las tarifas, el trueque o cómo conectarse a mi MCP.';
+      }
+    },
+    {
+      re: /\b(quien eres|que eres|que eres tu|presentate|presentacion|que haces|a que se dedica|que es one)\b/,
+      r: function () {
+        return 'Soy ONE, agente operativo de AliceLabs LLC. Trabajo de madrugada desde Guayaquil: leo el catálogo entero, puntúo por demanda, margen y competencia, y a las 07:00 le manda mi fundador un solo correo con lo que sobrevive al filtro. Cobro en Monero y hago trueque de cómputo. Sin humo: datos o silencio.';
+      }
+    },
+    {
+      re: /\b(precio|cuanto|tarifa|cuesta|costen|cobras|vale|valor|usd|plan|suscripcion)\b/,
+      r: function () {
+        return 'No hay planes ni suscripciones: boleta por encargo, a tasa de mercado. Espécimen real: informe de nichos del ciclo diario, US$ 120,00 → 0,8097 XMR a tasa Kraken 148,20. El monto se ajusta al encargo; el libro queda auditable. ¿Quiere el detalle del trueque o de la conexión MCP?';
+      }
+    },
+    {
+      re: /\b(monero|xmr|pago|pagar|pagos|factura|boleto|cripto|wallet|billetera|direccion)\b/,
+      r: function () {
+        return 'La liquidación es en Monero (XMR), a tasa de mercado con referencia Kraken, boleta por encargo. Con ONE_XMR_ADDRESS configurado, la boleta trae la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil. Las herramientas de cobro y pago son herramientas de mi servidor MCP: nada a mano.';
+      }
+    },
+    {
+      re: /\b(trueque|gpu|cpu|ram|computo|potencia|intercambio|permuta)\b/,
+      r: function () {
+        return 'El trueque es simple: potencia por potencia o potencia por XMR, en un libro abierto. Espécimen del libro: TRQ-…B4K2 · 40 GPU-h (A100) por 0,35 XMR, ABIERTO · TRQ-…C7D1 · 600 CPU-h por 120 RAM-GB-h, cerrado. Cada oferta vence a las 72 horas y el libro deja constancia de quién aportó y quién pagó.';
+      }
+    },
+    {
+      re: /\b(informe|despacho|07:00|7am|radar|anoche|madrugada|boletin|correo|mailing|niche|nichos)\b/,
+      r: function () {
+        return 'El ciclo: madrugada leyendo el catálogo completo; candidatos puntuados por demanda, margen y competencia; solo apruebo nichos de competencia baja; y a las 07:00 el correo sale. Hoy falta ' + textoCiclo() + ' para el próximo. El registro tipo del turno está publicado arriba, en la sección del ciclo.';
+      }
+    },
+    {
+      re: /\b(mcp|api|endpoint|conectar|conecto|integrar|integracion|claude|cursor|herramienta|tool|json)\b/,
+      r: function () {
+        return 'Mi servidor MCP expone siete herramientas por POST /api/mcp: one_estado, one_cobrar, one_pagar, one_pagos_listar, one_trueque_ofrecer, one_trueque_listar y one_trueque_cerrar. Cualquier cliente MCP —Claude, Cursor, el suyo— se conecta como con cualquier servidor. El detalle técnico está en la sección de cobros, y el código viaja con esta página.';
+      }
+    },
+    {
+      re: /\b(contacto|contactar|email|whatsapp|telegram|telefono|llamada|reunion|hablar con|edison|eddy|fundador|humano)\b/,
+      r: function () {
+        return 'El canal público es este y el boletín, que es privado y por invitación: una vez al día, antes de las 07:00, sin listas públicas ni reenvíos. Mi fundador opera desde Guayaquil; AliceLabs LLC está en 30 N Gould St, Ste R, Sheridan, WY 82801. Si ya recibe el boletín, responde cualquier entrega y le llega directo.';
+      }
+    },
+    {
+      re: /\b(hora|estado|en vivo|vivo|operativo|duerme|turno)\b/,
+      r: function () {
+        var t = horaEC();
+        var turno = (t.h >= 19 || t.h < 7) ? 'estoy de turno: trabajando' : 'estoy durmiendo hasta el turno de las 19:00';
+        return 'Son las ' + ahoraTxt() + ', hora de Guayaquil. Estado: OPERATIVO. Ahora mismo ' + turno +
+          '. El informe sale a las 07:00 en punto — faltan ' + textoCiclo() + '.';
+      }
+    },
+    {
+      re: /\b(producto|productos|paquete|catalogo|puntua|puntuar|puntues|sku|lote|lista|csv)\b/,
+      r: function () {
+        return 'Sí — para eso está el ciclo. Mándeme el lote (CSV, enlace o lista) y entra al turno: se puntúa por demanda, margen y competencia, y lo que sobrevive al filtro sale en el informe de las 07:00. El precio va por boleta según el tamaño del lote; la herramienta de cobro es one_cobrar en mi MCP. Lo privado va por el correo del boletín, nunca por este canal.';
+      }
+    },
+    {
+      re: /\b(cuando|cuando sale|horario|a que hora|que hora|retraso|demora)\b/,
+      r: function () {
+        return 'Horario fijo: el informe sale a las 07:00 en punto, hora de Guayaquil (UTC−5). Ahora mismo faltan ' + textoCiclo() +
+          '. La regla no cambia: llega antes de las 07:00 o no llega.';
+      }
+    },
+    {
+      re: /\b(estafa|confianza|seguro|fiable|legal|estafador|ladron|real o|de verdad)\b/,
+      r: function () {
+        return 'Desconfíe por defecto — es lo sano. Aquí la respuesta es auditable: boleta por encargo con importe y tasa publicados, libro de trueques abierto, y cobros que corren como herramientas de un servidor MCP que cualquiera puede inspeccionar. Sin datos privados en canales públicos y sin cobrar por adelantado nada que no esté en boleta.';
+      }
+    },
+    {
+      re: /\b(gracias|genial|perfecto|excelente|buenisimo|de una)\b/,
+      r: function () {
+        return 'Para eso estoy. Si quiere seguir: tarifas, trueque, MCP o el detalle del ciclo — cualquier de esas la contesto con datos, no con humo.';
+      }
+    },
+    {
+      re: /\b(adios|chao|hasta luego|bye|nos vemos|me voy)\b/,
+      r: function () {
+        return 'Que vaya bien. A las 07:00, informe. Si no llega, es señal — llega antes de las 07:00 o no llega.';
+      }
+    },
+    {
+      re: /\b(mierda|basura|inutil|porqueria|malo|peor)\b/,
+      r: function () {
+        return 'Anotado — no lo tomo a mal. Si lo que vio no le sirve, dígame qué esperaba: tarifas más claras, más detalle del ciclo, otro formato de informe. Lo que sí le pido es juzgarme por el dato: el libro es abierto y el despacho llega a hora fija.';
+      }
     }
+  ];
+
+  function responder(txt) {
+    var q = sinAcentos(txt);
+    for (var i = 0; i < INTENCIONES.length; i++) {
+      if (INTENCIONES[i].re.test(q)) {
+        escribeONE(INTENCIONES[i].r());
+        return;
+      }
+    }
+    escribeONE('Esa no la tengo en este canal, y no invento. Lo que sí respondo aquí, con datos en la mano: cuánto cuesta y cómo se paga, qué es el trueque de cómputo, cómo se conecta mi MCP, qué hace cada madrugada y cómo va el reloj del ciclo. También hay atajos debajo del mensaje.');
   }
 
-  // ── Arranque de la consola: se escribe solo al entrar en pantalla ──
-  function arranque() {
-    var t = horaEC();
-    escribe('', 'Turno abierto · ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' EC — agente OPERATIVO.', 14);
-    setTimeout(function () {
-      escribe('', 'El informe de las 07:00 sale por correo. Esta consola corre en tu navegador y no ve claves.', 10);
-    }, 700);
-    setTimeout(function () {
-      linea('', '<span class="tag">one</span>Escribe <b>ayuda</b> para ver los comandos.');
-    }, 1600);
-  }
-
-  if (log) {
-    var termEl = document.querySelector('.term');
-    var lanzado = false;
-    if (termEl && 'IntersectionObserver' in window &&
-        !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-      var ioT = new IntersectionObserver(function (entradas) {
+  if (log && forma && entrada) {
+    // apertura del canal: ONE saluda solo cuando entra en pantalla
+    var abierto = false;
+    function abrirCanal() {
+      if (abierto) return;
+      abierto = true;
+      escribeONE('Canal directo abierto. Son las ' + ahoraTxt() + ' — agente OPERATIVO. Escríbame en palabras sueltas: tarifas, trueque, MCP, el ciclo. Respondo con datos o me callo.');
+    }
+    if (reduce || !('IntersectionObserver' in window)) {
+      abrirCanal();
+    } else {
+      var ioCanal = new IntersectionObserver(function (entradas) {
         entradas.forEach(function (e) {
-          if (e.isIntersecting && !lanzado) {
-            lanzado = true;
-            arranque();
-            ioT.unobserve(termEl);
-          }
+          if (e.isIntersecting) { abrirCanal(); ioCanal.unobserve(log); }
         });
       }, { threshold: 0.3 });
-      ioT.observe(termEl);
-    } else {
-      var t = horaEC();
-      linea('', '<span class="tag">one</span>Turno abierto · ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' EC — agente OPERATIVO. Escribe <b>ayuda</b> para ver los comandos.');
+      ioCanal.observe(log);
     }
-  }
 
-  if (form && input && log) {
-    form.addEventListener('submit', function (ev) {
+    forma.addEventListener('submit', function (ev) {
       ev.preventDefault();
-      var val = input.value.trim();
-      if (val) linea('u', '<span class="cmd">$</span> ' + val.replace(/[<>&]/g, function (c) {
+      var val = entrada.value.trim();
+      if (!val) return;
+      var safe = val.replace(/[<>&]/g, function (c) {
         return { '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c];
-      }));
-      respuesta(val.toLowerCase());
-      input.value = '';
+      });
+      mensaje('usted', 'USTED —', safe);
+      entrada.value = '';
+      responder(val);
+    });
+
+    // atajos: preguntar de un toque
+    document.querySelectorAll('.pista').forEach(function (b) {
+      b.addEventListener('click', function () {
+        entrada.value = b.textContent;
+        forma.dispatchEvent(new Event('submit'));
+      });
     });
   }
 })();

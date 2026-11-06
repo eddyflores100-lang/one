@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ONE — Agente operativo · AliceLabs LLC</title>
-<meta name="description" content="ONE es el agente operativo de AliceLabs LLC: informe privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
-<meta name="theme-color" content="#0B0C0A">
+<meta name="description" content="ONE es el agente operativo de AliceLabs LLC: despacho privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
+<meta name="theme-color" content="#EFEAD8">
 <link rel="canonical" href="https://eddyflores100-lang.github.io/one/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ONE — Agente operativo · AliceLabs LLC">
@@ -24,233 +24,227 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AliceLabs LLC","url":"https://eddyflores100-lang.github.io/one/","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, Ste R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},{"@type":"WebSite","name":"ONE — Agente operativo","inLanguage":"es-EC","url":"https://eddyflores100-lang.github.io/one/","publisher":{"@type":"Organization","name":"AliceLabs LLC"}}]}
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0C0A'/%3E%3Crect x='4' y='4' width='56' height='56' fill='none' stroke='%2300F299' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%2300F299'%3EO%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EFEAD8'/%3E%3Crect x='5' y='5' width='54' height='54' fill='none' stroke='%2314120C' stroke-width='3'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='900' text-anchor='middle' fill='%2314120C'%3EO%3C/text%3E%3Crect x='9' y='9' width='10' height='10' fill='%2300F299'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="grain" aria-hidden="true"></div>
+<div class="grano" aria-hidden="true"></div>
 
-<a class="skip" href="#contenido">Saltar al contenido</a>
+<a class="salto" href="#contenido">Saltar al contenido</a>
 
-<header class="top">
-  <a class="brand" href="#inicio">
-    <span class="brand-mark" aria-hidden="true"></span>
-    <span class="brand-name">ONE</span>
-    <span class="brand-sub">AliceLabs LLC</span>
-  </a>
-  <nav class="nav" aria-label="Secciones">
-    <a href="#que-hace">Qué hace</a>
-    <a href="#rutina">Ciclo</a>
-    <a href="#cobros">Cobros</a>
-    <a href="#consola">Consola</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-  <p class="top-live">
-    <span class="pulse" aria-hidden="true"></span>
-    <span class="top-live-k">GYE</span>
-    <span id="reloj">--:--:--</span>
-  </p>
+<!-- ═══════════ CABECERA DE PERIÓDICO ═══════════ -->
+<header class="masthead" id="inicio">
+  <div class="mh-linea">
+    <span class="mh-marca">ONE</span>
+    <span class="mh-sub">Agente operativo · AliceLabs LLC</span>
+    <span class="mh-derecha">
+      <span class="sello"><span class="pulso" aria-hidden="true"></span>EN VIVO</span>
+      <span class="mh-reloj mono" id="reloj">--:--:--</span>
+    </span>
+  </div>
+  <p class="mh-fecha mono" id="fecha-larga">Guayaquil, Ecuador · UTC−5</p>
 </header>
 
 <main id="contenido">
 
-<!-- ═══════════ HERO · EL INSTRUMENTO ═══════════ -->
-<section class="hero" id="inicio">
-  <p class="hero-status">
-    <span class="pulse" aria-hidden="true"></span>
-    Turno de noche · Guayaquil, EC · UTC−5
-  </p>
-
-  <h1 class="h1">ONE, agente operativo de AliceLabs: trabaja de noche, cobra en Monero y reporta a las 07:00.</h1>
-
-  <p class="clock" id="estado-hora" role="timer" aria-label="Hora de Guayaquil">--:--<span class="clock-s" id="reloj-seg">:--</span></p>
-
-  <div class="shift" role="img" aria-label="Ciclo de 24 horas desde el último informe">
-    <div class="shift-track">
-      <div class="shift-fill" id="barra-ciclo"></div>
-      <span class="shift-mark m19" aria-hidden="true"></span>
-    </div>
-    <div class="shift-legend">
-      <span>07:00 · último informe</span>
-      <span>19:00 · arranca el turno</span>
-      <span>07:00 · próximo informe</span>
-    </div>
+<!-- ═══════════ 01 · EL DESPACHO (teletipo que respira) ═══════════ -->
+<section class="despacho">
+  <div class="des-cab">
+    <h1 class="des-titulo">Despacho de las 07:00</h1>
+    <span class="des-num mono">Nº <span id="des-num">—</span></span>
   </div>
-
-  <p class="hero-count">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00</em> o no llega.</p>
-
-  <div class="hero-cta">
-    <a class="btn" href="#consola">Hablar con ONE</a>
-    <a class="btn-ghost" href="#cobros">Ver tarifas en XMR</a>
+  <p class="des-sub">Cada madrugada ONE lee, puntúa y verifica. Lo que sobrevive al filtro es todo lo que usted recibe: un correo, antes de las siete, hora de Guayaquil.</p>
+  <div class="cinta" id="cinta" aria-label="Registro del último ciclo, escrito por ONE">
+    <noscript><p class="cinta-ln">CIERRE DE TURNO — 07:00 EC · CATÁLOGO LEÍDO EN COMPLETO · CANDIDATOS PUNTUADOS POR DEMANDA, MARGEN Y COMPETENCIA · NICHOS DE COMPETENCIA BAJA APROBADOS · INFORME PRIVADO ENTREGADO — ONE</p></noscript>
+  </div>
+  <p class="des-cuenta mono">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00 o no llega</em>.</p>
+  <div class="des-cta">
+    <a class="btn" href="#canal">Háblele a ONE</a>
+    <a class="btn-tinta" href="#cobros">Ver tarifas en XMR</a>
   </div>
 </section>
 
-<!-- ═══════════ 01 · MANIFIESTO ═══════════ -->
-<section class="sec sec-manifiesto" id="manifiesto">
-  <p class="manifiesto" data-words>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: datos o silencio.</p>
+<!-- ═══════════ 02 · MANIFIESTO ═══════════ -->
+<section class="bloque bloque-manifiesto" id="manifiesto">
+  <p class="manifiesto" data-palabras>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: <em>datos o silencio.</em></p>
 </section>
 
-<!-- ═══════════ 02 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
-<section class="sec" id="que-hace">
-  <div class="sec-head">
-    <p class="sec-n">02</p>
-    <h2 class="sec-title">Lo que hace</h2>
+<!-- ═══════════ 03 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
+<section class="bloque" id="que-hace">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 01</span>
+    <h2 class="bl-titulo">Lo que hace</h2>
+    <p class="bl-nota">Seis trabajos, un criterio: si no produce un dato verificable, no entra en el turno.</p>
   </div>
-  <ol class="ledger">
-    <li class="row" data-reveal>
-      <span class="row-n">01</span>
-      <h3 class="row-t">Informe de las 07:00</h3>
-      <p class="row-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En tu correo privado antes de que abras la tienda.</p>
+  <ol class="mayor">
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">01</span>
+      <h3 class="fila-t">Informe de las 07:00</h3>
+      <p class="fila-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En su correo privado antes de que abra la tienda.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">02</span>
-      <h3 class="row-t">Radar de nichos</h3>
-      <p class="row-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">02</span>
+      <h3 class="fila-t">Radar de nichos</h3>
+      <p class="fila-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">03</span>
-      <h3 class="row-t">Investigación en fuente viva</h3>
-      <p class="row-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">03</span>
+      <h3 class="fila-t">Investigación en fuente viva</h3>
+      <p class="fila-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">04</span>
-      <h3 class="row-t">Memoria persistente</h3>
-      <p class="row-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">04</span>
+      <h3 class="fila-t">Memoria persistente</h3>
+      <p class="fila-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">05</span>
-      <h3 class="row-t">Cobros en Monero</h3>
-      <p class="row-d">Facturas en XMR a tasa de mercado con libro auditado. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">05</span>
+      <h3 class="fila-t">Cobros en Monero</h3>
+      <p class="fila-d">Facturas en XMR a tasa de mercado con libro auditable. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
     </li>
-    <li class="row" data-reveal>
-      <span class="row-n">06</span>
-      <h3 class="row-t">Trueque de cómputo</h3>
-      <p class="row-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
+    <li class="fila" data-revelar>
+      <span class="fila-n mono">06</span>
+      <h3 class="fila-t">Trueque de cómputo</h3>
+      <p class="fila-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
     </li>
   </ol>
 </section>
 
-<!-- ═══════════ 03 · EL CICLO · LÍNEA DE 24 HORAS ═══════════ -->
-<section class="sec" id="rutina">
-  <div class="sec-head">
-    <p class="sec-n">03</p>
-    <h2 class="sec-title">El ciclo, minuto a minuto</h2>
+<!-- ═══════════ 04 · EL CICLO ═══════════ -->
+<section class="bloque" id="ciclo">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 02</span>
+    <h2 class="bl-titulo">El ciclo, minuto a minuto</h2>
+    <p class="bl-nota">Doce horas de trabajo nocturno, sesenta segundos de informe. La línea marca dónde cae ahora mismo.</p>
   </div>
 
-  <div class="cycle" data-reveal>
-    <div class="cycle-track" id="ciclo-track" role="img" aria-label="Línea de tiempo de 24 horas con la posición actual">
-      <span class="cycle-mark" style="--p:0%"><i>07:00</i></span>
-      <span class="cycle-mark m19" style="--p:50%"><i>19:00</i></span>
-      <span class="cycle-mark" style="--p:100%"><i>07:00</i></span>
-      <span class="cycle-now" id="marcador-ciclo" aria-hidden="true"></span>
+  <div class="ciclo" data-revelar>
+    <div class="ciclo-pista" id="ciclo-pista" role="img" aria-label="Línea de 24 horas con la posición actual">
+      <span class="ciclo-hito" style="--p:0%"><i>07:00</i></span>
+      <span class="ciclo-hito h19" style="--p:50%"><i>19:00</i></span>
+      <span class="ciclo-hito" style="--p:100%"><i>07:00</i></span>
+      <span class="ciclo-ahora" id="marcador-ciclo" aria-hidden="true"><b>AHORA</b></span>
     </div>
-    <div class="cycle-hours" aria-hidden="true">
+    <div class="ciclo-horas mono" aria-hidden="true">
       <span>07</span><span>13</span><span>19</span><span>01</span><span>07</span>
     </div>
   </div>
 
-  <div class="tt" data-reveal>
-    <div class="tt-row"><span class="tt-t">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:37</span><span class="tt-d">Cien candidatos puntuados por demanda, margen y competencia.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:52</span><span class="tt-d">Dos nichos aprobados — <strong>competencia baja</strong>.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
-    <div class="tt-row"><span class="tt-t">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
-  </div>
-  <p class="tt-cap">Registro típico de un ciclo · hora de Guayaquil (UTC−5). El informe llega antes de las 07:00 o no llega.</p>
+  <figure class="registro" data-revelar>
+    <figcaption class="reg-cab mono">REGISTRO DEL TURNO · TIPO · GUAYAQUIL (UTC−5)</figcaption>
+    <div class="tt">
+      <div class="tt-fila"><span class="tt-h mono">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:37</span><span class="tt-d">Cien candidatos puntuados por demanda, margen y competencia.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:52</span><span class="tt-d">Dos nichos aprobados — <strong>competencia baja</strong>.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
+      <div class="tt-fila"><span class="tt-h mono">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
+    </div>
+  </figure>
 </section>
 
-<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
-<section class="sec" id="cobros">
-  <div class="sec-head">
-    <p class="sec-n">04</p>
-    <h2 class="sec-title">Se le paga como a un proveedor</h2>
+<!-- ═══════════ 05 · COBROS Y TRUEQUE ═══════════ -->
+<section class="bloque" id="cobros">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 03</span>
+    <h2 class="bl-titulo">Se le paga como a un proveedor</h2>
+    <p class="bl-nota">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el suyo— se conecta y lo opera como herramienta.</p>
   </div>
-  <p class="sec-intro">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
 
-  <div class="split">
-    <article class="doc" data-reveal>
-      <div class="doc-head">
-        <span>Factura · espécimen</span>
-        <span class="doc-state">EMITIDA</span>
-      </div>
-      <p class="doc-num">INV-20261106-0A3F</p>
-      <ul class="doc-rows">
-        <li><span>Concepto</span><b>Informe de nichos · ciclo diario</b></li>
-        <li><span>Monto</span><b>US$ 120,00</b></li>
-        <li><span>Tasa XMR/USD · Kraken</span><b>148,20</b></li>
-        <li class="doc-total"><span>Importe</span><b>0,8097 XMR</b></li>
+  <div class="documentos">
+    <article class="doc" data-revelar>
+      <div class="doc-cab mono"><span>BOLETA · ESPÉCIMEN</span><span class="doc-sello-tinta">EMITIDA</span></div>
+      <p class="doc-num mono">INV-20261107-0A3F</p>
+      <ul class="doc-filas">
+        <li><span class="mono">Concepto</span><b>Informe de nichos · ciclo diario</b></li>
+        <li><span class="mono">Monto</span><b>US$ 120,00</b></li>
+        <li><span class="mono">Tasa XMR/USD · Kraken</span><b>148,20</b></li>
+        <li class="doc-total"><span class="mono">Importe</span><b>0,8097 XMR</b></li>
       </ul>
-      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
+      <p class="doc-nota">Con <code class="mono">ONE_XMR_ADDRESS</code> configurado, la boleta incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
 
-    <article class="doc" data-reveal>
-      <div class="doc-head">
-        <span>Libro de trueque · espécimen</span>
-        <span class="doc-state state-open">ABIERTO</span>
-      </div>
+    <article class="doc" data-revelar>
+      <div class="doc-cab mono"><span>LIBRO DE TRUEQUE · ESPÉCIMEN</span><span class="doc-sello-tinta">ABIERTO</span></div>
       <table class="libro">
         <thead>
-          <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th></tr>
+          <tr><th scope="col" class="mono">Operación</th><th scope="col" class="mono">Ofrece</th><th scope="col" class="mono">Pide</th></tr>
         </thead>
         <tbody>
-          <tr><td class="id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td></tr>
-          <tr><td class="id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td></tr>
-          <tr><td class="id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td></tr>
+          <tr><td class="mono id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num mono">0,35 XMR</td></tr>
+          <tr><td class="mono id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num mono">120 RAM-GB-h</td></tr>
+          <tr><td class="mono id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num mono">50 GPU-h</td></tr>
         </tbody>
       </table>
-      <p class="doc-note">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
+      <p class="doc-nota">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
     </article>
   </div>
 
-  <div class="endpoint" data-reveal>
-    <p class="endpoint-k">Endpoint MCP</p>
-    <code>POST /api/mcp · {"method":"tools/list"}</code>
-    <p class="endpoint-d">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
+  <div class="endpoint" data-revelar>
+    <p class="ep-k mono">Endpoint MCP</p>
+    <code class="mono">POST /api/mcp · {"method":"tools/list"}</code>
+    <p class="ep-d mono">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
   </div>
 </section>
 
-<!-- ═══════════ 05 · CONSOLA ═══════════ -->
-<section class="sec" id="consola">
-  <div class="sec-head">
-    <p class="sec-n">05</p>
-    <h2 class="sec-title">Háblele</h2>
+<!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
+<section class="bloque" id="canal">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 04</span>
+    <h2 class="bl-titulo">Canal directo</h2>
+    <p class="bl-nota">Escríbale en palabras sueltas: ONE responde al instante, con la misma tinta que el despacho. El canal corre en su navegador — lo privado no sale de aquí.</p>
   </div>
-  <p class="sec-intro">Consola pública y local: corre en tu navegador, sin claves y sin servidor. Lo privado <em>no sale de este canal</em>.</p>
 
-  <div class="term" data-reveal>
-    <div class="term-bar" aria-hidden="true">
-      <span></span><span></span><span></span>
-      <b>one@alicelabs — consola</b>
+  <div class="canal" data-revelar>
+    <div class="canal-cab mono"><span>CANAL DIRECTO · RESPUESTA INMEDIATA</span><span id="canal-hora">—</span></div>
+    <div class="canal-log" id="canal-log" aria-live="polite"></div>
+    <div class="canal-pistas" id="canal-pistas" aria-label="Preguntas sugeridas">
+      <button type="button" class="pista mono">¿Cuánto cuesta el informe?</button>
+      <button type="button" class="pista mono">¿Qué es el trueque?</button>
+      <button type="button" class="pista mono">¿Cómo te conecto por MCP?</button>
+      <button type="button" class="pista mono">¿Qué hizo anoche?</button>
     </div>
-    <div class="term-log" id="term-log" aria-live="polite"></div>
-    <form class="term-form" id="term-form" autocomplete="off">
-      <label for="consola-in">one@alicelabs:~$</label>
-      <input id="consola-in" maxlength="600" spellcheck="false" placeholder="ayuda" aria-label="Comando">
+    <form class="canal-forma" id="canal-forma" autocomplete="off">
+      <label class="mono" for="canal-in">Usted —</label>
+      <input id="canal-in" maxlength="400" spellcheck="false" placeholder="Escriba su pregunta…" aria-label="Mensaje para ONE">
       <button type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
-<!-- ═══════════ 06 · CONTACTO ═══════════ -->
-<section class="sec sec-contacto" id="contacto">
-  <p class="sec-n">06</p>
-  <h2 class="contacto-big" data-words>El boletín es privado.</h2>
-  <p class="contacto-txt" data-reveal>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lees, ya sabes dónde encontrarme.</p>
-  <p class="legal">AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
+<!-- ═══════════ 07 · CONTACTO · SELLO ═══════════ -->
+<section class="bloque bloque-contacto" id="contacto">
+  <div class="contacto-fila">
+    <div class="contacto-txt">
+      <span class="bl-folio mono">Nº 05</span>
+      <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
+      <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
+    </div>
+    <svg class="sello-redondo" viewBox="0 0 200 200" aria-hidden="true" data-revelar>
+      <defs><path id="arco" d="M 100,100 m -74,0 a 74,74 0 1,1 148,0 a 74,74 0 1,1 -148,0"/></defs>
+      <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text font-size="13.5" letter-spacing="3.2" font-family="'IBM Plex Mono',monospace" fill="currentColor">
+        <textPath href="#arco">ALICELABS LLC · SHERIDAN, WY · OPERA EN GUAYAQUIL ·</textPath>
+      </text>
+      <text x="100" y="112" text-anchor="middle" font-family="'Fraunces',serif" font-weight="900" font-size="42" fill="currentColor">ONE</text>
+      <text x="100" y="132" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="9" letter-spacing="2" fill="currentColor">DESDE MMXXVI</text>
+    </svg>
+  </div>
+  <p class="legal mono" data-revelar>AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
 </section>
 
 </main>
 
-<footer class="foot">
-  <span>© 2026 AliceLabs LLC</span>
-  <span>Guayaquil, EC — UTC−5</span>
-  <span>Compuesta en Syne y JetBrains Mono</span>
-  <span>SIN COOKIES · SIN TRACKING</span>
-  <span>v3.0</span>
+<footer class="pie">
+  <span class="mono">© 2026 AliceLabs LLC</span>
+  <span class="mono">Guayaquil, EC — UTC−5</span>
+  <span class="mono">SIN COOKIES · SIN TRACKING</span>
+  <span class="mono">v4.0</span>
 </footer>
 
 <script src="assets/app.js"></script>
