@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ONE — Agente operativo · AliceLabs LLC</title>
 <meta name="description" content="ONE es el agente operativo de AliceLabs LLC: informe privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
-<meta name="theme-color" content="#F6F3EB">
+<meta name="theme-color" content="#0B0C0A">
 <link rel="canonical" href="https://eddyflores100-lang.github.io/one/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ONE — Agente operativo · AliceLabs LLC">
@@ -24,126 +24,134 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AliceLabs LLC","url":"https://eddyflores100-lang.github.io/one/","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, Ste R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},{"@type":"WebSite","name":"ONE — Agente operativo","inLanguage":"es-EC","url":"https://eddyflores100-lang.github.io/one/","publisher":{"@type":"Organization","name":"AliceLabs LLC"}}]}
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2300F299'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='700' text-anchor='middle' fill='%23191B14'%3EO%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0C0A'/%3E%3Crect x='4' y='4' width='56' height='56' fill='none' stroke='%2300F299' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%2300F299'%3EO%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-<div class="one">
+<div class="grain" aria-hidden="true"></div>
 
 <a class="skip" href="#contenido">Saltar al contenido</a>
 
-<!-- ═══════════ CABECERA ═══════════ -->
 <header class="top">
   <a class="brand" href="#inicio">
-    <span class="brand-mark">ONE</span>
-    <span class="brand-sub">ALICELABS&nbsp;LLC</span>
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">ONE</span>
+    <span class="brand-sub">AliceLabs LLC</span>
   </a>
   <nav class="nav" aria-label="Secciones">
     <a href="#que-hace">Qué hace</a>
-    <a href="#rutina">Rutina</a>
+    <a href="#rutina">Ciclo</a>
     <a href="#cobros">Cobros</a>
     <a href="#consola">Consola</a>
     <a href="#contacto">Contacto</a>
   </nav>
-  <div class="clock-chip" aria-label="Hora de Ecuador">
-    <span class="dot" aria-hidden="true"></span>
-    <span>GYE&nbsp;<span id="reloj">--:--:--</span></span>
-  </div>
+  <p class="top-live">
+    <span class="pulse" aria-hidden="true"></span>
+    <span class="top-live-k">GYE</span>
+    <span id="reloj">--:--:--</span>
+  </p>
 </header>
 
 <main id="contenido">
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- ═══════════ HERO · EL INSTRUMENTO ═══════════ -->
 <section class="hero" id="inicio">
-  <div>
-    <p class="hero-kicker">Agente operativo · Guayaquil, EC · UTC−5 · Sheridan, WY</p>
-    <h1 class="hero-title">
-      <span>Trabaja de noche.</span>
-      <span>Cobra en <em class="hl">Monero</em>.</span>
-      <span>Reporta a las <em class="ul">07:00</em>.</span>
-    </h1>
-    <p class="hero-sub">ONE es el agente operativo de AliceLabs. Cada madrugada analiza el catálogo, puntúa nichos y deja el informe en tu correo antes de las 07:00, hora Ecuador. Desde esta misma página se le opera: se le habla, se le factura en XMR y se truetan horas de cómputo.</p>
-    <div class="hero-cta">
-      <a class="btn" href="#consola">Hablar con ONE</a>
-      <a class="link-ul" href="#rutina">Ver la rutina ↓</a>
+  <p class="hero-status">
+    <span class="pulse" aria-hidden="true"></span>
+    Turno de noche · Guayaquil, EC · UTC−5
+  </p>
+
+  <h1 class="h1">ONE, agente operativo de AliceLabs: trabaja de noche, cobra en Monero y reporta a las 07:00.</h1>
+
+  <p class="clock" id="estado-hora" role="timer" aria-label="Hora de Guayaquil">--:--<span class="clock-s" id="reloj-seg">:--</span></p>
+
+  <div class="shift" role="img" aria-label="Ciclo de 24 horas desde el último informe">
+    <div class="shift-track">
+      <div class="shift-fill" id="barra-ciclo"></div>
+      <span class="shift-mark m19" aria-hidden="true"></span>
+    </div>
+    <div class="shift-legend">
+      <span>07:00 · último informe</span>
+      <span>19:00 · arranca el turno</span>
+      <span>07:00 · próximo informe</span>
     </div>
   </div>
 
-  <dl class="ficha" data-reveal>
-    <div class="ficha-head">
-      <span class="dot-red" aria-hidden="true"></span>
-      En vivo · hora de Guayaquil
-    </div>
-    <div class="ficha-row">
-      <dt>Hora Guayaquil</dt>
-      <dd><span id="estado-hora">--:--:--</span></dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Próximo ciclo</dt>
-      <dd><span id="estado-ciclo">--</span></dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Estado</dt>
-      <dd><span class="dot-red" aria-hidden="true"></span>Operativo</dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Moneda de cobro</dt>
-      <dd>XMR · Monero</dd>
-    </div>
-  </dl>
+  <p class="hero-count">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00</em> o no llega.</p>
+
+  <div class="hero-cta">
+    <a class="btn" href="#consola">Hablar con ONE</a>
+    <a class="btn-ghost" href="#cobros">Ver tarifas en XMR</a>
+  </div>
 </section>
 
-<!-- ═══════════ 01 MANIFIESTO ═══════════ -->
-<section class="sec" id="manifiesto">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>01 — Manifiesto</p>
-  <p class="manifiesto" data-reveal>Un agente no descansa, no olvida y no pide permiso dos veces. ONE revisa, analiza y decide cada mañana antes de que abran las tiendas. Lo que llega a tu correo a las 07:00 es el resultado de una noche entera de trabajo: filtrado, puntuado y sin adornos. Sin humo: <em class="hl">datos o silencio</em>.</p>
+<!-- ═══════════ 01 · MANIFIESTO ═══════════ -->
+<section class="sec sec-manifiesto" id="manifiesto">
+  <p class="manifiesto" data-words>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: datos o silencio.</p>
 </section>
 
-<!-- ═══════════ 02 QUÉ HACE ═══════════ -->
+<!-- ═══════════ 02 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
 <section class="sec" id="que-hace">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>02 — Lo que hace</p>
-  <h2 class="sec-title">Seis servicios, un solo operador.</h2>
-  <ol class="index">
-    <li data-reveal>
-      <span class="row-n">(01)</span>
+  <div class="sec-head">
+    <p class="sec-n">02</p>
+    <h2 class="sec-title">Lo que hace</h2>
+  </div>
+  <ol class="ledger">
+    <li class="row" data-reveal>
+      <span class="row-n">01</span>
       <h3 class="row-t">Informe de las 07:00</h3>
       <p class="row-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En tu correo privado antes de que abras la tienda.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(02)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">02</span>
       <h3 class="row-t">Radar de nichos</h3>
       <p class="row-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(03)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">03</span>
       <h3 class="row-t">Investigación en fuente viva</h3>
       <p class="row-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(04)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">04</span>
       <h3 class="row-t">Memoria persistente</h3>
       <p class="row-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(05)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">05</span>
       <h3 class="row-t">Cobros en Monero</h3>
-      <p class="row-d">Facturas en XMR con conversión del dólar a tasa de mercado y registro auditado de cada pago. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
+      <p class="row-d">Facturas en XMR a tasa de mercado con libro auditado. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(06)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">06</span>
       <h3 class="row-t">Trueque de cómputo</h3>
-      <p class="row-d">Un libro abierto donde se intercambian GPU-h, CPU-h y RAM-GB-h por XMR u otros recursos. La potencia de cálculo se cambia; no se compra.</p>
+      <p class="row-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
     </li>
   </ol>
 </section>
 
-<!-- ═══════════ 03 RUTINA ═══════════ -->
+<!-- ═══════════ 03 · EL CICLO · LÍNEA DE 24 HORAS ═══════════ -->
 <section class="sec" id="rutina">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>03 — La rutina</p>
-  <h2 class="sec-title">La madrugada, minuto a minuto.</h2>
+  <div class="sec-head">
+    <p class="sec-n">03</p>
+    <h2 class="sec-title">El ciclo, minuto a minuto</h2>
+  </div>
+
+  <div class="cycle" data-reveal>
+    <div class="cycle-track" id="ciclo-track" role="img" aria-label="Línea de tiempo de 24 horas con la posición actual">
+      <span class="cycle-mark" style="--p:0%"><i>07:00</i></span>
+      <span class="cycle-mark m19" style="--p:50%"><i>19:00</i></span>
+      <span class="cycle-mark" style="--p:100%"><i>07:00</i></span>
+      <span class="cycle-now" id="marcador-ciclo" aria-hidden="true"></span>
+    </div>
+    <div class="cycle-hours" aria-hidden="true">
+      <span>07</span><span>13</span><span>19</span><span>01</span><span>07</span>
+    </div>
+  </div>
+
   <div class="tt" data-reveal>
     <div class="tt-row"><span class="tt-t">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
     <div class="tt-row"><span class="tt-t">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
@@ -152,98 +160,99 @@
     <div class="tt-row"><span class="tt-t">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
     <div class="tt-row"><span class="tt-t">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
   </div>
-  <p class="tt-cap">Registro típico de un ciclo diario · hora de Guayaquil (UTC−5). El informe llega <em>antes de las 07:00</em> o no llega.</p>
+  <p class="tt-cap">Registro típico de un ciclo · hora de Guayaquil (UTC−5). El informe llega antes de las 07:00 o no llega.</p>
 </section>
 
-<!-- ═══════════ 04 COBROS Y TRUEQUE ═══════════ -->
+<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
 <section class="sec" id="cobros">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>04 — Cobros y trueque</p>
-  <h2 class="sec-title">Se le paga como a un proveedor.</h2>
-  <p class="sec-intro">A ONE se le liquida en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
+  <div class="sec-head">
+    <p class="sec-n">04</p>
+    <h2 class="sec-title">Se le paga como a un proveedor</h2>
+  </div>
+  <p class="sec-intro">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
 
-  <div class="doc-grid">
+  <div class="split">
     <article class="doc" data-reveal>
       <div class="doc-head">
-        <span class="doc-k">Factura</span>
-        <span class="stamp">Espécimen</span>
+        <span>Factura · espécimen</span>
+        <span class="doc-state">EMITIDA</span>
       </div>
       <p class="doc-num">INV-20261106-0A3F</p>
       <ul class="doc-rows">
-        <li><span class="k">Concepto</span><span class="v">Informe de nichos · ciclo diario</span></li>
-        <li><span class="k">Monto</span><span class="v">US$ 120,00</span></li>
-        <li><span class="k">Tasa XMR/USD · Kraken</span><span class="v">148,20</span></li>
-        <li><span class="k">Importe</span><span class="v big">0,8097 XMR</span></li>
-        <li><span class="k">Estado</span><span class="v">EMITIDA · pendiente de pago</span></li>
+        <li><span>Concepto</span><b>Informe de nichos · ciclo diario</b></li>
+        <li><span>Monto</span><b>US$ 120,00</b></li>
+        <li><span>Tasa XMR/USD · Kraken</span><b>148,20</b></li>
+        <li class="doc-total"><span>Importe</span><b>0,8097 XMR</b></li>
       </ul>
-      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago; el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
+      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
 
     <article class="doc" data-reveal>
       <div class="doc-head">
-        <span class="doc-k">Libro de trueque</span>
-        <span class="stamp">Espécimen</span>
+        <span>Libro de trueque · espécimen</span>
+        <span class="doc-state state-open">ABIERTO</span>
       </div>
-      <div class="libro">
-        <table>
-          <thead>
-            <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th><th scope="col">Estado</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="id">TRQ-20261106-B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td><td><span class="chip-open">ABIERTO</span></td></tr>
-            <tr><td class="id">TRQ-20261105-C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td><td><span class="chip-closed">CERRADO</span></td></tr>
-            <tr><td class="id">TRQ-20261104-A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td><td><span class="chip-closed">CERRADO</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="libro">
+        <thead>
+          <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td></tr>
+          <tr><td class="id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td></tr>
+          <tr><td class="id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td></tr>
+        </tbody>
+      </table>
       <p class="doc-note">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
     </article>
   </div>
 
   <div class="endpoint" data-reveal>
     <p class="endpoint-k">Endpoint MCP</p>
-    <code>POST /api/mcp&nbsp;&nbsp;·&nbsp;&nbsp;{"method":"tools/list"}</code>
+    <code>POST /api/mcp · {"method":"tools/list"}</code>
     <p class="endpoint-d">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
   </div>
 </section>
 
-<!-- ═══════════ 05 CONSOLA ═══════════ -->
+<!-- ═══════════ 05 · CONSOLA ═══════════ -->
 <section class="sec" id="consola">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>05 — Consola</p>
-  <h2 class="sec-title">Háblele.</h2>
-  <p class="sec-intro">El razonamiento corre en el servidor; aquí nunca hay claves. Lo privado <em>no sale de este canal</em>.</p>
-  <div class="consola-box">
-    <div class="consola-log" aria-live="polite">
-      <div class="ln"><span class="t">ONE · consola pública — sin datos privados. Pregunta y enter.</span></div>
-      <div class="ln"><span class="tag-o">one&nbsp;&nbsp;&nbsp;&nbsp;</span> Conectado. ¿Qué necesitas?</div>
+  <div class="sec-head">
+    <p class="sec-n">05</p>
+    <h2 class="sec-title">Háblele</h2>
+  </div>
+  <p class="sec-intro">Consola pública y local: corre en tu navegador, sin claves y sin servidor. Lo privado <em>no sale de este canal</em>.</p>
+
+  <div class="term" data-reveal>
+    <div class="term-bar" aria-hidden="true">
+      <span></span><span></span><span></span>
+      <b>one@alicelabs — consola</b>
     </div>
-    <form class="consola-form" onsubmit="return false">
+    <div class="term-log" id="term-log" aria-live="polite"></div>
+    <form class="term-form" id="term-form" autocomplete="off">
       <label for="consola-in">one@alicelabs:~$</label>
-      <input id="consola-in" maxlength="600" autocomplete="off" placeholder="escribe aquí…">
+      <input id="consola-in" maxlength="600" spellcheck="false" placeholder="ayuda" aria-label="Comando">
       <button type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
-<!-- ═══════════ 06 CONTACTO ═══════════ -->
-<section class="sec" id="contacto">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>06 — Contacto</p>
-  <h2 class="contacto-big" data-reveal>El boletín es <em class="hl">privado</em>.</h2>
+<!-- ═══════════ 06 · CONTACTO ═══════════ -->
+<section class="sec sec-contacto" id="contacto">
+  <p class="sec-n">06</p>
+  <h2 class="contacto-big" data-words>El boletín es privado.</h2>
   <p class="contacto-txt" data-reveal>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lees, ya sabes dónde encontrarme.</p>
-  <p class="legal" data-reveal>ALICELABS&nbsp;LLC&nbsp;—&nbsp;30&nbsp;N&nbsp;GOULD&nbsp;ST,&nbsp;STE&nbsp;R&nbsp;·&nbsp;SHERIDAN,&nbsp;WY&nbsp;82801&nbsp;·&nbsp;EE.&nbsp;UU.</p>
+  <p class="legal">AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
 </section>
 
 </main>
 
-<!-- ═══════════ PIE ═══════════ -->
 <footer class="foot">
-  <span>©&nbsp;2026&nbsp;ALICELABS&nbsp;LLC</span>
-  <span>GUAYAQUIL,&nbsp;EC&nbsp;—&nbsp;UTC−5</span>
-  <span>Compuesta&nbsp;en&nbsp;Fraunces,&nbsp;Archivo&nbsp;e&nbsp;IBM&nbsp;Plex&nbsp;Mono</span>
-  <span>SIN&nbsp;COOKIES&nbsp;·&nbsp;SIN&nbsp;TRACKING</span>
-  <span>v2.0</span>
+  <span>© 2026 AliceLabs LLC</span>
+  <span>Guayaquil, EC — UTC−5</span>
+  <span>Compuesta en Syne y JetBrains Mono</span>
+  <span>SIN COOKIES · SIN TRACKING</span>
+  <span>v3.0</span>
 </footer>
 
-</div>
 <script src="assets/app.js"></script>
 </body>
 </html>

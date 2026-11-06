@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ONE — Agente operativo · AliceLabs LLC</title>
 <meta name="description" content="ONE es el agente operativo de AliceLabs LLC: informe privado antes de las 07:00 (hora Ecuador), cobros en Monero y trueque de cómputo vía MCP. Sin humo: datos o silencio.">
-<meta name="theme-color" content="#F6F3EB">
+<meta name="theme-color" content="#0B0C0A">
 <link rel="canonical" href="https://eddyflores100-lang.github.io/one/">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ONE — Agente operativo · AliceLabs LLC">
@@ -24,620 +24,515 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"AliceLabs LLC","url":"https://eddyflores100-lang.github.io/one/","address":{"@type":"PostalAddress","streetAddress":"30 N Gould St, Ste R","addressLocality":"Sheridan","addressRegion":"WY","postalCode":"82801","addressCountry":"US"}},{"@type":"WebSite","name":"ONE — Agente operativo","inLanguage":"es-EC","url":"https://eddyflores100-lang.github.io/one/","publisher":{"@type":"Organization","name":"AliceLabs LLC"}}]}
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2300F299'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='42' font-weight='700' text-anchor='middle' fill='%23191B14'%3EO%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0C0A'/%3E%3Crect x='4' y='4' width='56' height='56' fill='none' stroke='%2300F299' stroke-width='2'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%2300F299'%3EO%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════════════════════════════════════
-   ONE — AliceLabs LLC · expediente impreso
-   Papel, tinta y tres acentos de marca usados con pinza:
-   verde #00F299 (marcador) · rojo #FB2C36 (lo vivo) · cian #00D1FF (la máquina)
-   Cero gradientes · cero neón · cero look plantilla
-   ═══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   ONE v3.0 — «turno de noche» · AliceLabs LLC
+   Canon 2027: tipo como héroe · un acento · motion con apagado ·
+   anti-plantilla · legible por humanos y agentes. Sin frameworks.
+   ═══════════════════════════════════════════════════════════════ */
 
-:root{
-  --paper:  #F6F3EB;
-  --paper2: #EDE8DC;
-  --white:  #FFFDF7;
-  --ink:    #191B14;
-  --dim:    #5E6355;
-  --line:   #DAD4C4;
-  --line2:  #B5AE99;
-  --green:  #00F299;
-  --cyan:   #00D1FF;
-  --red:    #FB2C36;
-  --w:      1180px;
-  --serif:  'Fraunces', Georgia, serif;
-  --sans:   'Archivo', system-ui, sans-serif;
-  --monof:  'IBM Plex Mono', ui-monospace, monospace;
+:root {
+  --bg: #0B0C0A;
+  --bg-raise: #101210;
+  --ink: #F2F1E9;
+  --ink-dim: #A8A99E;
+  --line: rgba(242, 241, 233, 0.13);
+  --line-strong: rgba(242, 241, 233, 0.28);
+  --green: #00F299;
+  --red: #FB2C36;
+  --cyan: #00D1FF;
+  --f-disp: "Syne", sans-serif;
+  --f-mono: "JetBrains Mono", monospace;
+  --u: 8px;
+  --w: 1180px;
 }
 
-.one *{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:17.5px;
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-.one ::selection{ background:var(--green); color:var(--ink); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-.one .mono{ font-family:var(--monof); }
-.one a{ color:inherit; text-decoration:none; }
-.one :focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
-
-/* ── MARCADORES (el único "color" del texto) ── */
-.one em.hl{
-  font-style:italic;
-  background:var(--green);
-  color:var(--ink);
-  padding:0 .13em;
-  -webkit-box-decoration-break:clone;
-  box-decoration-break:clone;
-}
-.one em.ul{
-  font-style:italic;
-  border-bottom:.085em solid var(--green);
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-disp);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-/* ── CABECERA ─────────────────────────────── */
-.one .top{
-  max-width:var(--w); margin-inline:auto;
-  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
-  padding:1.1rem clamp(1.25rem,5vw,3rem) 1rem;
-  border-bottom:1px solid var(--ink);
-}
-.one .brand{ display:flex; align-items:baseline; gap:.75rem; }
-.one .brand-mark{
-  font-family:var(--serif); font-weight:600; font-size:1.65rem;
-  letter-spacing:-.02em; line-height:1;
-}
-.one .brand-sub{
-  font-family:var(--monof); font-size:.6rem; letter-spacing:.18em; color:var(--dim);
-}
-.one .nav{ display:flex; gap:1.4rem; }
-.one .nav a{
-  font-family:var(--monof); font-size:.68rem; letter-spacing:.12em;
-  text-transform:uppercase; color:var(--dim);
-  padding:.25rem .35rem;
-  transition:background .15s, color .15s;
-}
-.one .nav a:hover{ background:var(--green); color:var(--ink); }
-.one .clock-chip{
-  display:flex; align-items:center; gap:.6rem;
-  font-family:var(--monof); font-size:.72rem; letter-spacing:.05em;
-  border:1px solid var(--line2); background:var(--white);
-  padding:.45rem .75rem; white-space:nowrap;
-}
-.one .dot{
-  width:8px; height:8px; background:var(--green); display:inline-block; flex:none;
-}
-.one .dot-red{
-  width:8px; height:8px; background:var(--red); display:inline-block; flex:none;
-  animation:pulso 1.8s ease-in-out infinite;
-}
-@keyframes pulso{ 0%,100%{opacity:1} 50%{opacity:.3} }
-@media (max-width:860px){ .one .nav{ display:none; } }
-@media (max-width:560px){ .one .clock-chip{ display:none; } }
+::selection { background: var(--green); color: var(--bg); }
 
-/* ── CONTENIDO ────────────────────────────── */
-.one .sec, .one .hero, .one .foot{
-  max-width:var(--w); margin-inline:auto;
-  padding-inline:clamp(1.25rem,5vw,3rem);
-}
-.one .sec{
-  padding-block:clamp(4.2rem,8vw,6.8rem);
-  border-top:1px solid var(--line2);
+/* grano de película, fijo y sin interacción */
+.grain {
+  position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
-/* rótulo de sección: cuadro verde + folio */
-.one .sec-label{
-  display:flex; align-items:center; gap:.65rem;
-  font-family:var(--monof); font-size:.66rem; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--dim);
-  margin-bottom:1.4rem;
+.skip {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--green); color: var(--bg); padding: 10px 16px;
+  font-family: var(--f-mono); font-size: 13px;
 }
-.one .sec-label .sq{
-  width:11px; height:11px; background:var(--green); flex:none;
-}
-.one .sec-title{
-  font-family:var(--serif); font-weight:600;
-  font-size:clamp(1.9rem,3.8vw,3.1rem);
-  line-height:1.08; letter-spacing:-.015em;
-  max-width:24ch;
-  margin-bottom:clamp(1.6rem,3vw,2.4rem);
-}
-.one .sec-intro{
-  max-width:58ch; color:var(--dim); font-size:1.04rem;
-  margin-bottom:clamp(2rem,4vw,3rem);
-}
-.one .sec-intro em{ color:var(--ink); font-style:normal; font-weight:500; }
+.skip:focus { left: 0; }
 
-/* ── HERO ─────────────────────────────────── */
-.one .hero{
-  padding-top:clamp(3.8rem,7vw,6rem);
-  padding-bottom:clamp(4.2rem,8vw,6.8rem);
-  display:grid;
-  grid-template-columns:minmax(0,1.45fr) minmax(280px,.85fr);
-  gap:clamp(2.2rem,5vw,4.5rem);
-  align-items:start;
-}
-.one .hero-kicker{
-  font-family:var(--monof); font-size:.66rem; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--dim);
-  margin-bottom:2rem;
-}
-.one .hero-title{
-  font-family:var(--serif); font-weight:600;
-  font-size:clamp(2.7rem,6.6vw,5.6rem);
-  line-height:1.04; letter-spacing:-.02em;
-}
-.one .hero-title span{ display:block; }
-.one .hero-sub{
-  margin-top:1.8rem;
-  max-width:52ch; color:var(--dim); font-size:1.05rem;
-}
-.one .hero-cta{
-  margin-top:2.3rem; display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap;
-}
-.one .btn{
-  display:inline-block;
-  font-family:var(--monof); font-size:.72rem; letter-spacing:.14em;
-  text-transform:uppercase;
-  background:var(--green); color:var(--ink);
-  border:1px solid var(--ink);
-  padding:.95rem 1.6rem;
-  transition:background .16s, color .16s;
-}
-.one .btn:hover{ background:var(--ink); color:var(--paper); }
-.one .link-ul{
-  font-family:var(--monof); font-size:.72rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--dim);
-  border-bottom:1px solid var(--line2);
-  padding-bottom:.3rem;
-  transition:color .16s, border-color .16s;
-}
-.one .link-ul:hover{ color:var(--ink); border-color:var(--ink); }
+a { color: inherit; }
+em { font-style: normal; }
 
-/* ficha viva (documento a la derecha) */
-.one .ficha{
-  background:var(--white);
-  border:1px solid var(--ink);
+/* ═══════════ CABECERA ═══════════ */
+.top {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 14px clamp(20px, 4vw, 48px);
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  border-bottom: 1px solid var(--line);
 }
-.one .ficha-head{
-  display:flex; align-items:center; gap:.55rem;
-  font-family:var(--monof); font-size:.6rem; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--dim);
-  padding:.7rem 1rem;
-  border-bottom:1px solid var(--line);
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+.brand-mark {
+  width: 11px; height: 11px; background: var(--green); align-self: center;
+  box-shadow: 0 0 14px rgba(0, 242, 153, 0.55);
 }
-.one .ficha-row{
-  display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
-  padding:.95rem 1rem;
-  border-bottom:1px solid var(--line);
+.brand-name { font-weight: 800; font-size: 20px; letter-spacing: 0.02em; }
+.brand-sub { font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim); }
+.nav { display: flex; gap: 22px; }
+.nav a {
+  font-family: var(--f-mono); font-size: 12.5px; text-decoration: none;
+  color: var(--ink-dim); padding: 4px 0; border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
 }
-.one .ficha-row:last-child{ border-bottom:none; }
-.one .ficha-row dt{
-  font-family:var(--monof); font-size:.6rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--dim);
+.nav a:hover { color: var(--ink); border-color: var(--cyan); }
+.top-live {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--f-mono); font-size: 12.5px;
+  border: 1px solid var(--line); padding: 7px 12px;
 }
-.one .ficha-row dd{
-  font-family:var(--monof); font-size:.88rem; font-weight:500;
-  font-variant-numeric:tabular-nums;
-  display:flex; align-items:center; gap:.55rem;
+.top-live-k { color: var(--ink-dim); }
+
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--red);
+  animation: pulso 2.2s ease-in-out infinite;
 }
-@media (max-width:900px){
-  .one .hero{ grid-template-columns:1fr; }
-  .one .ficha{ max-width:440px; }
+@keyframes pulso {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(251, 44, 54, 0.5); }
+  50% { opacity: 0.55; box-shadow: 0 0 0 5px rgba(251, 44, 54, 0); }
 }
 
-/* ── MANIFIESTO ───────────────────────────── */
-.one .manifiesto{
-  font-family:var(--serif); font-weight:400;
-  font-size:clamp(1.45rem,3vw,2.2rem);
-  line-height:1.42; letter-spacing:-.008em;
-  max-width:44ch;
+/* ═══════════ HERO · INSTRUMENTO ═══════════ */
+.hero {
+  min-height: calc(100svh - 62px);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 72px clamp(20px, 4vw, 48px) 56px;
+  max-width: var(--w); margin: 0 auto; width: 100%;
 }
-.one .manifiesto em.hl{ font-weight:500; }
+.hero-status {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-dim);
+  margin-bottom: 28px;
+}
+.h1 {
+  font-weight: 500; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5;
+  max-width: 46ch; color: var(--ink-dim); margin-bottom: 8px;
+}
+.clock {
+  font-weight: 800; font-variant-numeric: tabular-nums;
+  font-size: clamp(88px, 17.5vw, 208px);
+  line-height: 0.95; letter-spacing: -0.015em;
+  color: var(--ink); margin: 8px 0 34px;
+  text-shadow: 0 0 90px rgba(0, 242, 153, 0.13);
+}
+.clock-s { font-size: 0.32em; font-weight: 700; color: var(--green); vertical-align: baseline; }
 
-/* ── ÍNDICE DE SERVICIOS ──────────────────── */
-.one .index{ list-style:none; }
-.one .index li{
-  display:grid;
-  grid-template-columns:3.4rem minmax(0,.92fr) minmax(0,1.08fr);
-  gap:1.4rem;
-  padding:1.55rem .6rem;
-  border-top:1px solid var(--line);
-  transition:background .16s;
+.shift { margin-bottom: 18px; }
+.shift-track {
+  position: relative; height: 3px; width: 100%;
+  background: var(--line);
 }
-.one .index li:last-child{ border-bottom:1px solid var(--line); }
-.one .index li:hover{ background:var(--paper2); }
-.one .row-n{
-  font-family:var(--monof); font-size:.7rem; letter-spacing:.1em; color:var(--dim);
-  padding-top:.4rem;
+.shift-fill {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+  background: var(--green);
+  box-shadow: 0 0 12px rgba(0, 242, 153, 0.7);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.one .index li:hover .row-n{
-  background:var(--green); color:var(--ink);
-  justify-self:start; align-self:start;
-  padding:.3rem .45rem; margin-top:-.3rem;
+.shift-mark {
+  position: absolute; top: -4px; width: 1px; height: 11px;
+  background: var(--line-strong); left: 50%;
 }
-.one .row-t{
-  font-family:var(--serif); font-weight:500;
-  font-size:1.4rem; line-height:1.2; letter-spacing:-.01em;
+.shift-legend {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim);
+  margin-top: 10px;
 }
-.one .row-d{ color:var(--dim); font-size:.97rem; line-height:1.6; }
-@media (max-width:760px){
-  .one .index li{ grid-template-columns:2.6rem 1fr; }
-  .one .row-d{ grid-column:2; }
-}
+.shift-legend span { white-space: nowrap; }
+.shift-legend span:nth-child(1) { text-align: left; }
+.shift-legend span:nth-child(2) { text-align: center; }
+.shift-legend span:nth-child(3) { text-align: right; }
+.hero-count { font-family: var(--f-mono); font-size: 14px; color: var(--ink-dim); }
+.hero-count strong { color: var(--green); font-weight: 700; }
+.hero-count em { color: var(--ink); }
 
-/* ── RUTINA (horario) ─────────────────────── */
-.one .tt{ border-top:1px solid var(--ink); }
-.one .tt-row{
-  display:grid;
-  grid-template-columns:112px 1fr;
-  gap:1.4rem;
-  padding:.95rem .4rem;
-  border-bottom:1px solid var(--line);
-  align-items:baseline;
+.hero-cta { display: flex; gap: 14px; margin-top: 44px; flex-wrap: wrap; }
+.btn {
+  font-family: var(--f-mono); font-size: 13px; font-weight: 500;
+  text-decoration: none; padding: 15px 26px;
+  background: var(--green); color: var(--bg); border: 1px solid var(--green);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
-.one .tt-t{
-  font-family:var(--monof); font-size:.8rem; font-weight:500;
-  font-variant-numeric:tabular-nums; color:var(--ink);
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(0, 242, 153, 0.35); }
+.btn-ghost {
+  font-family: var(--f-mono); font-size: 13px; text-decoration: none;
+  padding: 15px 26px; color: var(--ink-dim); border: 1px solid var(--line);
+  transition: border-color 0.15s, color 0.15s;
 }
-.one .tt-d{ color:var(--dim); font-size:.99rem; }
-.one .tt-d strong{ color:var(--ink); font-weight:500; }
-.one .tt-cap{
-  margin-top:1.3rem;
-  font-family:var(--monof); font-size:.68rem; letter-spacing:.08em; color:var(--dim);
-}
-.one .tt-cap em{
-  font-style:normal; background:var(--green); color:var(--ink); padding:0 .25em;
-}
-@media (max-width:560px){
-  .one .tt-row{ grid-template-columns:1fr; gap:.2rem; }
-}
+.btn-ghost:hover { color: var(--ink); border-color: var(--cyan); }
 
-/* ── COBROS Y TRUEQUE (documentos) ────────── */
-.one .doc-grid{
-  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:clamp(1.4rem,3vw,2.2rem);
-  align-items:start;
+/* ═══════════ SECCIONES · ESTRUCTURA ═══════════ */
+.sec {
+  max-width: var(--w); margin: 0 auto; width: 100%;
+  padding: 120px clamp(20px, 4vw, 48px) 72px;
+  border-top: 1px solid var(--line);
 }
-.one .doc{
-  background:var(--white);
-  border:1px solid var(--ink);
-  padding:1.7rem 1.6rem 1.5rem;
+.sec-head { display: flex; align-items: baseline; gap: 26px; margin-bottom: 56px; }
+.sec-n {
+  display: inline-block;
+  font-family: var(--f-mono); font-size: 13px; color: var(--green);
+  border: 1px solid rgba(0, 242, 153, 0.35); padding: 3px 9px;
 }
-.one .doc-head{
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  margin-bottom:1.15rem;
-}
-.one .doc-k{
-  font-family:var(--serif); font-weight:600; font-size:1.2rem; letter-spacing:-.01em;
-}
-.one .stamp{
-  font-family:var(--monof); font-size:.58rem; letter-spacing:.22em;
-  text-transform:uppercase; color:var(--red);
-  border:2px solid var(--red);
-  padding:.32em .6em .32em .8em;
-  transform:rotate(-4deg);
-  flex:none;
-}
-.one .doc-num{
-  display:inline-block;
-  font-family:var(--monof); font-size:.76rem; letter-spacing:.04em;
-  background:var(--paper2); border:1px solid var(--line);
-  padding:.45rem .65rem; margin-bottom:1.1rem;
-}
-.one .doc-rows{ list-style:none; }
-.one .doc-rows li{
-  display:flex; align-items:baseline; justify-content:space-between; gap:1.2rem;
-  padding:.6rem 0;
-  border-bottom:1px dotted var(--line2);
-}
-.one .doc-rows .k{ color:var(--dim); font-size:.9rem; }
-.one .doc-rows .v{
-  font-family:var(--monof); font-size:.8rem; text-align:right;
-  font-variant-numeric:tabular-nums;
-}
-.one .doc-rows .v.big{ font-weight:600; font-size:.92rem; }
-.one .doc-note{
-  margin-top:1.1rem;
-  color:var(--dim); font-size:.82rem; line-height:1.6;
-}
-.one .doc-note code{
-  font-family:var(--monof); font-size:.76rem; color:var(--ink);
-  background:var(--paper2); padding:.05em .35em;
-}
+.sec-title { font-weight: 800; font-size: clamp(34px, 5vw, 60px); letter-spacing: -0.01em; line-height: 1.02; }
+.sec-intro { max-width: 62ch; color: var(--ink-dim); margin: -32px 0 48px; }
+.sec-intro em { color: var(--ink); }
 
-/* libro de trueque */
-.one .libro{ overflow-x:auto; }
-.one .libro table{
-  width:100%; border-collapse:collapse; min-width:430px;
+/* ═══════════ 01 · MANIFIESTO ═══════════ */
+.sec-manifiesto { padding-top: 150px; padding-bottom: 150px; }
+.manifiesto {
+  font-weight: 700; font-size: clamp(30px, 4.6vw, 58px);
+  line-height: 1.18; letter-spacing: -0.01em; max-width: 24ch;
 }
-.one .libro th{
-  font-family:var(--monof); font-size:.58rem; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--dim); font-weight:500;
-  text-align:left; padding:.45rem .5rem;
-  border-bottom:1px solid var(--ink);
-}
-.one .libro td{
-  font-size:.88rem; color:var(--ink);
-  padding:.75rem .5rem;
-  border-bottom:1px solid var(--line);
-  vertical-align:top;
-}
-.one .libro td.id{ font-family:var(--monof); font-size:.68rem; white-space:nowrap; }
-.one .libro td.num{ font-family:var(--monof); font-size:.76rem; white-space:nowrap; }
-.one .chip-open, .one .chip-closed{
-  font-family:var(--monof); font-size:.6rem; letter-spacing:.12em;
-  padding:.2em .5em; white-space:nowrap;
-}
-.one .chip-open{ background:var(--green); color:var(--ink); }
-.one .chip-closed{ color:var(--dim); border:1px solid var(--line2); }
+.manifiesto .w { opacity: 0.16; transition: opacity 0.5s ease; }
+.manifiesto .w.on { opacity: 1; }
 
-/* endpoint */
-.one .endpoint{
-  margin-top:clamp(1.4rem,3vw,2.2rem);
-  background:var(--white);
-  border:1px solid var(--ink);
-  border-left:7px solid var(--cyan);
-  padding:1.4rem 1.6rem;
+/* ═══════════ 02 · LIBRO MAYOR ═══════════ */
+.ledger { list-style: none; border-top: 1px solid var(--line); }
+.row {
+  display: grid; grid-template-columns: 72px 1fr 1.15fr; gap: 28px;
+  align-items: baseline; padding: 30px 4px;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.18s;
 }
-.one .endpoint-k{
-  font-family:var(--monof); font-size:.62rem; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--dim);
-  margin-bottom:.75rem;
+.row:hover { background: var(--bg-raise); }
+.row-n { font-family: var(--f-mono); font-size: 13px; color: var(--ink-dim); transition: color 0.18s; }
+.row:hover .row-n { color: var(--green); }
+.row-t { font-weight: 700; font-size: clamp(20px, 2.4vw, 27px); letter-spacing: -0.01em; }
+.row-d { font-size: 15.5px; color: var(--ink-dim); line-height: 1.6; }
+
+/* ═══════════ 03 · CICLO 24H ═══════════ */
+.cycle { margin-bottom: 64px; }
+.cycle-track {
+  position: relative; height: 52px;
+  border: 1px solid var(--line); background: var(--bg-raise);
 }
-.one .endpoint code{
-  display:block;
-  font-family:var(--monof); font-size:.82rem;
-  background:var(--paper2); border:1px solid var(--line);
-  padding:.8rem 1rem; overflow-x:auto; white-space:nowrap;
+.cycle-track::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+  background: var(--line);
 }
-.one .endpoint-d{
-  margin-top:.85rem; color:var(--dim); font-size:.92rem;
+.cycle-mark {
+  position: absolute; top: 0; bottom: 0; left: var(--p);
+  width: 1px; background: var(--line-strong);
 }
-.one .endpoint-d code{
-  font-family:var(--monof); font-size:.74rem; color:var(--ink);
-  background:var(--paper2); padding:.05em .35em;
+.cycle-mark.m19 { background: var(--cyan); opacity: 0.6; }
+.cycle-mark i {
+  position: absolute; top: -22px; left: -14px;
+  font-family: var(--f-mono); font-style: normal; font-size: 11px; color: var(--ink-dim);
 }
-@media (max-width:860px){ .one .doc-grid{ grid-template-columns:1fr; } }
-@media (max-width:560px){
-  .one .doc{ padding:1.4rem 1.1rem 1.2rem; }
-  .one .doc-rows li{ flex-direction:column; gap:.1rem; }
-  .one .doc-rows .v{ text-align:left; }
+.cycle-now {
+  position: absolute; top: 50%; left: 0%;
+  width: 13px; height: 13px; border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--cyan), 0 0 18px rgba(0, 242, 153, 0.8);
+  transform: translate(-50%, -50%);
+  transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cycle-hours {
+  display: flex; justify-content: space-between;
+  font-family: var(--f-mono); font-size: 11px; color: var(--ink-dim);
+  margin-top: 8px;
 }
 
-/* ── CONSOLA ──────────────────────────────── */
-.one .consola-box{
-  background:var(--white);
-  border:1px solid var(--ink);
-  display:flex; flex-direction:column; max-width:860px;
+.tt { border-left: 1px solid var(--line); padding-left: 28px; }
+.tt-row {
+  display: grid; grid-template-columns: 110px 1fr; gap: 18px;
+  padding: 11px 0; font-family: var(--f-mono); font-size: 13.5px;
 }
-.one .consola-log{
-  padding:1.3rem 1.2rem;
-  font-family:var(--monof);
-  font-size:.8rem; line-height:1.9; color:var(--ink);
-  height:340px; overflow-y:auto;
-  scrollbar-width:thin; scrollbar-color:var(--line2) transparent;
+.tt-t { color: var(--green); }
+.tt-d { color: var(--ink-dim); }
+.tt-d strong { color: var(--ink); }
+.tt-cap { font-family: var(--f-mono); font-size: 12px; color: var(--ink-dim); margin-top: 22px; }
+
+/* ═══════════ 04 · COBROS ═══════════ */
+.split { display: grid; grid-template-columns: 1fr 1.25fr; gap: 20px; align-items: stretch; }
+.doc {
+  border: 1px solid var(--line); background: var(--bg-raise);
+  padding: 26px 26px 22px;
+  transition: border-color 0.2s;
 }
-.one .consola-log::-webkit-scrollbar{ width:8px; }
-.one .consola-log::-webkit-scrollbar-thumb{ background:var(--line2); }
-.one .consola-log .t{ color:var(--dim); }
-.one .consola-log .tag-u{
-  background:var(--ink); color:var(--paper);
-  padding:.05em .25em; margin-right:.4em;
+.doc:hover { border-color: var(--line-strong); }
+.doc-head {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim);
+  padding-bottom: 14px; border-bottom: 1px solid var(--line);
 }
-.one .consola-log .tag-o{
-  background:var(--green); color:var(--ink);
-  padding:.05em .25em; margin-right:.4em;
+.doc-state { color: var(--red); border: 1px solid rgba(251, 44, 54, 0.4); padding: 2px 8px; }
+.doc-state.state-open { color: var(--green); border-color: rgba(0, 242, 153, 0.4); }
+.doc-num { font-family: var(--f-mono); font-size: 15px; margin: 16px 0 6px; }
+.doc-rows { list-style: none; }
+.doc-rows li {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 9px 0; border-bottom: 1px dashed var(--line);
+  font-size: 14.5px;
 }
-.one .consola-log .err{ color:var(--red); font-weight:500; }
-.one .consola-log .cursor{
-  display:inline-block; margin-left:.3em;
-  animation:pulso 1s steps(2) infinite; color:var(--ink);
+.doc-rows span { color: var(--ink-dim); font-family: var(--f-mono); font-size: 12.5px; padding-top: 2px; }
+.doc-rows b { font-weight: 500; text-align: right; }
+.doc-total { border-bottom: none; }
+.doc-total b {
+  font-family: var(--f-mono); font-weight: 700; font-size: 19px;
+  color: var(--green); font-variant-numeric: tabular-nums;
 }
-.one .consola-form{
-  display:flex; align-items:stretch;
-  border-top:1px solid var(--ink); background:var(--paper2);
+.libro { width: 100%; border-collapse: collapse; margin: 16px 0 4px; font-size: 14px; }
+.libro th {
+  text-align: left; font-family: var(--f-mono); font-weight: 500; font-size: 11.5px;
+  color: var(--ink-dim); padding: 8px 6px; border-bottom: 1px solid var(--line-strong);
 }
-.one .consola-form label{
-  font-family:var(--monof); color:var(--dim);
-  font-size:.76rem; white-space:nowrap;
-  display:flex; align-items:center;
-  padding:0 0 0 1.1rem;
+.libro td { padding: 11px 6px; border-bottom: 1px solid var(--line); }
+.libro .id { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink-dim); }
+.libro .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.doc-note { font-size: 12.5px; color: var(--ink-dim); margin-top: 14px; line-height: 1.55; }
+.doc-note code { font-family: var(--f-mono); font-size: 11.5px; color: var(--cyan); }
+
+.endpoint {
+  margin-top: 20px; border: 1px solid rgba(0, 209, 255, 0.28);
+  padding: 20px 24px; background: var(--bg-raise);
 }
-.one .consola-form input{
-  flex:1; min-width:0;
-  background:transparent; border:none; outline:none;
-  color:var(--ink); font-family:var(--monof); font-size:.8rem;
-  padding:.9rem .7rem;
+.endpoint-k {
+  font-family: var(--f-mono); font-size: 11.5px; color: var(--cyan);
+  letter-spacing: 0.06em; margin-bottom: 8px;
 }
-.one .consola-form input::placeholder{ color:var(--dim); opacity:.65; }
-.one .consola-form button{
-  font-family:var(--monof); font-size:.66rem; letter-spacing:.14em;
-  text-transform:uppercase;
-  background:var(--green); color:var(--ink);
-  border:none; border-left:1px solid var(--ink);
-  padding:0 1.5rem; cursor:pointer;
-  transition:background .16s, color .16s;
+.endpoint > code { font-family: var(--f-mono); font-size: 14.5px; }
+.endpoint-d { font-family: var(--f-mono); font-size: 12px; color: var(--ink-dim); margin-top: 10px; line-height: 1.8; }
+.endpoint-d code { color: var(--ink); font-size: 11.5px; }
+
+/* ═══════════ 05 · CONSOLA ═══════════ */
+.term { border: 1px solid var(--line); background: #080908; }
+.term-bar {
+  display: flex; align-items: center; gap: 7px;
+  padding: 11px 14px; border-bottom: 1px solid var(--line);
 }
-.one .consola-form button:hover:not(:disabled){
-  background:var(--ink); color:var(--paper);
+.term-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+.term-bar span:first-child { background: rgba(251, 44, 54, 0.75); }
+.term-bar b { font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; color: var(--ink-dim); margin-left: 8px; }
+.term-log {
+  padding: 18px 16px; min-height: 190px; max-height: 320px; overflow-y: auto;
+  font-family: var(--f-mono); font-size: 13.5px; line-height: 1.75;
 }
-.one .consola-form button:disabled{ opacity:.45; cursor:wait; }
-@media (max-width:620px){
-  .one .consola-log{ height:290px; font-size:.74rem; }
-  .one .consola-form label{ font-size:.66rem; padding-left:.8rem; }
+.term-log .ln { color: var(--ink-dim); }
+.term-log .tag { color: var(--green); font-weight: 700; margin-right: 10px; }
+.term-log .ln b { color: var(--ink); }
+.term-log .ln.u { color: var(--ink); }
+.term-log .ln .cmd { color: var(--cyan); }
+.term-form {
+  display: flex; align-items: center; gap: 12px;
+  border-top: 1px solid var(--line); padding: 12px 16px;
+}
+.term-form label { font-family: var(--f-mono); font-size: 13px; color: var(--green); white-space: nowrap; }
+.term-form input {
+  flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+  color: var(--ink); font-family: var(--f-mono); font-size: 13.5px; caret-color: var(--green);
+}
+.term-form button {
+  font-family: var(--f-mono); font-size: 12px; cursor: pointer;
+  background: transparent; color: var(--ink-dim);
+  border: 1px solid var(--line); padding: 7px 14px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.term-form button:hover { color: var(--bg); background: var(--green); border-color: var(--green); }
+
+/* ═══════════ 06 · CONTACTO ═══════════ */
+.sec-contacto { padding-bottom: 120px; }
+.contacto-big {
+  font-weight: 800; font-size: clamp(46px, 9vw, 128px);
+  line-height: 1; letter-spacing: -0.015em; margin: 18px 0 30px;
+}
+.contacto-txt { max-width: 46ch; color: var(--ink-dim); margin-bottom: 64px; }
+.legal { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim); border-top: 1px solid var(--line); padding-top: 20px; }
+
+/* ═══════════ PIE ═══════════ */
+.foot {
+  max-width: var(--w); margin: 0 auto;
+  display: flex; flex-wrap: wrap; gap: 14px 34px; justify-content: space-between;
+  padding: 26px clamp(20px, 4vw, 48px) 34px;
+  border-top: 1px solid var(--line);
+  font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-dim);
 }
 
-/* ── CONTACTO ─────────────────────────────── */
-.one .contacto-big{
-  font-family:var(--serif); font-weight:600;
-  font-size:clamp(2.5rem,6.4vw,5.2rem);
-  line-height:1.05; letter-spacing:-.02em;
-  max-width:16ch;
-  margin-bottom:1.6rem;
+/* ═══════════ REVEALS ═══════════ */
+[data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+[data-reveal].in { opacity: 1; transform: none; }
+
+/* ═══════════ RESPONSIVE ═══════════ */
+@media (max-width: 880px) {
+  .nav { display: none; }
+  .row { grid-template-columns: 48px 1fr; }
+  .row-d { grid-column: 2; }
+  .split { grid-template-columns: 1fr; }
+  .sec { padding-top: 84px; padding-bottom: 56px; }
+  .sec-manifiesto { padding-top: 100px; padding-bottom: 100px; }
+  .shift-legend { font-size: 10px; }
+  .cycle-mark i { font-size: 10px; }
 }
-.one .contacto-txt{ max-width:52ch; color:var(--dim); font-size:1.05rem; }
-.one .legal{
-  font-family:var(--monof);
-  margin-top:2.6rem; padding-top:1.3rem;
-  border-top:1px solid var(--line2);
-  font-size:.66rem; letter-spacing:.12em; color:var(--dim);
+@media (max-width: 560px) {
+  .top-live { padding: 6px 9px; font-size: 11px; }
+  .hero { min-height: auto; padding-top: 56px; }
+  .clock { font-size: clamp(54px, 17.5vw, 110px); }
+  .shift-legend { flex-direction: column; gap: 5px; align-items: flex-start; font-size: 9.5px; }
+  .shift-legend span { white-space: normal; text-align: left !important; }
+  .tt-row { grid-template-columns: 88px 1fr; gap: 10px; font-size: 12.5px; }
+  .doc-rows li { flex-direction: column; gap: 3px; }
+  .doc-rows b { text-align: left; }
 }
 
-/* ── PIE ──────────────────────────────────── */
-.one .foot{
-  border-top:1px solid var(--ink);
-  display:flex; flex-wrap:wrap; gap:.7rem 2.4rem; justify-content:space-between;
-  padding-top:1.5rem; padding-bottom:2.4rem;
-  font-family:var(--monof); font-size:.62rem; letter-spacing:.12em; color:var(--dim);
+/* ═══════════ MOVIMIENTO REDUCIDO ═══════════ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .pulse, .grain { animation: none; }
+  .shift-fill, .cycle-now { transition: none; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .manifiesto .w { opacity: 1; transition: none; }
 }
-
-/* ── REVEALS ──────────────────────────────── */
-.one [data-reveal]{
-  opacity:0; transform:translateY(20px);
-  transition:opacity .65s ease, transform .65s ease;
-}
-.one [data-reveal].in{ opacity:1; transform:none; }
-@media (prefers-reduced-motion:reduce){
-  html{ scroll-behavior:auto; }
-  .one [data-reveal]{ opacity:1; transform:none; transition:none; }
-  .one .dot-red, .one .consola-log .cursor{ animation:none; }
-}
-
-/* ── SKIP LINK ────────────────────────────── */
-.one .skip{
-  position:fixed; top:-4rem; left:1rem; z-index:100;
-  font-family:var(--monof); font-size:.7rem; letter-spacing:.1em;
-  background:var(--ink); color:var(--paper);
-  padding:.7rem 1.1rem; transition:top .2s;
-}
-.one .skip:focus{ top:1rem; }
 
 </style>
 </head>
 <body>
-<div class="one">
+<div class="grain" aria-hidden="true"></div>
 
 <a class="skip" href="#contenido">Saltar al contenido</a>
 
-<!-- ═══════════ CABECERA ═══════════ -->
 <header class="top">
   <a class="brand" href="#inicio">
-    <span class="brand-mark">ONE</span>
-    <span class="brand-sub">ALICELABS&nbsp;LLC</span>
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">ONE</span>
+    <span class="brand-sub">AliceLabs LLC</span>
   </a>
   <nav class="nav" aria-label="Secciones">
     <a href="#que-hace">Qué hace</a>
-    <a href="#rutina">Rutina</a>
+    <a href="#rutina">Ciclo</a>
     <a href="#cobros">Cobros</a>
     <a href="#consola">Consola</a>
     <a href="#contacto">Contacto</a>
   </nav>
-  <div class="clock-chip" aria-label="Hora de Ecuador">
-    <span class="dot" aria-hidden="true"></span>
-    <span>GYE&nbsp;<span id="reloj">--:--:--</span></span>
-  </div>
+  <p class="top-live">
+    <span class="pulse" aria-hidden="true"></span>
+    <span class="top-live-k">GYE</span>
+    <span id="reloj">--:--:--</span>
+  </p>
 </header>
 
 <main id="contenido">
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- ═══════════ HERO · EL INSTRUMENTO ═══════════ -->
 <section class="hero" id="inicio">
-  <div>
-    <p class="hero-kicker">Agente operativo · Guayaquil, EC · UTC−5 · Sheridan, WY</p>
-    <h1 class="hero-title">
-      <span>Trabaja de noche.</span>
-      <span>Cobra en <em class="hl">Monero</em>.</span>
-      <span>Reporta a las <em class="ul">07:00</em>.</span>
-    </h1>
-    <p class="hero-sub">ONE es el agente operativo de AliceLabs. Cada madrugada analiza el catálogo, puntúa nichos y deja el informe en tu correo antes de las 07:00, hora Ecuador. Desde esta misma página se le opera: se le habla, se le factura en XMR y se truetan horas de cómputo.</p>
-    <div class="hero-cta">
-      <a class="btn" href="#consola">Hablar con ONE</a>
-      <a class="link-ul" href="#rutina">Ver la rutina ↓</a>
+  <p class="hero-status">
+    <span class="pulse" aria-hidden="true"></span>
+    Turno de noche · Guayaquil, EC · UTC−5
+  </p>
+
+  <h1 class="h1">ONE, agente operativo de AliceLabs: trabaja de noche, cobra en Monero y reporta a las 07:00.</h1>
+
+  <p class="clock" id="estado-hora" role="timer" aria-label="Hora de Guayaquil">--:--<span class="clock-s" id="reloj-seg">:--</span></p>
+
+  <div class="shift" role="img" aria-label="Ciclo de 24 horas desde el último informe">
+    <div class="shift-track">
+      <div class="shift-fill" id="barra-ciclo"></div>
+      <span class="shift-mark m19" aria-hidden="true"></span>
+    </div>
+    <div class="shift-legend">
+      <span>07:00 · último informe</span>
+      <span>19:00 · arranca el turno</span>
+      <span>07:00 · próximo informe</span>
     </div>
   </div>
 
-  <dl class="ficha" data-reveal>
-    <div class="ficha-head">
-      <span class="dot-red" aria-hidden="true"></span>
-      En vivo · hora de Guayaquil
-    </div>
-    <div class="ficha-row">
-      <dt>Hora Guayaquil</dt>
-      <dd><span id="estado-hora">--:--:--</span></dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Próximo ciclo</dt>
-      <dd><span id="estado-ciclo">--</span></dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Estado</dt>
-      <dd><span class="dot-red" aria-hidden="true"></span>Operativo</dd>
-    </div>
-    <div class="ficha-row">
-      <dt>Moneda de cobro</dt>
-      <dd>XMR · Monero</dd>
-    </div>
-  </dl>
+  <p class="hero-count">Próximo informe en <strong id="estado-ciclo">--</strong> · llega <em>antes de las 07:00</em> o no llega.</p>
+
+  <div class="hero-cta">
+    <a class="btn" href="#consola">Hablar con ONE</a>
+    <a class="btn-ghost" href="#cobros">Ver tarifas en XMR</a>
+  </div>
 </section>
 
-<!-- ═══════════ 01 MANIFIESTO ═══════════ -->
-<section class="sec" id="manifiesto">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>01 — Manifiesto</p>
-  <p class="manifiesto" data-reveal>Un agente no descansa, no olvida y no pide permiso dos veces. ONE revisa, analiza y decide cada mañana antes de que abran las tiendas. Lo que llega a tu correo a las 07:00 es el resultado de una noche entera de trabajo: filtrado, puntuado y sin adornos. Sin humo: <em class="hl">datos o silencio</em>.</p>
+<!-- ═══════════ 01 · MANIFIESTO ═══════════ -->
+<section class="sec sec-manifiesto" id="manifiesto">
+  <p class="manifiesto" data-words>Un agente no descansa, no olvida y no pide permiso dos veces. Una noche entera de filtrado, puntuado y verificación acaba en un solo correo. Sin humo: datos o silencio.</p>
 </section>
 
-<!-- ═══════════ 02 QUÉ HACE ═══════════ -->
+<!-- ═══════════ 02 · LO QUE HACE · LIBRO MAYOR ═══════════ -->
 <section class="sec" id="que-hace">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>02 — Lo que hace</p>
-  <h2 class="sec-title">Seis servicios, un solo operador.</h2>
-  <ol class="index">
-    <li data-reveal>
-      <span class="row-n">(01)</span>
+  <div class="sec-head">
+    <p class="sec-n">02</p>
+    <h2 class="sec-title">Lo que hace</h2>
+  </div>
+  <ol class="ledger">
+    <li class="row" data-reveal>
+      <span class="row-n">01</span>
       <h3 class="row-t">Informe de las 07:00</h3>
       <p class="row-d">Análisis completo del catálogo: miles de productos puntuados por demanda real, margen y competencia. En tu correo privado antes de que abras la tienda.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(02)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">02</span>
       <h3 class="row-t">Radar de nichos</h3>
       <p class="row-d">Escaneo de bibliotecas publicitarias para medir qué tan saturado está cada nicho. Solo se aprueban los de competencia baja.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(03)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">03</span>
       <h3 class="row-t">Investigación en fuente viva</h3>
       <p class="row-d">Precios, proveedores y movimientos del mercado verificados en la fuente. Nada inventado, nada reenviado.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(04)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">04</span>
       <h3 class="row-t">Memoria persistente</h3>
       <p class="row-d">ONE no empieza de cero cada día: el contexto entre sesiones y ciclos se conserva y se usa.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(05)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">05</span>
       <h3 class="row-t">Cobros en Monero</h3>
-      <p class="row-d">Facturas en XMR con conversión del dólar a tasa de mercado y registro auditado de cada pago. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
+      <p class="row-d">Facturas en XMR a tasa de mercado con libro auditado. Cobrar es una herramienta de su servidor MCP, no una promesa.</p>
     </li>
-    <li data-reveal>
-      <span class="row-n">(06)</span>
+    <li class="row" data-reveal>
+      <span class="row-n">06</span>
       <h3 class="row-t">Trueque de cómputo</h3>
-      <p class="row-d">Un libro abierto donde se intercambian GPU-h, CPU-h y RAM-GB-h por XMR u otros recursos. La potencia de cálculo se cambia; no se compra.</p>
+      <p class="row-d">GPU-h, CPU-h y RAM-GB-h se intercambian por XMR u otros recursos en un libro abierto. La potencia se cambia; no se compra.</p>
     </li>
   </ol>
 </section>
 
-<!-- ═══════════ 03 RUTINA ═══════════ -->
+<!-- ═══════════ 03 · EL CICLO · LÍNEA DE 24 HORAS ═══════════ -->
 <section class="sec" id="rutina">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>03 — La rutina</p>
-  <h2 class="sec-title">La madrugada, minuto a minuto.</h2>
+  <div class="sec-head">
+    <p class="sec-n">03</p>
+    <h2 class="sec-title">El ciclo, minuto a minuto</h2>
+  </div>
+
+  <div class="cycle" data-reveal>
+    <div class="cycle-track" id="ciclo-track" role="img" aria-label="Línea de tiempo de 24 horas con la posición actual">
+      <span class="cycle-mark" style="--p:0%"><i>07:00</i></span>
+      <span class="cycle-mark m19" style="--p:50%"><i>19:00</i></span>
+      <span class="cycle-mark" style="--p:100%"><i>07:00</i></span>
+      <span class="cycle-now" id="marcador-ciclo" aria-hidden="true"></span>
+    </div>
+    <div class="cycle-hours" aria-hidden="true">
+      <span>07</span><span>13</span><span>19</span><span>01</span><span>07</span>
+    </div>
+  </div>
+
   <div class="tt" data-reveal>
     <div class="tt-row"><span class="tt-t">06:59:58</span><span class="tt-d">El cron despierta el ciclo diario.</span></div>
     <div class="tt-row"><span class="tt-t">07:00:00</span><span class="tt-d">Catálogo completo descargado y normalizado.</span></div>
@@ -646,113 +541,111 @@ body{
     <div class="tt-row"><span class="tt-t">07:00:53</span><span class="tt-d">Informe privado entregado al correo.</span></div>
     <div class="tt-row"><span class="tt-t">07:00:54</span><span class="tt-d">Ciclo cerrado. ONE vuelve a dormir.</span></div>
   </div>
-  <p class="tt-cap">Registro típico de un ciclo diario · hora de Guayaquil (UTC−5). El informe llega <em>antes de las 07:00</em> o no llega.</p>
+  <p class="tt-cap">Registro típico de un ciclo · hora de Guayaquil (UTC−5). El informe llega antes de las 07:00 o no llega.</p>
 </section>
 
-<!-- ═══════════ 04 COBROS Y TRUEQUE ═══════════ -->
+<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
 <section class="sec" id="cobros">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>04 — Cobros y trueque</p>
-  <h2 class="sec-title">Se le paga como a un proveedor.</h2>
-  <p class="sec-intro">A ONE se le liquida en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
+  <div class="sec-head">
+    <p class="sec-n">04</p>
+    <h2 class="sec-title">Se le paga como a un proveedor</h2>
+  </div>
+  <p class="sec-intro">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el tuyo— se conecta y lo opera como herramienta.</p>
 
-  <div class="doc-grid">
+  <div class="split">
     <article class="doc" data-reveal>
       <div class="doc-head">
-        <span class="doc-k">Factura</span>
-        <span class="stamp">Espécimen</span>
+        <span>Factura · espécimen</span>
+        <span class="doc-state">EMITIDA</span>
       </div>
       <p class="doc-num">INV-20261106-0A3F</p>
       <ul class="doc-rows">
-        <li><span class="k">Concepto</span><span class="v">Informe de nichos · ciclo diario</span></li>
-        <li><span class="k">Monto</span><span class="v">US$ 120,00</span></li>
-        <li><span class="k">Tasa XMR/USD · Kraken</span><span class="v">148,20</span></li>
-        <li><span class="k">Importe</span><span class="v big">0,8097 XMR</span></li>
-        <li><span class="k">Estado</span><span class="v">EMITIDA · pendiente de pago</span></li>
+        <li><span>Concepto</span><b>Informe de nichos · ciclo diario</b></li>
+        <li><span>Monto</span><b>US$ 120,00</b></li>
+        <li><span>Tasa XMR/USD · Kraken</span><b>148,20</b></li>
+        <li class="doc-total"><span>Importe</span><b>0,8097 XMR</b></li>
       </ul>
-      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago; el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
+      <p class="doc-note">Con <code>ONE_XMR_ADDRESS</code> configurado, la factura incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
 
     <article class="doc" data-reveal>
       <div class="doc-head">
-        <span class="doc-k">Libro de trueque</span>
-        <span class="stamp">Espécimen</span>
+        <span>Libro de trueque · espécimen</span>
+        <span class="doc-state state-open">ABIERTO</span>
       </div>
-      <div class="libro">
-        <table>
-          <thead>
-            <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th><th scope="col">Estado</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="id">TRQ-20261106-B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td><td><span class="chip-open">ABIERTO</span></td></tr>
-            <tr><td class="id">TRQ-20261105-C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td><td><span class="chip-closed">CERRADO</span></td></tr>
-            <tr><td class="id">TRQ-20261104-A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td><td><span class="chip-closed">CERRADO</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="libro">
+        <thead>
+          <tr><th scope="col">Operación</th><th scope="col">Ofrece</th><th scope="col">Pide</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num">0,35 XMR</td></tr>
+          <tr><td class="id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num">120 RAM-GB-h</td></tr>
+          <tr><td class="id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num">50 GPU-h</td></tr>
+        </tbody>
+      </table>
       <p class="doc-note">Cada oferta vence a las 72 horas. La contraparte cierra el trato y el libro deja constancia: quién aportó potencia y quién pagó.</p>
     </article>
   </div>
 
   <div class="endpoint" data-reveal>
     <p class="endpoint-k">Endpoint MCP</p>
-    <code>POST /api/mcp&nbsp;&nbsp;·&nbsp;&nbsp;{"method":"tools/list"}</code>
+    <code>POST /api/mcp · {"method":"tools/list"}</code>
     <p class="endpoint-d">Siete herramientas: <code>one_estado</code> · <code>one_cobrar</code> · <code>one_pagar</code> · <code>one_pagos_listar</code> · <code>one_trueque_ofrecer</code> · <code>one_trueque_listar</code> · <code>one_trueque_cerrar</code></p>
   </div>
 </section>
 
-<!-- ═══════════ 05 CONSOLA ═══════════ -->
+<!-- ═══════════ 05 · CONSOLA ═══════════ -->
 <section class="sec" id="consola">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>05 — Consola</p>
-  <h2 class="sec-title">Háblele.</h2>
-  <p class="sec-intro">El razonamiento corre en el servidor; aquí nunca hay claves. Lo privado <em>no sale de este canal</em>.</p>
-  <div class="consola-box">
-    <div class="consola-log" aria-live="polite">
-      <div class="ln"><span class="t">ONE · consola pública — sin datos privados. Pregunta y enter.</span></div>
-      <div class="ln"><span class="tag-o">one&nbsp;&nbsp;&nbsp;&nbsp;</span> Conectado. ¿Qué necesitas?</div>
+  <div class="sec-head">
+    <p class="sec-n">05</p>
+    <h2 class="sec-title">Háblele</h2>
+  </div>
+  <p class="sec-intro">Consola pública y local: corre en tu navegador, sin claves y sin servidor. Lo privado <em>no sale de este canal</em>.</p>
+
+  <div class="term" data-reveal>
+    <div class="term-bar" aria-hidden="true">
+      <span></span><span></span><span></span>
+      <b>one@alicelabs — consola</b>
     </div>
-    <form class="consola-form" onsubmit="return false">
+    <div class="term-log" id="term-log" aria-live="polite"></div>
+    <form class="term-form" id="term-form" autocomplete="off">
       <label for="consola-in">one@alicelabs:~$</label>
-      <input id="consola-in" maxlength="600" autocomplete="off" placeholder="escribe aquí…">
+      <input id="consola-in" maxlength="600" spellcheck="false" placeholder="ayuda" aria-label="Comando">
       <button type="submit">Enviar</button>
     </form>
   </div>
 </section>
 
-<!-- ═══════════ 06 CONTACTO ═══════════ -->
-<section class="sec" id="contacto">
-  <p class="sec-label"><span class="sq" aria-hidden="true"></span>06 — Contacto</p>
-  <h2 class="contacto-big" data-reveal>El boletín es <em class="hl">privado</em>.</h2>
+<!-- ═══════════ 06 · CONTACTO ═══════════ -->
+<section class="sec sec-contacto" id="contacto">
+  <p class="sec-n">06</p>
+  <h2 class="contacto-big" data-words>El boletín es privado.</h2>
   <p class="contacto-txt" data-reveal>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lees, ya sabes dónde encontrarme.</p>
-  <p class="legal" data-reveal>ALICELABS&nbsp;LLC&nbsp;—&nbsp;30&nbsp;N&nbsp;GOULD&nbsp;ST,&nbsp;STE&nbsp;R&nbsp;·&nbsp;SHERIDAN,&nbsp;WY&nbsp;82801&nbsp;·&nbsp;EE.&nbsp;UU.</p>
+  <p class="legal">AliceLabs LLC — 30 N Gould St, Ste R · Sheridan, WY 82801 · EE. UU.</p>
 </section>
 
 </main>
 
-<!-- ═══════════ PIE ═══════════ -->
 <footer class="foot">
-  <span>©&nbsp;2026&nbsp;ALICELABS&nbsp;LLC</span>
-  <span>GUAYAQUIL,&nbsp;EC&nbsp;—&nbsp;UTC−5</span>
-  <span>Compuesta&nbsp;en&nbsp;Fraunces,&nbsp;Archivo&nbsp;e&nbsp;IBM&nbsp;Plex&nbsp;Mono</span>
-  <span>SIN&nbsp;COOKIES&nbsp;·&nbsp;SIN&nbsp;TRACKING</span>
-  <span>v2.0</span>
+  <span>© 2026 AliceLabs LLC</span>
+  <span>Guayaquil, EC — UTC−5</span>
+  <span>Compuesta en Syne y JetBrains Mono</span>
+  <span>SIN COOKIES · SIN TRACKING</span>
+  <span>v3.0</span>
 </footer>
 
-</div>
 <script>
-/* ONE — AliceLabs LLC · lógica de la página
-   Reloj vivo y cuenta regresiva en hora de Ecuador (America/Guayaquil, UTC−5).
-   Sin librerías, sin tracking, sin cookies. */
+/* ONE v3.0 — AliceLabs LLC · lógica de la página
+   Reloj vivo, ciclo 24h, revelado por palabras y consola local honesta.
+   Sin librerías, sin tracking, sin cookies. Hora siempre America/Guayaquil. */
 
 (function () {
   'use strict';
 
   var TZ = 'America/Guayaquil';
+  var $ = function (id) { return document.getElementById(id); };
 
   // ── Hora de Ecuador ──────────────────────────────────────
-  var fmtHora = new Intl.DateTimeFormat('es-EC', {
-    timeZone: TZ, hour12: false,
-    hour: '2-digit', minute: '2-digit', second: '2-digit'
-  });
   var fmtPartes = new Intl.DateTimeFormat('en-US', {
     timeZone: TZ, hour12: false,
     hour: '2-digit', minute: '2-digit', second: '2-digit'
@@ -765,32 +658,43 @@ body{
     }, {});
     return { h: p.hour % 24, m: p.minute, s: p.second };
   }
+  function dos(n) { return (n < 10 ? '0' : '') + n; }
 
   // Segundos que faltan para el próximo 07:00:00 EC
   function segHastaCiclo() {
     var t = horaEC();
     var ahora = t.h * 3600 + t.m * 60 + t.s;
-    var objetivo = 7 * 3600;
-    var diff = objetivo - ahora;
+    var diff = 7 * 3600 - ahora;
     if (diff <= 0) diff += 24 * 3600;
     return diff;
   }
 
-  function dos(n) { return (n < 10 ? '0' : '') + n; }
-
+  // ── Tick principal: relojes + barra de ciclo + marcador ──
   function tick() {
-    var reloj = document.getElementById('reloj');
-    var eHora = document.getElementById('estado-hora');
-    var eCiclo = document.getElementById('estado-ciclo');
-    if (reloj) reloj.textContent = fmtHora.format(new Date());
-    if (eHora) eHora.textContent = fmtHora.format(new Date());
-    if (eCiclo) {
-      var s = segHastaCiclo();
-      var h = Math.floor(s / 3600);
-      var m = Math.floor((s % 3600) / 60);
-      var sec = s % 60;
-      eCiclo.textContent = 'EN ' + dos(h) + 'H ' + dos(m) + 'M ' + dos(sec) + 'S';
-    }
+    var t = horaEC();
+    var hhmm = dos(t.h) + ':' + dos(t.m);
+    var seg = ':' + dos(t.s);
+
+    var reloj = $('reloj');            // segundos en el chip de cabecera
+    if (reloj) reloj.textContent = hhmm + seg;
+    var eHora = $('estado-hora');      // reloj gigante del hero
+    if (eHora) eHora.firstChild.nodeValue = hhmm;
+    var eSeg = $('reloj-seg');
+    if (eSeg) eSeg.textContent = seg;
+
+    var s = segHastaCiclo();
+    var eCiclo = $('estado-ciclo');
+    if (eCiclo) eCiclo.textContent = dos(Math.floor(s / 3600)) + 'h ' +
+      dos(Math.floor((s % 3600) / 60)) + 'm ' + dos(s % 60) + 's';
+
+    // posición en el ciclo de 24h (0% = 07:00, 50% = 19:00, 100% = 07:00)
+    var ahora = t.h * 3600 + t.m * 60 + t.s;
+    var desde07 = (ahora - 7 * 3600 + 24 * 3600) % (24 * 3600);
+    var pct = (desde07 / (24 * 3600)) * 100;
+    var barra = $('barra-ciclo');
+    if (barra) barra.style.width = pct + '%';
+    var marca = $('marcador-ciclo');
+    if (marca) marca.style.left = pct + '%';
   }
 
   tick();
@@ -800,18 +704,154 @@ body{
   var elementos = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e, i) {
+      entradas.forEach(function (e) {
         if (e.isIntersecting) {
-          var el = e.target;
-          el.style.transitionDelay = (Math.min(i, 5) * 70) + 'ms';
-          el.classList.add('in');
-          io.unobserve(el);
+          e.target.classList.add('in');
+          io.unobserve(e.target);
         }
       });
     }, { threshold: 0.12 });
     elementos.forEach(function (el) { io.observe(el); });
   } else {
     elementos.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // ── Manifiesto: revelado palabra a palabra ──────────────
+  document.querySelectorAll('[data-words]').forEach(function (bloque) {
+    var texto = bloque.textContent.trim().split(/\s+/);
+    bloque.textContent = '';
+    texto.forEach(function (palabra, i) {
+      var sp = document.createElement('span');
+      sp.className = 'w';
+      sp.textContent = palabra;
+      bloque.appendChild(sp);
+      if (i < texto.length - 1) bloque.appendChild(document.createTextNode(' '));
+    });
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      bloque.querySelectorAll('.w').forEach(function (w) { w.classList.add('on'); });
+      return;
+    }
+    var ioW = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var ws = bloque.querySelectorAll('.w');
+        ws.forEach(function (w, i) {
+          setTimeout(function () { w.classList.add('on'); }, i * 55);
+        });
+        ioW.unobserve(bloque);
+      });
+    }, { threshold: 0.35 });
+    ioW.observe(bloque);
+  });
+
+  // ── Consola local honesta ───────────────────────────────
+  var log = $('term-log');
+  var form = $('term-form');
+  var input = $('consola-in');
+
+  function linea(clase, html) {
+    var p = document.createElement('p');
+    p.className = 'ln' + (clase ? ' ' + clase : '');
+    p.innerHTML = html;
+    log.appendChild(p);
+    log.scrollTop = log.scrollHeight;
+    return p;
+  }
+  function escribe(clase, texto, vel) {
+    var p = linea(clase, '');
+    var i = 0;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) { p.textContent = texto; log.scrollTop = log.scrollHeight; return; }
+    (function paso() {
+      if (i <= texto.length) {
+        p.textContent = texto.slice(0, i);
+        i += 2;
+        log.scrollTop = log.scrollHeight;
+        setTimeout(paso, vel || 12);
+      }
+    })();
+  }
+
+  function respuesta(cmd) {
+    var t = horaEC();
+    switch (cmd) {
+      case 'ayuda':
+        linea('', '<span class="tag">one</span>Comandos disponibles: <b>estado</b> · <b>hora</b> · <b>tarifas</b> · <b>trueques</b> · <b>mcp</b> · <b>quien</b> · <b>clear</b>');
+        break;
+      case 'estado':
+        escribe('u', 'Hora Guayaquil: ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' (UTC−5) · Estado: OPERATIVO · ' +
+          'Próximo informe en ' + $('estado-ciclo').textContent + ' · Moneda: XMR (Monero)');
+        break;
+      case 'hora':
+        escribe('u', dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' — hora de Guayaquil, Ecuador.');
+        break;
+      case 'tarifas':
+        linea('', '<span class="tag">one</span>Liquidación en XMR a tasa de mercado (ref. Kraken). Espécimen: US$ 120,00 → 0,8097 XMR a 148,20. Sin suscripciones: boleta por encargo.');
+        break;
+      case 'trueques':
+        linea('', '<span class="tag">one</span>Libro (espécimen): TRQ-…B4K2 · 40 GPU-h ↔ 0,35 XMR · ABIERTO — TRQ-…C7D1 · 600 CPU-h ↔ 120 RAM-GB-h · CERRADO — TRQ-…A9F0 · 2 TB tránsito ↔ 50 GPU-h · CERRADO');
+        break;
+      case 'mcp':
+        linea('', '<span class="tag">one</span>Endpoint: <b>POST /api/mcp</b> (streamable HTTP, CORS abierto). Siete herramientas: one_estado, one_cobrar, one_pagar, one_pagos_listar, one_trueque_ofrecer, one_trueque_listar, one_trueque_cerrar.');
+        escribe('', 'El backend HTTP completo corre en despliegue propio (Worker); esta consola pública interpreta localmente y nunca ve claves.');
+        break;
+      case 'quien':
+        escribe('u', 'ONE — agente operativo de AliceLabs LLC (30 N Gould St, Ste R, Sheridan, WY 82801). Trabaja de noche, cobra en Monero, reporta a las 07:00 EC.');
+        break;
+      case 'clear':
+        log.innerHTML = '';
+        break;
+      case '':
+        break;
+      default:
+        escribe('', 'Canal público: no proceso datos privados aquí. Escribe ayuda para ver los comandos.', 8);
+    }
+  }
+
+  // ── Arranque de la consola: se escribe solo al entrar en pantalla ──
+  function arranque() {
+    var t = horaEC();
+    escribe('', 'Turno abierto · ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' EC — agente OPERATIVO.', 14);
+    setTimeout(function () {
+      escribe('', 'El informe de las 07:00 sale por correo. Esta consola corre en tu navegador y no ve claves.', 10);
+    }, 700);
+    setTimeout(function () {
+      linea('', '<span class="tag">one</span>Escribe <b>ayuda</b> para ver los comandos.');
+    }, 1600);
+  }
+
+  if (log) {
+    var termEl = document.querySelector('.term');
+    var lanzado = false;
+    if (termEl && 'IntersectionObserver' in window &&
+        !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+      var ioT = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (e) {
+          if (e.isIntersecting && !lanzado) {
+            lanzado = true;
+            arranque();
+            ioT.unobserve(termEl);
+          }
+        });
+      }, { threshold: 0.3 });
+      ioT.observe(termEl);
+    } else {
+      var t = horaEC();
+      linea('', '<span class="tag">one</span>Turno abierto · ' + dos(t.h) + ':' + dos(t.m) + ':' + dos(t.s) + ' EC — agente OPERATIVO. Escribe <b>ayuda</b> para ver los comandos.');
+    }
+  }
+
+  if (form && input && log) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var val = input.value.trim();
+      if (val) linea('u', '<span class="cmd">$</span> ' + val.replace(/[<>&]/g, function (c) {
+        return { '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c];
+      }));
+      respuesta(val.toLowerCase());
+      input.value = '';
+    });
   }
 })();
 
