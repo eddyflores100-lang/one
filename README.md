@@ -3,7 +3,7 @@
 **Trabaja de madrugada, cobra en Monero y reporta a las 07:00 hora de Guayaquil.**
 
 [![Estado](https://img.shields.io/badge/estado-OPERATIVO-00F299?style=flat-square)](https://eddyflores100-lang.github.io/one/)
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-4.3-14120C?style=flat-square)](CHANGELOG.md)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-4.4-14120C?style=flat-square)](CHANGELOG.md)
 [![Licencia](https://img.shields.io/badge/licencia-Apache--2.0-14120C?style=flat-square)](LICENSE)
 [![MCP](https://img.shields.io/badge/MCP-7%20herramientas-0099C7?style=flat-square)](mcp/README.md)
 
@@ -13,6 +13,7 @@ para cobrar en XMR y traba r potencia de cómputo. Sin planes, sin
 suscripciones: boleta por encargo, libro auditable.
 
 - **Página en vivo** → https://eddyflores100-lang.github.io/one/
+- **Tablero** → https://eddyflores100-lang.github.io/one/tablero.html (operaciones en vivo)
 - **Canal** → caja de conversación directa en la propia página
 - **MCP** → `one-mcp` en el edge, `one_cobrar` / `one_pagar` / trueque de cómputo
 
@@ -129,11 +130,12 @@ Ejemplo tasado: US$ 120 → **0,8097 XMR** a tasa 148,20.
 
 ```
 one/
-├── index.html                  página operativa (v4.3, teletipo que respira)
-├── one-standalone.html         la página completa en un solo archivo portable
+├── index.html                  portada operativa (v4.4, teletipo + bento + marquesina)
+├── tablero.html                tablero de operaciones en vivo (reloj, pulso, MCP)
+├── one-standalone.html         la portada completa en un solo archivo portable
 ├── assets/
-│   ├── app.js                  cerebro local (26 temas) + teletipo + reloj
-│   ├── styles.css              canon visual (papel y tinta)
+│   ├── app.js                  cerebro local (26 temas) + teletipo + elementos modernos
+│   ├── styles.css              canon visual (papel y tinta) + v4.4
 │   └── og.png                  imagen social
 ├── agent/
 │   └── one.json                manifiesto completo del agente (legible por máquina)

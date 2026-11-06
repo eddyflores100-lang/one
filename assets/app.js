@@ -1,7 +1,7 @@
-/* ONE v4.1 — AliceLabs LLC · lógica de la página
-   Teletipo que respira + canal directo con cerebro en dos pisos:
-   1) CEREBRO REMOTO (Worker Cloudflare + Workers AI) si está conectado.
-   2) CEREBRO LOCAL (este archivo): 26 temas, seguimientos, sin repetir.
+/* ONE v4.4 — AliceLabs LLC · lógica de la página
+   Teletipo que respira + canal con cerebro en dos pisos + elementos modernos
+   (rotador de palabras, contadores, marquesina CSS, progreso de lectura,
+   indicador de escritura) y datos vivos para el bento y el tablero.
    Hora siempre America/Guayaquil. Lo que escribe aquí no sale del navegador
    salvo que el cerebro remoto esté activo. */
 
@@ -76,6 +76,24 @@
     var pct = (desde07 / (24 * 3600)) * 100;
     var marca = $('marcador-ciclo');
     if (marca) marca.style.left = pct + '%';
+
+    // bento de la portada (Nº 03 · El tablero)
+    var bHora = $('b-hora');
+    if (bHora) bHora.textContent = hhmmss;
+    var bCuenta = $('b-cuenta');
+    if (bCuenta) bCuenta.textContent = textoCiclo();
+    var bEstado = $('b-estado');
+    if (bEstado) bEstado.textContent = 'Agente ' + estadoTurno();
+
+    // tablero de operaciones (página propia)
+    var gHora = $('g-hora');
+    if (gHora) gHora.textContent = hhmmss;
+    var gFecha = $('g-fecha');
+    if (gFecha) gFecha.textContent = fmtFecha.format(new Date()).toUpperCase() + ' · UTC−5';
+    var gCuenta = $('g-cuenta');
+    if (gCuenta) gCuenta.textContent = textoCiclo();
+    var gEstado = $('g-estado');
+    if (gEstado) gEstado.textContent = (t.h >= 19 || t.h < 7) ? 'DE TURNO · TRABAJANDO' : 'OPERATIVO · EN ESPERA';
   }
   tick();
   setInterval(tick, 1000);
@@ -199,6 +217,95 @@
       }, { threshold: 0.25 });
       ioC.observe(cinta);
     }
+  }
+
+  // ── Rotador de palabras del despacho (21st.dev: word rotate) ──
+  var rotor = $('rotor');
+  if (rotor) {
+    var PALABRAS = ['lee', 'puntúa', 'verifica', 'filtra', 'entrega'];
+    var pi = 0;
+    if (reduce) {
+      rotor.textContent = PALABRAS[0];
+    } else {
+      setInterval(function () {
+        pi = (pi + 1) % PALABRAS.length;
+        rotor.classList.add('sale');
+        setTimeout(function () {
+          rotor.textContent = PALABRAS[pi];
+          rotor.classList.remove('sale');
+          rotor.classList.add('entra');
+          void rotor.offsetWidth; // reflow: posiciona abajo sin transición
+          rotor.classList.remove('entra');
+        }, 320);
+      }, 2600);
+    }
+  }
+
+  // ── Contadores animados (21st.dev: count-up) ─────────────
+  var contadores = document.querySelectorAll('[data-contador]');
+  // el HTML trae el valor final (por si no hay JS); el JS lo anima desde 0
+  if (!reduce) contadores.forEach(function (el) { el.textContent = '0'; });
+  function animarContador(el) {
+    var meta = parseInt(el.getAttribute('data-contador'), 10) || 0;
+    if (reduce) { el.textContent = String(meta); return; }
+    var t0 = null, DUR = 1400;
+    (function paso(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min((ts - t0) / DUR, 1);
+      var e = 1 - Math.pow(1 - k, 3); // easeOutCubic
+      el.textContent = String(Math.round(meta * e));
+      if (k < 1) requestAnimationFrame(paso);
+    })(performance.now());
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    var ioN = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { animarContador(e.target); ioN.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    contadores.forEach(function (el) { ioN.observe(el); });
+  } else {
+    contadores.forEach(animarContador);
+  }
+
+  // ── Progreso de lectura (21st.dev: scroll progress) ──────
+  var progreso = document.createElement('div');
+  progreso.className = 'progreso';
+  progreso.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progreso);
+  if (!reduce) {
+    var tique = false;
+    window.addEventListener('scroll', function () {
+      if (tique) return;
+      tique = true;
+      requestAnimationFrame(function () {
+        var doc = document.documentElement;
+        var total = doc.scrollHeight - window.innerHeight;
+        progreso.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+        tique = false;
+      });
+    }, { passive: true });
+  }
+
+  // ── Pulso del día (tablero): 12 bloques de 2 h, 07:00 → 07:00 ──
+  var pulso = $('pulso-dia');
+  if (pulso) {
+    var bh;
+    for (bh = 0; bh < 12; bh++) {
+      var barra = document.createElement('i');
+      var hIni = (7 + bh * 2) % 24;
+      barra.className = (hIni >= 19 || hIni < 7) ? 'alta' : 'baja';
+      pulso.appendChild(barra);
+    }
+    function marcarPulso() {
+      var t2 = horaEC();
+      var idx = Math.floor(((t2.h - 7 + 24) % 24) / 2);
+      var barras = pulso.children;
+      for (var j = 0; j < barras.length; j++) barras[j].classList.remove('ahora');
+      if (barras[idx]) barras[idx].classList.add('ahora');
+    }
+    marcarPulso();
+    setInterval(marcarPulso, 60000);
   }
 
   // ═══════════ CANAL DIRECTO — motor de conversación v2 ═══════════
@@ -530,10 +637,29 @@
     });
   }
 
+  // Indicador de escritura (21st.dev: typing dots) — se muestra mientras
+  // llega la respuesta, remota o local, y nunca menos de 650 ms.
+  function mostrarEscribiendo() {
+    if (reduce || !log) return null;
+    var div = document.createElement('div');
+    div.className = 'canal-msj one';
+    div.innerHTML = '<span class="quien">ONE —</span><div class="texto"><span class="dots" role="status" aria-label="ONE está escribiendo"><i></i><i></i><i></i></span></div>';
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
   function responder(txt) {
+    var burbuja = mostrarEscribiendo();
+    var tMostrado = Date.now();
     responderRemoto(txt, function (ok, respuesta) {
-      if (ok) escribeONE(respuesta);
-      else responderLocal(txt);
+      var soltar = function () {
+        if (burbuja) burbuja.remove();
+        if (ok) escribeONE(respuesta);
+        else responderLocal(txt);
+      };
+      var resto = 650 - (Date.now() - tMostrado);
+      if (resto > 0) setTimeout(soltar, resto); else soltar();
     });
   }
 

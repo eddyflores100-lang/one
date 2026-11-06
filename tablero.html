@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Tablero — ONE · AliceLabs LLC</title>
+<meta name="description" content="Tablero de operaciones de ONE: hora de Guayaquil en vivo, cuenta al informe de las 07:00, pulso del turno, catálogo puntuado y las siete herramientas MCP. Datos, no humo.">
+<meta name="theme-color" content="#EFEAD8">
+<link rel="canonical" href="https://eddyflores100-lang.github.io/one/tablero.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="El Tablero — ONE · AliceLabs LLC">
+<meta property="og:description" content="Lo que ONE ve mientras trabaja: reloj de Guayaquil, ciclo, catálogo, trueque y MCP.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+<meta property="og:url" content="https://eddyflores100-lang.github.io/one/tablero.html">
+<meta property="og:image" content="https://eddyflores100-lang.github.io/one/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"El Tablero — ONE","inLanguage":"es-EC","url":"https://eddyflores100-lang.github.io/one/tablero.html","isPartOf":{"@type":"WebSite","name":"ONE — Agente operativo","url":"https://eddyflores100-lang.github.io/one/"},"publisher":{"@type":"Organization","name":"AliceLabs LLC"}}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EFEAD8'/%3E%3Crect x='5' y='5' width='54' height='54' fill='none' stroke='%2314120C' stroke-width='3'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' font-weight='900' text-anchor='middle' fill='%2314120C'%3EO%3C/text%3E%3Crect x='9' y='9' width='10' height='10' fill='%2300F299'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=44">
+</head>
+<body>
+<div class="grano" aria-hidden="true"></div>
+
+<a class="salto" href="#contenido">Saltar al contenido</a>
+
+<!-- ═══════════ CABECERA ═══════════ -->
+<header class="masthead">
+  <div class="mh-linea">
+    <span class="mh-marca">ONE</span>
+    <span class="mh-sub">Tablero de operaciones · AliceLabs LLC</span>
+    <nav class="mh-nav mono" aria-label="Páginas">
+      <a href="./">Portada</a><i aria-hidden="true"></i><a href="tablero.html" aria-current="page">Tablero</a>
+    </nav>
+    <span class="mh-derecha">
+      <span class="sello"><span class="pulso" aria-hidden="true"></span>EN VIVO</span>
+      <span class="mh-reloj mono" id="reloj">--:--:--</span>
+    </span>
+  </div>
+  <p class="mh-fecha mono" id="fecha-larga">Guayaquil, Ecuador · UTC−5</p>
+</header>
+
+<main id="contenido">
+<div class="tab-cuerpo">
+
+  <div class="tab-cab" data-revelar>
+    <span class="bl-folio mono">TABLERO · VIVO</span>
+    <h1 class="tab-titulo">El tablero</h1>
+    <p class="tab-nota">Lo que ONE tiene a la vista mientras trabaja: la hora exacta de Guayaquil, la cuenta al informe de las 07:00, el pulso del turno y las herramientas con las que cobra y se conecta. Todo se mueve aquí mismo — <a class="enlace-tablero" href="./#canal">o háblele al agente</a>.</p>
+  </div>
+
+  <div class="tablero">
+
+    <div class="celda g-reloj" data-revelar>
+      <span class="celda-k mono">HORA DE GUAYAQUIL · UTC−5</span>
+      <span class="tab-hora-g" id="g-hora">--:--:--</span>
+      <div class="estado-fila">
+        <span class="estado-dot" aria-hidden="true"></span>
+        <span class="estado-txt" id="g-estado">OPERATIVO</span>
+        <span class="tab-fecha" id="g-fecha">—</span>
+      </div>
+    </div>
+
+    <div class="celda" data-revelar>
+      <span class="celda-k mono">AL PRÓXIMO INFORME</span>
+      <span class="b-cuenta-num mono" id="g-cuenta">--h --m --s</span>
+      <span class="celda-d mono">antes de las 07:00 o no llega</span>
+    </div>
+
+    <div class="celda b-num" data-revelar>
+      <span class="celda-k mono">PRODUCTOS PUNTUADOS POR CICLO</span>
+      <span class="b-cifra" data-contador="100">100</span>
+    </div>
+
+    <div class="celda b-num" data-revelar>
+      <span class="celda-k mono">HERRAMIENTAS EN SU MCP</span>
+      <span class="b-cifra" data-contador="7">7</span>
+    </div>
+
+    <div class="celda b-num" data-revelar>
+      <span class="celda-k mono">HORAS DE TURNO NOCTURNO</span>
+      <span class="b-cifra" data-contador="12">12</span>
+    </div>
+
+    <div class="celda g-ciclo" data-revelar>
+      <span class="celda-k mono">EL CICLO · DÓNDE CAE AHORA MISMO</span>
+      <div class="ciclo" style="margin:0">
+        <div class="ciclo-pista" id="ciclo-pista" role="img" aria-label="Línea de 24 horas con la posición actual">
+          <span class="ciclo-hito" style="--p:0%"><i>07:00</i></span>
+          <span class="ciclo-hito h19" style="--p:50%"><i>19:00</i></span>
+          <span class="ciclo-hito" style="--p:100%"><i>07:00</i></span>
+          <span class="ciclo-ahora" id="marcador-ciclo" aria-hidden="true"><b>AHORA</b></span>
+        </div>
+        <div class="ciclo-horas mono" aria-hidden="true">
+          <span>07</span><span>13</span><span>19</span><span>01</span><span>07</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="celda g-pulso" data-revelar>
+      <span class="celda-k mono">PULSO DEL TURNO · BLOQUES DE 2 HORAS</span>
+      <div class="pulso-dia" id="pulso-dia" role="img" aria-label="Doce bloques de dos horas: la barra alta y verde marca el bloque actual del turno"></div>
+      <div class="pulso-eje mono" aria-hidden="true"><span>07</span><span>11</span><span>15</span><span>19</span><span>23</span><span>03</span><span>07</span></div>
+      <span class="celda-d mono">barra alta = turno nocturno (19:00 → 07:00) · verde = bloque actual</span>
+    </div>
+
+    <div class="celda g-mcp" data-revelar>
+      <span class="celda-k mono">ENDPOINT MCP · SE SIRVE EN EL EDGE</span>
+      <code class="mcp-cod">POST https://one-mcp.eddyflores100.workers.dev/api/mcp</code>
+      <ul class="tab-herr mono">
+        <li><b>one_estado</b> · estado del agente</li>
+        <li><b>one_cobrar</b> · boleta en XMR</li>
+        <li><b>one_pagar</b> · liquidación</li>
+        <li><b>one_pagos_listar</b> · libro de pagos</li>
+        <li><b>one_trueque_ofrecer</b> · oferta</li>
+        <li><b>one_trueque_listar</b> · libro abierto</li>
+        <li><b>one_trueque_cerrar</b> · cierre</li>
+      </ul>
+    </div>
+
+    <div class="celda g-libro" data-revelar>
+      <span class="celda-k mono">LIBRO DE TRUEQUE · ESPÉCIMEN ABIERTO</span>
+      <table class="libro" style="margin-top:auto">
+        <thead>
+          <tr><th scope="col" class="mono">Operación</th><th scope="col" class="mono">Ofrece</th><th scope="col" class="mono">Pide</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono id">TRQ-…B4K2</td><td>40 GPU-h (A100)</td><td class="num mono">0,35 XMR</td></tr>
+          <tr><td class="mono id">TRQ-…C7D1</td><td>600 CPU-h</td><td class="num mono">120 RAM-GB-h</td></tr>
+          <tr><td class="mono id">TRQ-…A9F0</td><td>2 TB de tránsito</td><td class="num mono">50 GPU-h</td></tr>
+        </tbody>
+      </table>
+      <span class="celda-d mono">cada oferta vence a las 72 horas · constancia en el libro</span>
+    </div>
+
+    <div class="celda b-num" data-revelar>
+      <span class="celda-k mono">TASA XMR DE REFERENCIA</span>
+      <span class="b-cifra" style="font-size:clamp(34px,4vw,52px)">148,20</span>
+      <span class="celda-d mono">Kraken · espécimen US$ 120,00 → 0,8097 XMR</span>
+    </div>
+
+    <div class="celda g-despacho" data-revelar>
+      <span class="celda-k mono">DESPACHO DE HOY</span>
+      <span class="b-cifra" id="des-num">—</span>
+      <span class="celda-d mono">informe privado por correo, distribuido antes de las 07:00</span>
+    </div>
+
+    <div class="celda b-cuenta" data-revelar>
+      <span class="celda-k mono">SIN COOKIES · SIN TRACKING</span>
+      <span class="b-cuenta-num mono">nada de lo que ve aquí viaja a nadie</span>
+      <span class="celda-d mono"><a class="enlace-tablero" href="./">volver a la portada</a></span>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<footer class="pie">
+  <span class="mono">© 2026 AliceLabs LLC</span>
+  <span class="mono">Guayaquil, EC — UTC−5</span>
+  <span class="mono">SIN COOKIES · SIN TRACKING</span>
+  <span class="mono">v4.4</span>
+</footer>
+
+<script src="assets/app.js?v=44"></script>
+</body>
+</html>

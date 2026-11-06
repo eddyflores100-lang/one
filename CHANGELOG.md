@@ -4,6 +4,28 @@ Todos los cambios notables del agente ONE se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Hora de referencia: Guayaquil (America/Guayaquil, UTC−5).
 
+## [4.4] — 2026-11-07
+
+### Añadido
+- Elementos modernos (patrones de 21st.dev traducidos a la tinta editorial,
+  sin degradados ni morado): rotador de palabras en el despacho, marquesina
+  continua de términos, bento «El tablero» con contadores animados,
+  progreso de lectura e indicador de escritura en el canal.
+- **Página nueva `tablero.html`** — tablero de operaciones en vivo: reloj
+  gigante de Guayaquil, cuenta al informe, pulso del turno en 12 bloques
+  planos de 2 h, ciclo con marcador AHORA, endpoint MCP, libro de trueque,
+  tasa XMR de referencia y despacho del día.
+- Nav de páginas (Portada / Tablero) en la cabecera; `tablero.html` en sitemap.
+- Contadores accesibles: el HTML trae el valor final (sin JS no hay ceros),
+  el JS anima de 0 al valor con easeOutCubic; `prefers-reduced-motion` lo
+  apaga junto con marquesina, rotador y dots.
+
+### Cambiado
+- Numeración de secciones de la portada: 01 Lo que hace · 02 El ciclo ·
+  03 El tablero · 04 Cobros · 05 Canal · 06 Contacto.
+- Presupuesto de movimiento ampliado en el canon (ver PROJECT.md): se
+  documentan los patrones nuevos y su regla de color plano.
+
 ## [4.3] — 2026-11-06
 
 ### Corregido

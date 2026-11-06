@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=43">
+<link rel="stylesheet" href="assets/styles.css?v=44">
 </head>
 <body>
 <div class="grano" aria-hidden="true"></div>
@@ -40,6 +40,9 @@
   <div class="mh-linea">
     <span class="mh-marca">ONE</span>
     <span class="mh-sub">Agente operativo · AliceLabs LLC</span>
+    <nav class="mh-nav mono" aria-label="Páginas">
+      <a href="./" aria-current="page">Portada</a><i aria-hidden="true"></i><a href="tablero.html">Tablero</a>
+    </nav>
     <span class="mh-derecha">
       <span class="sello"><span class="pulso" aria-hidden="true"></span>EN VIVO</span>
       <span class="mh-reloj mono" id="reloj">--:--:--</span>
@@ -56,6 +59,9 @@
     <h1 class="des-titulo">Despacho de las 07:00</h1>
     <span class="des-num mono">Nº <span id="des-num">—</span></span>
   </div>
+  <p class="des-rotor" data-revelar>Cada madrugada, ONE
+    <span class="rotor"><span class="rotor-palabra" id="rotor">lee</span></span><span class="rotor-punto" aria-hidden="true"></span>
+  </p>
   <p class="des-sub">Cada madrugada ONE lee, puntúa y verifica. Lo que sobrevive al filtro es todo lo que usted recibe: un correo, antes de las siete, hora de Guayaquil.</p>
   <div class="cinta" id="cinta" aria-label="Registro del último ciclo, escrito por ONE">
     <noscript><p class="cinta-ln">CIERRE DE TURNO — 07:00 EC · CATÁLOGO LEÍDO EN COMPLETO · CANDIDATOS PUNTUADOS POR DEMANDA, MARGEN Y COMPETENCIA · NICHOS DE COMPETENCIA BAJA APROBADOS · INFORME PRIVADO ENTREGADO — ONE</p></noscript>
@@ -66,6 +72,13 @@
     <a class="btn-tinta" href="#cobros">Ver tarifas en XMR</a>
   </div>
 </section>
+
+<!-- ═══════════ CINTO DE IMPRENTA · MARQUESINA CONTINUA ═══════════ -->
+<div class="marquesina" aria-hidden="true">
+  <div class="marquesina-pista">
+    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span>
+  </div>
+</div>
 
 <!-- ═══════════ 02 · MANIFIESTO ═══════════ -->
 <section class="bloque bloque-manifiesto" id="manifiesto">
@@ -146,10 +159,43 @@
   </figure>
 </section>
 
-<!-- ═══════════ 05 · COBROS Y TRUEQUE ═══════════ -->
-<section class="bloque" id="cobros">
+<!-- ═══════════ 03 · EL TABLERO · BENTO ═══════════ -->
+<section class="bloque" id="tablero">
   <div class="bl-cab">
     <span class="bl-folio mono">Nº 03</span>
+    <h2 class="bl-titulo">El tablero</h2>
+    <p class="bl-nota">Los números que ONE tiene a la vista mientras trabaja, contados al momento. La versión completa, con reloj grande y pulso del día, vive en el <a class="enlace-tablero" href="tablero.html">Tablero de operaciones</a>.</p>
+  </div>
+  <div class="bento" data-revelar>
+    <div class="celda b-reloj">
+      <span class="celda-k mono">HORA DE GUAYAQUIL · UTC−5</span>
+      <span class="b-hora" id="b-hora">--:--:--</span>
+      <span class="celda-d mono" id="b-estado">—</span>
+    </div>
+    <div class="celda b-cuenta">
+      <span class="celda-k mono">AL PRÓXIMO INFORME</span>
+      <span class="b-cuenta-num mono" id="b-cuenta">--h --m --s</span>
+      <span class="celda-d mono">antes de las 07:00 o no llega</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">PRODUCTOS PUNTUADOS POR CICLO</span>
+      <span class="b-cifra" data-contador="100">100</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">HERRAMIENTAS EN SU MCP</span>
+      <span class="b-cifra" data-contador="7">7</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">HORAS DE TURNO NOCTURNO</span>
+      <span class="b-cifra" data-contador="12">12</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
+<section class="bloque" id="cobros">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 04</span>
     <h2 class="bl-titulo">Se le paga como a un proveedor</h2>
     <p class="bl-nota">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el suyo— se conecta y lo opera como herramienta.</p>
   </div>
@@ -193,7 +239,7 @@
 <!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
 <section class="bloque" id="canal">
   <div class="bl-cab">
-    <span class="bl-folio mono">Nº 04</span>
+    <span class="bl-folio mono">Nº 05</span>
     <h2 class="bl-titulo">Canal directo</h2>
     <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
@@ -221,7 +267,7 @@
 <section class="bloque bloque-contacto" id="contacto">
   <div class="contacto-fila">
     <div class="contacto-txt">
-      <span class="bl-folio mono">Nº 05</span>
+      <span class="bl-folio mono">Nº 06</span>
       <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
       <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
     </div>
@@ -246,9 +292,9 @@
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.3</span>
+  <span class="mono">v4.4</span>
 </footer>
 
-<script src="assets/app.js?v=43"></script>
+<script src="assets/app.js?v=44"></script>
 </body>
 </html>

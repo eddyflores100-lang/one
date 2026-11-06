@@ -452,3 +452,156 @@ em { font-style: normal; }
   [data-revelar] { opacity: 1; transform: none; transition: none; }
   .manifiesto .p { opacity: 1; transition: none; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   v4.4 · ELEMENTOS MODERNOS — patrones 21st.dev traducidos a tinta
+   Rotador de palabras · marquesina continua · bento con contadores ·
+   progreso de lectura · indicador de escritura · tablero de ops.
+   Regla de casa: color PLANO, cero degradados, cero neón.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* progreso de lectura */
+.progreso {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--tinta); z-index: 60;
+}
+
+/* nav de páginas en la cabecera */
+.mh-nav { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 0.06em; }
+.mh-nav a { text-decoration: none; color: var(--tinta-2); padding: 4px 10px; border: 1.5px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.mh-nav a:hover { color: var(--tinta); border-color: var(--linea); }
+.mh-nav a[aria-current="page"] { color: var(--tinta); border-color: var(--tinta); font-weight: 600; }
+.mh-nav i { width: 5px; height: 5px; background: var(--verde); transform: rotate(45deg); }
+
+/* rotador de palabras (21st.dev: word rotate) */
+.des-rotor {
+  font-family: var(--f-disp); font-weight: 700;
+  font-size: clamp(22px, 3vw, 34px); font-variation-settings: "opsz" 60;
+  margin-bottom: 20px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+}
+.rotor { display: inline-grid; overflow: hidden; height: 1.3em; align-items: start; }
+.rotor-palabra {
+  grid-area: 1 / 1; font-style: italic; color: var(--tinta);
+  border-bottom: 4px solid var(--verde); padding: 0 8px 2px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s;
+}
+.rotor-palabra.sale { transform: translateY(-115%); opacity: 0; transition-duration: 0.3s; }
+.rotor-palabra.entra { transform: translateY(115%); opacity: 0; transition: none; }
+.rotor-punto { width: 12px; height: 12px; background: var(--rojo); transform: rotate(45deg); align-self: center; }
+
+/* marquesina continua (21st.dev: marquee) */
+.marquesina {
+  border-top: 2px solid var(--tinta);
+  background: var(--tinta); color: var(--papel); overflow: hidden;
+}
+.marquesina-pista {
+  display: inline-flex; white-space: nowrap;
+  animation: desfile 32s linear infinite; will-change: transform;
+}
+.marquesina:hover .marquesina-pista { animation-play-state: paused; }
+.marquesina-l {
+  display: inline-block; padding: 15px 0;
+  font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.14em;
+}
+.rm { display: inline-block; width: 7px; height: 7px; margin: 0 22px; vertical-align: middle; transform: rotate(45deg); }
+.rm-verde { background: var(--verde); }
+.rm-cian { background: var(--cian); }
+.rm-rojo { background: var(--rojo); }
+@keyframes desfile { to { transform: translateX(-50%); } }
+
+/* bento (21st.dev: bento grid) */
+.bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.celda {
+  border: 2px solid var(--tinta); background: var(--papel-3);
+  padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 12px;
+  min-height: 150px; transition: transform 0.18s, box-shadow 0.18s;
+}
+.celda:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--tinta); }
+.b-reloj { grid-column: span 2; }
+.celda-k { font-size: 11px; letter-spacing: 0.12em; color: var(--tinta-2); }
+.celda-d { font-size: 11.5px; color: var(--tinta-2); margin-top: auto; }
+.b-hora {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(48px, 6.5vw, 84px); line-height: 1; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums lining-nums; font-variation-settings: "opsz" 144;
+}
+.b-cuenta { justify-content: space-between; }
+.b-cuenta-num { font-size: clamp(20px, 2.4vw, 30px); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.b-num { justify-content: space-between; }
+.b-cifra {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(44px, 5.4vw, 72px); line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums; font-variation-settings: "opsz" 144;
+}
+.enlace-tablero { color: var(--tinta); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--cian); }
+.enlace-tablero:hover { background: var(--tinta); color: var(--papel); border-bottom-color: var(--tinta); }
+
+/* indicador de escritura (21st.dev: typing dots) */
+.dots { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--tinta); animation: dot 1.2s ease-in-out infinite; }
+.dots i:nth-child(2) { animation-delay: 0.18s; }
+.dots i:nth-child(3) { animation-delay: 0.36s; }
+@keyframes dot {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  45% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* ═══════════ TABLERO DE OPERACIONES · página completa ═══════════ */
+.tab-cuerpo { max-width: var(--ancho); margin: 0 auto; width: 100%; padding: 56px clamp(20px, 4vw, 48px) 64px; }
+.tab-titulo {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(44px, 7vw, 92px); line-height: 0.95; letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+.tab-nota { max-width: 58ch; color: var(--tinta-2); margin-top: 18px; font-size: 17px; }
+.tab-cab { margin-bottom: 44px; }
+.tablero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tablero .celda { min-height: 150px; }
+.g-reloj { grid-column: span 2; grid-row: span 2; justify-content: space-between; }
+.g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 2; }
+.tab-hora-g {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(48px, 7.4vw, 108px); line-height: 0.95; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums lining-nums; font-variation-settings: "opsz" 144;
+  white-space: nowrap;
+}
+.tab-fecha { font-size: 12px; color: var(--tinta-2); letter-spacing: 0.08em; text-transform: uppercase; }
+.estado-txt { font-family: var(--f-mono); font-weight: 600; font-size: 12.5px; letter-spacing: 0.08em; white-space: nowrap; }
+.estado-fila { display: flex; align-items: center; gap: 10px; margin-top: auto; flex-wrap: wrap; }
+.estado-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--verde); animation: latido 2.2s ease-in-out infinite; }
+.mcp-cod {
+  font-family: var(--f-mono); font-size: 12.5px; word-break: break-all;
+  line-height: 1.8; border-left: 3px solid var(--cian); padding-left: 14px; margin-top: auto;
+}
+.tab-herr { list-style: none; font-family: var(--f-mono); font-size: 12.5px; line-height: 2; color: var(--tinta-2); margin-top: auto; columns: 2; column-gap: 24px; }
+.tab-herr b { color: var(--tinta); font-weight: 600; }
+/* pulso del día: 12 barras planas de 2 horas, la actual en verde */
+.pulso-dia { display: flex; align-items: flex-end; gap: 5px; height: 96px; margin-top: auto; }
+.pulso-dia i { flex: 1; background: var(--tinta); transition: opacity 0.3s; }
+.pulso-dia i.baja { height: 24%; opacity: 0.22; }
+.pulso-dia i.alta { height: 82%; }
+.pulso-dia i.ahora { background: var(--verde); outline: 2px solid var(--tinta); outline-offset: 2px; }
+.pulso-eje { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10.5px; color: var(--tinta-2); margin-top: 8px; }
+
+/* responsive v4.4 */
+@media (max-width: 880px) {
+  .bento, .tablero { grid-template-columns: repeat(2, 1fr); }
+  .b-reloj, .g-reloj, .g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 2; }
+  .tab-herr { columns: 1; }
+}
+@media (max-width: 560px) {
+  .bento, .tablero { grid-template-columns: 1fr; }
+  .b-reloj, .g-reloj, .g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 1; }
+  .marquesina-l { font-size: 11px; letter-spacing: 0.1em; }
+  .rm { margin: 0 14px; }
+}
+
+/* movimiento reducido v4.4 */
+@media (prefers-reduced-motion: reduce) {
+  .marquesina-pista { animation: none; }
+  .marquesina { overflow-x: auto; }
+  .rotor-palabra { transition: none; }
+  .dots i { animation: none; opacity: 0.6; }
+  .celda, .celda:hover { transform: none; box-shadow: none; }
+  .estado-dot { animation: none; }
+}

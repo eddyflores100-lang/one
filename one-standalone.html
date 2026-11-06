@@ -482,6 +482,159 @@ em { font-style: normal; }
   .manifiesto .p { opacity: 1; transition: none; }
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   v4.4 · ELEMENTOS MODERNOS — patrones 21st.dev traducidos a tinta
+   Rotador de palabras · marquesina continua · bento con contadores ·
+   progreso de lectura · indicador de escritura · tablero de ops.
+   Regla de casa: color PLANO, cero degradados, cero neón.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* progreso de lectura */
+.progreso {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0;
+  background: var(--tinta); z-index: 60;
+}
+
+/* nav de páginas en la cabecera */
+.mh-nav { display: inline-flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 0.06em; }
+.mh-nav a { text-decoration: none; color: var(--tinta-2); padding: 4px 10px; border: 1.5px solid transparent; transition: color 0.15s, border-color 0.15s; }
+.mh-nav a:hover { color: var(--tinta); border-color: var(--linea); }
+.mh-nav a[aria-current="page"] { color: var(--tinta); border-color: var(--tinta); font-weight: 600; }
+.mh-nav i { width: 5px; height: 5px; background: var(--verde); transform: rotate(45deg); }
+
+/* rotador de palabras (21st.dev: word rotate) */
+.des-rotor {
+  font-family: var(--f-disp); font-weight: 700;
+  font-size: clamp(22px, 3vw, 34px); font-variation-settings: "opsz" 60;
+  margin-bottom: 20px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+}
+.rotor { display: inline-grid; overflow: hidden; height: 1.3em; align-items: start; }
+.rotor-palabra {
+  grid-area: 1 / 1; font-style: italic; color: var(--tinta);
+  border-bottom: 4px solid var(--verde); padding: 0 8px 2px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s;
+}
+.rotor-palabra.sale { transform: translateY(-115%); opacity: 0; transition-duration: 0.3s; }
+.rotor-palabra.entra { transform: translateY(115%); opacity: 0; transition: none; }
+.rotor-punto { width: 12px; height: 12px; background: var(--rojo); transform: rotate(45deg); align-self: center; }
+
+/* marquesina continua (21st.dev: marquee) */
+.marquesina {
+  border-top: 2px solid var(--tinta);
+  background: var(--tinta); color: var(--papel); overflow: hidden;
+}
+.marquesina-pista {
+  display: inline-flex; white-space: nowrap;
+  animation: desfile 32s linear infinite; will-change: transform;
+}
+.marquesina:hover .marquesina-pista { animation-play-state: paused; }
+.marquesina-l {
+  display: inline-block; padding: 15px 0;
+  font-family: var(--f-mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.14em;
+}
+.rm { display: inline-block; width: 7px; height: 7px; margin: 0 22px; vertical-align: middle; transform: rotate(45deg); }
+.rm-verde { background: var(--verde); }
+.rm-cian { background: var(--cian); }
+.rm-rojo { background: var(--rojo); }
+@keyframes desfile { to { transform: translateX(-50%); } }
+
+/* bento (21st.dev: bento grid) */
+.bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.celda {
+  border: 2px solid var(--tinta); background: var(--papel-3);
+  padding: 24px 24px 20px; display: flex; flex-direction: column; gap: 12px;
+  min-height: 150px; transition: transform 0.18s, box-shadow 0.18s;
+}
+.celda:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--tinta); }
+.b-reloj { grid-column: span 2; }
+.celda-k { font-size: 11px; letter-spacing: 0.12em; color: var(--tinta-2); }
+.celda-d { font-size: 11.5px; color: var(--tinta-2); margin-top: auto; }
+.b-hora {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(48px, 6.5vw, 84px); line-height: 1; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums lining-nums; font-variation-settings: "opsz" 144;
+}
+.b-cuenta { justify-content: space-between; }
+.b-cuenta-num { font-size: clamp(20px, 2.4vw, 30px); font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.b-num { justify-content: space-between; }
+.b-cifra {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(44px, 5.4vw, 72px); line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums; font-variation-settings: "opsz" 144;
+}
+.enlace-tablero { color: var(--tinta); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--cian); }
+.enlace-tablero:hover { background: var(--tinta); color: var(--papel); border-bottom-color: var(--tinta); }
+
+/* indicador de escritura (21st.dev: typing dots) */
+.dots { display: inline-flex; gap: 5px; margin-left: 8px; vertical-align: middle; }
+.dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--tinta); animation: dot 1.2s ease-in-out infinite; }
+.dots i:nth-child(2) { animation-delay: 0.18s; }
+.dots i:nth-child(3) { animation-delay: 0.36s; }
+@keyframes dot {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  45% { opacity: 1; transform: translateY(-4px); }
+}
+
+/* ═══════════ TABLERO DE OPERACIONES · página completa ═══════════ */
+.tab-cuerpo { max-width: var(--ancho); margin: 0 auto; width: 100%; padding: 56px clamp(20px, 4vw, 48px) 64px; }
+.tab-titulo {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(44px, 7vw, 92px); line-height: 0.95; letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+.tab-nota { max-width: 58ch; color: var(--tinta-2); margin-top: 18px; font-size: 17px; }
+.tab-cab { margin-bottom: 44px; }
+.tablero { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tablero .celda { min-height: 150px; }
+.g-reloj { grid-column: span 2; grid-row: span 2; justify-content: space-between; }
+.g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 2; }
+.tab-hora-g {
+  font-family: var(--f-disp); font-weight: 900;
+  font-size: clamp(48px, 7.4vw, 108px); line-height: 0.95; letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums lining-nums; font-variation-settings: "opsz" 144;
+  white-space: nowrap;
+}
+.tab-fecha { font-size: 12px; color: var(--tinta-2); letter-spacing: 0.08em; text-transform: uppercase; }
+.estado-txt { font-family: var(--f-mono); font-weight: 600; font-size: 12.5px; letter-spacing: 0.08em; white-space: nowrap; }
+.estado-fila { display: flex; align-items: center; gap: 10px; margin-top: auto; flex-wrap: wrap; }
+.estado-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--verde); animation: latido 2.2s ease-in-out infinite; }
+.mcp-cod {
+  font-family: var(--f-mono); font-size: 12.5px; word-break: break-all;
+  line-height: 1.8; border-left: 3px solid var(--cian); padding-left: 14px; margin-top: auto;
+}
+.tab-herr { list-style: none; font-family: var(--f-mono); font-size: 12.5px; line-height: 2; color: var(--tinta-2); margin-top: auto; columns: 2; column-gap: 24px; }
+.tab-herr b { color: var(--tinta); font-weight: 600; }
+/* pulso del día: 12 barras planas de 2 horas, la actual en verde */
+.pulso-dia { display: flex; align-items: flex-end; gap: 5px; height: 96px; margin-top: auto; }
+.pulso-dia i { flex: 1; background: var(--tinta); transition: opacity 0.3s; }
+.pulso-dia i.baja { height: 24%; opacity: 0.22; }
+.pulso-dia i.alta { height: 82%; }
+.pulso-dia i.ahora { background: var(--verde); outline: 2px solid var(--tinta); outline-offset: 2px; }
+.pulso-eje { display: flex; justify-content: space-between; font-family: var(--f-mono); font-size: 10.5px; color: var(--tinta-2); margin-top: 8px; }
+
+/* responsive v4.4 */
+@media (max-width: 880px) {
+  .bento, .tablero { grid-template-columns: repeat(2, 1fr); }
+  .b-reloj, .g-reloj, .g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 2; }
+  .tab-herr { columns: 1; }
+}
+@media (max-width: 560px) {
+  .bento, .tablero { grid-template-columns: 1fr; }
+  .b-reloj, .g-reloj, .g-ciclo, .g-mcp, .g-libro, .g-pulso, .g-despacho { grid-column: span 1; }
+  .marquesina-l { font-size: 11px; letter-spacing: 0.1em; }
+  .rm { margin: 0 14px; }
+}
+
+/* movimiento reducido v4.4 */
+@media (prefers-reduced-motion: reduce) {
+  .marquesina-pista { animation: none; }
+  .marquesina { overflow-x: auto; }
+  .rotor-palabra { transition: none; }
+  .dots i { animation: none; opacity: 0.6; }
+  .celda, .celda:hover { transform: none; box-shadow: none; }
+  .estado-dot { animation: none; }
+}
+
 </style>
 </head>
 <body>
@@ -494,6 +647,9 @@ em { font-style: normal; }
   <div class="mh-linea">
     <span class="mh-marca">ONE</span>
     <span class="mh-sub">Agente operativo · AliceLabs LLC</span>
+    <nav class="mh-nav mono" aria-label="Páginas">
+      <a href="./" aria-current="page">Portada</a><i aria-hidden="true"></i><a href="tablero.html">Tablero</a>
+    </nav>
     <span class="mh-derecha">
       <span class="sello"><span class="pulso" aria-hidden="true"></span>EN VIVO</span>
       <span class="mh-reloj mono" id="reloj">--:--:--</span>
@@ -510,6 +666,9 @@ em { font-style: normal; }
     <h1 class="des-titulo">Despacho de las 07:00</h1>
     <span class="des-num mono">Nº <span id="des-num">—</span></span>
   </div>
+  <p class="des-rotor" data-revelar>Cada madrugada, ONE
+    <span class="rotor"><span class="rotor-palabra" id="rotor">lee</span></span><span class="rotor-punto" aria-hidden="true"></span>
+  </p>
   <p class="des-sub">Cada madrugada ONE lee, puntúa y verifica. Lo que sobrevive al filtro es todo lo que usted recibe: un correo, antes de las siete, hora de Guayaquil.</p>
   <div class="cinta" id="cinta" aria-label="Registro del último ciclo, escrito por ONE">
     <noscript><p class="cinta-ln">CIERRE DE TURNO — 07:00 EC · CATÁLOGO LEÍDO EN COMPLETO · CANDIDATOS PUNTUADOS POR DEMANDA, MARGEN Y COMPETENCIA · NICHOS DE COMPETENCIA BAJA APROBADOS · INFORME PRIVADO ENTREGADO — ONE</p></noscript>
@@ -520,6 +679,13 @@ em { font-style: normal; }
     <a class="btn-tinta" href="#cobros">Ver tarifas en XMR</a>
   </div>
 </section>
+
+<!-- ═══════════ CINTO DE IMPRENTA · MARQUESINA CONTINUA ═══════════ -->
+<div class="marquesina" aria-hidden="true">
+  <div class="marquesina-pista">
+    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span>
+  </div>
+</div>
 
 <!-- ═══════════ 02 · MANIFIESTO ═══════════ -->
 <section class="bloque bloque-manifiesto" id="manifiesto">
@@ -600,10 +766,43 @@ em { font-style: normal; }
   </figure>
 </section>
 
-<!-- ═══════════ 05 · COBROS Y TRUEQUE ═══════════ -->
-<section class="bloque" id="cobros">
+<!-- ═══════════ 03 · EL TABLERO · BENTO ═══════════ -->
+<section class="bloque" id="tablero">
   <div class="bl-cab">
     <span class="bl-folio mono">Nº 03</span>
+    <h2 class="bl-titulo">El tablero</h2>
+    <p class="bl-nota">Los números que ONE tiene a la vista mientras trabaja, contados al momento. La versión completa, con reloj grande y pulso del día, vive en el <a class="enlace-tablero" href="tablero.html">Tablero de operaciones</a>.</p>
+  </div>
+  <div class="bento" data-revelar>
+    <div class="celda b-reloj">
+      <span class="celda-k mono">HORA DE GUAYAQUIL · UTC−5</span>
+      <span class="b-hora" id="b-hora">--:--:--</span>
+      <span class="celda-d mono" id="b-estado">—</span>
+    </div>
+    <div class="celda b-cuenta">
+      <span class="celda-k mono">AL PRÓXIMO INFORME</span>
+      <span class="b-cuenta-num mono" id="b-cuenta">--h --m --s</span>
+      <span class="celda-d mono">antes de las 07:00 o no llega</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">PRODUCTOS PUNTUADOS POR CICLO</span>
+      <span class="b-cifra" data-contador="100">100</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">HERRAMIENTAS EN SU MCP</span>
+      <span class="b-cifra" data-contador="7">7</span>
+    </div>
+    <div class="celda b-num">
+      <span class="celda-k mono">HORAS DE TURNO NOCTURNO</span>
+      <span class="b-cifra" data-contador="12">12</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 04 · COBROS Y TRUEQUE ═══════════ -->
+<section class="bloque" id="cobros">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 04</span>
     <h2 class="bl-titulo">Se le paga como a un proveedor</h2>
     <p class="bl-nota">La liquidación es en <em>Monero (XMR)</em>, a tasa de mercado y con libro abierto. Su servidor MCP vive en esta página: cualquier cliente —Claude, Cursor, el suyo— se conecta y lo opera como herramienta.</p>
   </div>
@@ -647,7 +846,7 @@ em { font-style: normal; }
 <!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
 <section class="bloque" id="canal">
   <div class="bl-cab">
-    <span class="bl-folio mono">Nº 04</span>
+    <span class="bl-folio mono">Nº 05</span>
     <h2 class="bl-titulo">Canal directo</h2>
     <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
@@ -675,7 +874,7 @@ em { font-style: normal; }
 <section class="bloque bloque-contacto" id="contacto">
   <div class="contacto-fila">
     <div class="contacto-txt">
-      <span class="bl-folio mono">Nº 05</span>
+      <span class="bl-folio mono">Nº 06</span>
       <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
       <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
     </div>
@@ -700,14 +899,14 @@ em { font-style: normal; }
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.3</span>
+  <span class="mono">v4.4</span>
 </footer>
 
 <script>
-/* ONE v4.1 — AliceLabs LLC · lógica de la página
-   Teletipo que respira + canal directo con cerebro en dos pisos:
-   1) CEREBRO REMOTO (Worker Cloudflare + Workers AI) si está conectado.
-   2) CEREBRO LOCAL (este archivo): 26 temas, seguimientos, sin repetir.
+/* ONE v4.4 — AliceLabs LLC · lógica de la página
+   Teletipo que respira + canal con cerebro en dos pisos + elementos modernos
+   (rotador de palabras, contadores, marquesina CSS, progreso de lectura,
+   indicador de escritura) y datos vivos para el bento y el tablero.
    Hora siempre America/Guayaquil. Lo que escribe aquí no sale del navegador
    salvo que el cerebro remoto esté activo. */
 
@@ -782,6 +981,24 @@ em { font-style: normal; }
     var pct = (desde07 / (24 * 3600)) * 100;
     var marca = $('marcador-ciclo');
     if (marca) marca.style.left = pct + '%';
+
+    // bento de la portada (Nº 03 · El tablero)
+    var bHora = $('b-hora');
+    if (bHora) bHora.textContent = hhmmss;
+    var bCuenta = $('b-cuenta');
+    if (bCuenta) bCuenta.textContent = textoCiclo();
+    var bEstado = $('b-estado');
+    if (bEstado) bEstado.textContent = 'Agente ' + estadoTurno();
+
+    // tablero de operaciones (página propia)
+    var gHora = $('g-hora');
+    if (gHora) gHora.textContent = hhmmss;
+    var gFecha = $('g-fecha');
+    if (gFecha) gFecha.textContent = fmtFecha.format(new Date()).toUpperCase() + ' · UTC−5';
+    var gCuenta = $('g-cuenta');
+    if (gCuenta) gCuenta.textContent = textoCiclo();
+    var gEstado = $('g-estado');
+    if (gEstado) gEstado.textContent = (t.h >= 19 || t.h < 7) ? 'DE TURNO · TRABAJANDO' : 'OPERATIVO · EN ESPERA';
   }
   tick();
   setInterval(tick, 1000);
@@ -905,6 +1122,95 @@ em { font-style: normal; }
       }, { threshold: 0.25 });
       ioC.observe(cinta);
     }
+  }
+
+  // ── Rotador de palabras del despacho (21st.dev: word rotate) ──
+  var rotor = $('rotor');
+  if (rotor) {
+    var PALABRAS = ['lee', 'puntúa', 'verifica', 'filtra', 'entrega'];
+    var pi = 0;
+    if (reduce) {
+      rotor.textContent = PALABRAS[0];
+    } else {
+      setInterval(function () {
+        pi = (pi + 1) % PALABRAS.length;
+        rotor.classList.add('sale');
+        setTimeout(function () {
+          rotor.textContent = PALABRAS[pi];
+          rotor.classList.remove('sale');
+          rotor.classList.add('entra');
+          void rotor.offsetWidth; // reflow: posiciona abajo sin transición
+          rotor.classList.remove('entra');
+        }, 320);
+      }, 2600);
+    }
+  }
+
+  // ── Contadores animados (21st.dev: count-up) ─────────────
+  var contadores = document.querySelectorAll('[data-contador]');
+  // el HTML trae el valor final (por si no hay JS); el JS lo anima desde 0
+  if (!reduce) contadores.forEach(function (el) { el.textContent = '0'; });
+  function animarContador(el) {
+    var meta = parseInt(el.getAttribute('data-contador'), 10) || 0;
+    if (reduce) { el.textContent = String(meta); return; }
+    var t0 = null, DUR = 1400;
+    (function paso(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min((ts - t0) / DUR, 1);
+      var e = 1 - Math.pow(1 - k, 3); // easeOutCubic
+      el.textContent = String(Math.round(meta * e));
+      if (k < 1) requestAnimationFrame(paso);
+    })(performance.now());
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    var ioN = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) { animarContador(e.target); ioN.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    contadores.forEach(function (el) { ioN.observe(el); });
+  } else {
+    contadores.forEach(animarContador);
+  }
+
+  // ── Progreso de lectura (21st.dev: scroll progress) ──────
+  var progreso = document.createElement('div');
+  progreso.className = 'progreso';
+  progreso.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progreso);
+  if (!reduce) {
+    var tique = false;
+    window.addEventListener('scroll', function () {
+      if (tique) return;
+      tique = true;
+      requestAnimationFrame(function () {
+        var doc = document.documentElement;
+        var total = doc.scrollHeight - window.innerHeight;
+        progreso.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+        tique = false;
+      });
+    }, { passive: true });
+  }
+
+  // ── Pulso del día (tablero): 12 bloques de 2 h, 07:00 → 07:00 ──
+  var pulso = $('pulso-dia');
+  if (pulso) {
+    var bh;
+    for (bh = 0; bh < 12; bh++) {
+      var barra = document.createElement('i');
+      var hIni = (7 + bh * 2) % 24;
+      barra.className = (hIni >= 19 || hIni < 7) ? 'alta' : 'baja';
+      pulso.appendChild(barra);
+    }
+    function marcarPulso() {
+      var t2 = horaEC();
+      var idx = Math.floor(((t2.h - 7 + 24) % 24) / 2);
+      var barras = pulso.children;
+      for (var j = 0; j < barras.length; j++) barras[j].classList.remove('ahora');
+      if (barras[idx]) barras[idx].classList.add('ahora');
+    }
+    marcarPulso();
+    setInterval(marcarPulso, 60000);
   }
 
   // ═══════════ CANAL DIRECTO — motor de conversación v2 ═══════════
@@ -1236,10 +1542,29 @@ em { font-style: normal; }
     });
   }
 
+  // Indicador de escritura (21st.dev: typing dots) — se muestra mientras
+  // llega la respuesta, remota o local, y nunca menos de 650 ms.
+  function mostrarEscribiendo() {
+    if (reduce || !log) return null;
+    var div = document.createElement('div');
+    div.className = 'canal-msj one';
+    div.innerHTML = '<span class="quien">ONE —</span><div class="texto"><span class="dots" role="status" aria-label="ONE está escribiendo"><i></i><i></i><i></i></span></div>';
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+    return div;
+  }
+
   function responder(txt) {
+    var burbuja = mostrarEscribiendo();
+    var tMostrado = Date.now();
     responderRemoto(txt, function (ok, respuesta) {
-      if (ok) escribeONE(respuesta);
-      else responderLocal(txt);
+      var soltar = function () {
+        if (burbuja) burbuja.remove();
+        if (ok) escribeONE(respuesta);
+        else responderLocal(txt);
+      };
+      var resto = 650 - (Date.now() - tMostrado);
+      if (resto > 0) setTimeout(soltar, resto); else soltar();
     });
   }
 
