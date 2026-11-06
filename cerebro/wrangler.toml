@@ -1,0 +1,16 @@
+name = "one-cerebro"
+main = "worker.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Binding de Workers AI (incluido en la capa gratuita de Cloudflare)
+[ai]
+binding = "AI"
+
+# Ruta pública final: cerebro.alicelabs.space (zona ya en Cloudflare del fundador).
+# Descomentar solo cuando el token esté activo; mientras tanto, la URL
+# https://one-cerebro.<subdominio>.workers.dev que entregue el despliegue
+# se pega en CEREBRO_URL de assets/app.js.
+# [routes]
+# pattern = "cerebro.alicelabs.space"
+# custom_domain = true
