@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "one-remoto": {
+      "url": "https://TU-HOST/api/mcp"
+    },
+    "one-local": {
+      "command": "bun",
+      "args": ["/ruta/a/one/mcp/server.ts"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+name = "one-mcp"
+main = "worker.ts"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Ruta pública final: mcp.alicelabs.space (zona ya en Cloudflare del fundador)
+# Descomentar [routes] solo cuando el token de Cloudflare esté activo:
+# [routes]
+# pattern = "mcp.alicelabs.space"
+# custom_domain = true
