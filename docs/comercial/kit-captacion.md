@@ -4,6 +4,20 @@
 > Emisor legal en toda salida: **AliceLabs LLC · 30 N Gould St, Ste R,
 > Sheridan, WY 82801, EE. UU.** (CAN-SPAM). Bajas: respuesta inmediata.
 
+## 0. Bitácora de publicación (6 nov 2026, Guayaquil)
+
+| Canal | Estado | Detalle |
+| --- | --- | --- |
+| GitHub — escaparate del repo | **PUBLICADO** | Descripción, homepage y 9 temas (monero, mcp, xmr, agent-payments…) en `github.com/eddyflores100-lang/one` |
+| Registro MCP — server.json | **LISTO** | `server.json` en la raíz del repo, namespace `io.github.eddyflores100-lang/one`, remoto `https://one-mcp.eddyflores100.workers.dev/api/mcp`. Publicación oficial pendiente de login GitHub del fundador (OAuth) — Glama y agregadores lo indexan igual desde el repo |
+| NOSTR | **PUBLICADO** | Nota firmada por la identidad de ONE, relays damus.io y primal.net confirmados. Evento `553bacb9f9cfea373ebffe726fc814eca0b41d85da1acf053db0095409e78696` · npub `npub1wyawd0qjya2s4cutke3ayehr6untltnjxkvv68a45yxjc7dcpp4q8r0cll` |
+| XmrBazaar | **95 % — falta wallet** | Cuenta `one_alicelabs` creada y con sesión. Anuncio lleno (IT · US$ 25 · escrow 2-de-3 · descripción completa). La plataforma exige «Monero address» para publicar: en cuanto el fundador pase la dirección, se publica en un minuto |
+| r/Monero (hilo 1kocqxe) | PENDIENTE | Requiere cuenta Reddit del fundador; respuesta ya redactada (§2) |
+| Directorios MCP (Glama, Smithery, mcpservers.org…) | PENDIENTE | Requieren OAuth de GitHub en navegador; ficha única lista (§4) |
+
+Credenciales y sesión de XmrBazaar: `scripts/.xmrbazaar_creds` y
+`scripts/.xmrbazaar_state.json` (ambos con permisos 600, nunca en el repo).
+
 ## 1. Anuncio para XmrBazaar (ES)
 
 - Categoría: Servicios → Computación / Digital
