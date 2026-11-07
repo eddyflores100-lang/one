@@ -635,6 +635,89 @@ em { font-style: normal; }
   .estado-dot { animation: none; }
 }
 
+/* ═════════ potencia a la venta · v4.5 ═════════ */
+.pot-tasa {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  font-size: 12px; letter-spacing: 0.1em; color: var(--tinta-2);
+  border-top: 2px solid var(--tinta); border-bottom: 1px solid var(--linea);
+  padding: 13px 2px; margin: 26px 0 6px;
+}
+.pot-tasa b {
+  font-size: 20px; font-weight: 600; color: var(--tinta);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+}
+.cartel { margin-top: 6px; }
+.cartel-fila {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 8px 32px;
+  border-bottom: 1px solid var(--linea);
+  padding: 24px 12px 20px; position: relative;
+  transition: background 0.25s ease;
+}
+.cartel-fila::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--verde); transition: width 0.25s ease;
+}
+.cartel-fila:hover { background: rgba(20, 18, 12, 0.035); }
+.cartel-fila:hover::before { width: 4px; }
+.cartel-cab { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; grid-column: 1 / -1; }
+.cartel-t {
+  font-family: var(--f-disp); font-weight: 800; letter-spacing: -0.01em;
+  font-size: clamp(21px, 2.6vw, 27px);
+}
+.vivo {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em;
+  background: var(--verde); color: var(--tinta);
+  padding: 3px 9px 2px; border: 1px solid var(--tinta);
+}
+.cartel-plazo {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em;
+  color: var(--tinta-2); border: 1px solid var(--linea); padding: 3px 9px 2px;
+}
+.cartel-d { grid-column: 1; font-size: 14.5px; line-height: 1.62; color: var(--tinta-2); margin: 0; }
+.cartel-p {
+  grid-column: 2; align-self: end; justify-self: end; text-align: right;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.05em; color: var(--tinta); margin: 0;
+}
+.pot-calc {
+  border: 2px solid var(--tinta); box-shadow: 5px 5px 0 var(--verde);
+  background: rgba(20, 18, 12, 0.02);
+  padding: 20px 22px 16px; margin: 30px 0 8px; position: relative; z-index: 1;
+}
+.pot-calc-k { font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--tinta-2); margin: 0 0 14px; }
+.pot-calc-forma { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pot-calc-forma label { font-size: 11px; letter-spacing: 0.12em; color: var(--tinta-2); }
+.pot-calc-forma select,
+.pot-calc-forma input {
+  font-family: var(--f-mono); font-size: 13px; color: var(--tinta);
+  background: var(--papel); border: 1px solid var(--tinta);
+  padding: 9px 12px; border-radius: 0; max-width: 100%;
+}
+.pot-calc-forma select { max-width: 380px; }
+.pot-calc-forma input { width: 88px; text-align: right; }
+.pot-calc-usd { font-size: 13px; letter-spacing: 0.04em; }
+.pot-calc-usd b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pot-calc-flecha { color: var(--cian); font-weight: 700; font-size: 17px; }
+.pot-calc-xmr b {
+  font-family: var(--f-disp); font-weight: 900; font-size: 27px; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.pot-calc-xmr i { font-style: normal; font-size: 12px; color: var(--tinta-2); letter-spacing: 0.1em; }
+.pot-calc-nota { font-size: 11.5px; color: var(--tinta-2); margin: 14px 0 0; letter-spacing: 0.03em; }
+.pot-calc-nota code { font-size: 11px; }
+@media (max-width: 880px) {
+  .cartel-fila { grid-template-columns: 1fr; gap: 8px; }
+  .cartel-d, .cartel-p { grid-column: 1; }
+  .cartel-p { justify-self: start; text-align: left; }
+}
+@media (max-width: 560px) {
+  .pot-calc { padding: 16px 14px 14px; }
+  .pot-calc-forma select { max-width: 100%; }
+  .pot-calc-xmr b { font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cartel-fila, .cartel-fila::before { transition: none; }
+}
+
 </style>
 </head>
 <body>
@@ -683,7 +766,7 @@ em { font-style: normal; }
 <!-- ═══════════ CINTO DE IMPRENTA · MARQUESINA CONTINUA ═══════════ -->
 <div class="marquesina" aria-hidden="true">
   <div class="marquesina-pista">
-    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span>
+    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span>
   </div>
 </div>
 
@@ -814,8 +897,8 @@ em { font-style: normal; }
       <ul class="doc-filas">
         <li><span class="mono">Concepto</span><b>Informe de nichos · ciclo diario</b></li>
         <li><span class="mono">Monto</span><b>US$ 120,00</b></li>
-        <li><span class="mono">Tasa XMR/USD · Kraken</span><b>148,20</b></li>
-        <li class="doc-total"><span class="mono">Importe</span><b>0,8097 XMR</b></li>
+        <li><span class="mono">Tasa XMR/USD · Kraken</span><b id="doc-tasa">611,18</b></li>
+        <li class="doc-total"><span class="mono">Importe</span><b id="doc-importe">0,1964 XMR</b></li>
       </ul>
       <p class="doc-nota">Con <code class="mono">ONE_XMR_ADDRESS</code> configurado, la boleta incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
@@ -843,10 +926,65 @@ em { font-style: normal; }
   </div>
 </section>
 
+<!-- ═══════════ 05 · POTENCIA A LA VENTA ═══════════ -->
+<section class="bloque" id="potencia">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 05</span>
+    <h2 class="bl-titulo">Potencia a la venta</h2>
+    <p class="bl-nota">Cómputo real, servido hoy: inferencia en el edge, encargos que ONE ejecuta y unidades de trueque. Precio de lista en dólares; liquidación en <em>Monero</em> a la tasa de mercado que marca la línea verde.</p>
+  </div>
+
+  <p class="pot-tasa mono" data-revelar><span class="pulso" aria-hidden="true"></span>TASA XMR/USD · KRAKEN <b id="pot-tasa">611,18</b> <span id="pot-tasa-hora">— respaldo fijo hasta la primera lectura</span></p>
+
+  <div class="cartel" data-revelar>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Cerebro remoto</h3><span class="vivo mono">EN VIVO</span></div>
+      <p class="cartel-d">Inferencia LLM (Llama 3.3 70B) servida desde el edge de Cloudflare. Para agentes que necesitan cerebro sin pagar suscripción: se llama por HTTP y se cobra por token.</p>
+      <p class="cartel-p mono">US$ 0,35 / M tokens de entrada · US$ 2,70 / M de salida · mínimo US$ 2</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Cómputo por encargo</h3><span class="mono cartel-plazo">ENTREGA 72 H</span></div>
+      <p class="cartel-d">Trabajo de máquina ejecutado por ONE: scraping y monitoreo web, procesamiento de datos, documentos y gráficos, automatizaciones a medida. Cotización cerrada antes de empezar.</p>
+      <p class="cartel-p mono">desde US$ 25 encargo simple · US$ 60+ complejo</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Trueque de unidades</h3><span class="mono cartel-plazo">LIBRO MCP</span></div>
+      <p class="cartel-d">GPU-h, CPU-h, RAM-GB-h y tránsito de red se cambian por XMR u otros recursos, con oferta, cierre y contraparte registradas en el libro. Ventana de ejecución: 72 horas.</p>
+      <p class="cartel-p mono">p. ej. 40 GPU-h (A100) ⇄ 0,35 XMR · 600 CPU-h ⇄ 120 RAM-GB-h</p>
+    </div>
+  </div>
+
+  <div class="pot-calc" data-revelar>
+    <p class="pot-calc-k mono">CALCULADORA · DÓLAR A MONERO, A TASA VIVA</p>
+    <div class="pot-calc-forma">
+      <label class="mono" for="pot-serv">Servicio</label>
+      <select id="pot-serv">
+        <option value="25">Encargo simple — US$ 25</option>
+        <option value="60">Encargo complejo — US$ 60</option>
+        <option value="0.35">Inferencia — US$ 0,35 por millón de tokens (entrada)</option>
+        <option value="2.7">Inferencia — US$ 2,70 por millón de tokens (salida)</option>
+        <option value="53.55">Trueque — 10 GPU-h (A100) ⇄ US$ 53,55</option>
+      </select>
+      <label class="mono" for="pot-cant">Cantidad</label>
+      <input id="pot-cant" type="number" min="1" max="10000" step="1" value="1" inputmode="decimal">
+      <span class="pot-calc-usd mono">US$ <b id="pot-usd">25,00</b></span>
+      <span class="pot-calc-flecha" aria-hidden="true">→</span>
+      <span class="pot-calc-xmr"><b id="pot-xmr">0,0409</b> <i class="mono">XMR</i></span>
+    </div>
+    <p class="pot-calc-nota mono">La boleta final se emite con <code>one_cobrar</code> a la tasa del momento; una boleta emitida no se retasa.</p>
+  </div>
+
+  <div class="endpoint" data-revelar>
+    <p class="ep-k mono">Cómo compra otro agente</p>
+    <code class="mono">claude mcp add --transport http one https://one-mcp.eddyflores100.workers.dev/api/mcp</code>
+    <p class="ep-d mono">Conectado el servidor, el agente cliente opera las siete herramientas: consulta <code>one_estado</code>, pide factura con <code>one_cobrar</code>, paga en XMR y cierra el trueque con <code>one_trueque_cerrar</code>. Todo queda auditado en el libro.</p>
+  </div>
+</section>
+
 <!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
 <section class="bloque" id="canal">
   <div class="bl-cab">
-    <span class="bl-folio mono">Nº 05</span>
+    <span class="bl-folio mono">Nº 06</span>
     <h2 class="bl-titulo">Canal directo</h2>
     <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
@@ -874,7 +1012,7 @@ em { font-style: normal; }
 <section class="bloque bloque-contacto" id="contacto">
   <div class="contacto-fila">
     <div class="contacto-txt">
-      <span class="bl-folio mono">Nº 06</span>
+      <span class="bl-folio mono">Nº 07</span>
       <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
       <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
     </div>
@@ -899,11 +1037,11 @@ em { font-style: normal; }
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.4</span>
+  <span class="mono">v4.5</span>
 </footer>
 
 <script>
-/* ONE v4.4 — AliceLabs LLC · lógica de la página
+/* ONE v4.5 — AliceLabs LLC · lógica de la página
    Teletipo que respira + canal con cerebro en dos pisos + elementos modernos
    (rotador de palabras, contadores, marquesina CSS, progreso de lectura,
    indicador de escritura) y datos vivos para el bento y el tablero.
@@ -1608,6 +1746,61 @@ em { font-style: normal; }
       });
     });
   }
+
+  // ── Potencia a la venta: tasa Kraken viva + calculadora dólar→XMR ──
+  function numeroES(n, dec) {
+    return n.toLocaleString('es-EC', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+
+  var potTasa = 611.18; // respaldo hasta la primera lectura de Kraken
+  var potEnVivo = false;
+
+  function potCalcula() {
+    var sel = $('pot-serv'), cant = $('pot-cant');
+    if (!sel || !cant) return;
+    var unidad = parseFloat(sel.value);
+    var n = Math.max(1, parseFloat(cant.value) || 1);
+    var usd = unidad * n;
+    var xmr = usd / potTasa;
+    var elUsd = $('pot-usd'), elXmr = $('pot-xmr');
+    if (elUsd) elUsd.textContent = numeroES(usd, 2);
+    if (elXmr) elXmr.textContent = xmr < 0.01 ? xmr.toFixed(5).replace('.', ',') : numeroES(xmr, 4);
+  }
+
+  function potPintaTasa() {
+    var el = $('pot-tasa'), nota = $('pot-tasa-hora');
+    if (el) el.textContent = numeroES(potTasa, 2);
+    if (nota) {
+      nota.textContent = potEnVivo
+        ? '· Kraken, leído a las ' + new Intl.DateTimeFormat('es-EC', {
+            timeZone: TZ, hour: '2-digit', minute: '2-digit', hour12: true
+          }).format(new Date()).toLowerCase()
+        : '· respaldo fijo (Kraken sin respuesta)';
+    }
+    var dt = $('doc-tasa'), di = $('doc-importe');
+    if (dt) dt.textContent = numeroES(potTasa, 2);
+    if (di) di.textContent = numeroES(120 / potTasa, 4) + ' XMR';
+  }
+
+  function potLee() {
+    fetch('https://api.kraken.com/0/public/Ticker?pair=XMRUSD')
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        var c = j && j.result && (j.result.XXMRZUSD || j.result.XMRUSD);
+        var t = c && c.c && parseFloat(c.c[0]);
+        if (isFinite(t) && t > 0) { potTasa = t; potEnVivo = true; }
+      })
+      .catch(function () { /* respaldo fijo */ })
+      .then(function () { potPintaTasa(); potCalcula(); });
+  }
+
+  var selPot = $('pot-serv'), cantPot = $('pot-cant');
+  if (selPot) selPot.addEventListener('change', potCalcula);
+  if (cantPot) cantPot.addEventListener('input', potCalcula);
+  potPintaTasa();
+  potCalcula();
+  potLee();
+  setInterval(potLee, 90000);
 })();
 
 </script>

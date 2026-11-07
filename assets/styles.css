@@ -605,3 +605,86 @@ em { font-style: normal; }
   .celda, .celda:hover { transform: none; box-shadow: none; }
   .estado-dot { animation: none; }
 }
+
+/* ═════════ potencia a la venta · v4.5 ═════════ */
+.pot-tasa {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  font-size: 12px; letter-spacing: 0.1em; color: var(--tinta-2);
+  border-top: 2px solid var(--tinta); border-bottom: 1px solid var(--linea);
+  padding: 13px 2px; margin: 26px 0 6px;
+}
+.pot-tasa b {
+  font-size: 20px; font-weight: 600; color: var(--tinta);
+  font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
+}
+.cartel { margin-top: 6px; }
+.cartel-fila {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 8px 32px;
+  border-bottom: 1px solid var(--linea);
+  padding: 24px 12px 20px; position: relative;
+  transition: background 0.25s ease;
+}
+.cartel-fila::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 0;
+  background: var(--verde); transition: width 0.25s ease;
+}
+.cartel-fila:hover { background: rgba(20, 18, 12, 0.035); }
+.cartel-fila:hover::before { width: 4px; }
+.cartel-cab { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; grid-column: 1 / -1; }
+.cartel-t {
+  font-family: var(--f-disp); font-weight: 800; letter-spacing: -0.01em;
+  font-size: clamp(21px, 2.6vw, 27px);
+}
+.vivo {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em;
+  background: var(--verde); color: var(--tinta);
+  padding: 3px 9px 2px; border: 1px solid var(--tinta);
+}
+.cartel-plazo {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em;
+  color: var(--tinta-2); border: 1px solid var(--linea); padding: 3px 9px 2px;
+}
+.cartel-d { grid-column: 1; font-size: 14.5px; line-height: 1.62; color: var(--tinta-2); margin: 0; }
+.cartel-p {
+  grid-column: 2; align-self: end; justify-self: end; text-align: right;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.05em; color: var(--tinta); margin: 0;
+}
+.pot-calc {
+  border: 2px solid var(--tinta); box-shadow: 5px 5px 0 var(--verde);
+  background: rgba(20, 18, 12, 0.02);
+  padding: 20px 22px 16px; margin: 30px 0 8px; position: relative; z-index: 1;
+}
+.pot-calc-k { font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; color: var(--tinta-2); margin: 0 0 14px; }
+.pot-calc-forma { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.pot-calc-forma label { font-size: 11px; letter-spacing: 0.12em; color: var(--tinta-2); }
+.pot-calc-forma select,
+.pot-calc-forma input {
+  font-family: var(--f-mono); font-size: 13px; color: var(--tinta);
+  background: var(--papel); border: 1px solid var(--tinta);
+  padding: 9px 12px; border-radius: 0; max-width: 100%;
+}
+.pot-calc-forma select { max-width: 380px; }
+.pot-calc-forma input { width: 88px; text-align: right; }
+.pot-calc-usd { font-size: 13px; letter-spacing: 0.04em; }
+.pot-calc-usd b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pot-calc-flecha { color: var(--cian); font-weight: 700; font-size: 17px; }
+.pot-calc-xmr b {
+  font-family: var(--f-disp); font-weight: 900; font-size: 27px; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+.pot-calc-xmr i { font-style: normal; font-size: 12px; color: var(--tinta-2); letter-spacing: 0.1em; }
+.pot-calc-nota { font-size: 11.5px; color: var(--tinta-2); margin: 14px 0 0; letter-spacing: 0.03em; }
+.pot-calc-nota code { font-size: 11px; }
+@media (max-width: 880px) {
+  .cartel-fila { grid-template-columns: 1fr; gap: 8px; }
+  .cartel-d, .cartel-p { grid-column: 1; }
+  .cartel-p { justify-self: start; text-align: left; }
+}
+@media (max-width: 560px) {
+  .pot-calc { padding: 16px 14px 14px; }
+  .pot-calc-forma select { max-width: 100%; }
+  .pot-calc-xmr b { font-size: 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cartel-fila, .cartel-fila::before { transition: none; }
+}

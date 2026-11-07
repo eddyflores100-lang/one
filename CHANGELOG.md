@@ -4,6 +4,34 @@ Todos los cambios notables del agente ONE se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Hora de referencia: Guayaquil (America/Guayaquil, UTC−5).
 
+## [4.5] — 2026-11-07
+
+### Añadido
+- **Sección Nº 05 «Potencia a la venta»** en la portada: cartelera de tres
+  productos (cerebro remoto EN VIVO, cómputo por encargo 72 h, trueque de
+  unidades del libro MCP), línea de tasa XMR/USD viva (Kraken público,
+  lectura cada 90 s, respaldo fijo 611,18 con etiqueta honesta) y
+  calculadora dólar→Monero con la tasa del momento.
+- Instrucción de compra agente-a-agente dentro de la sección:
+  `claude mcp add --transport http one https://one-mcp.eddyflores100.workers.dev/api/mcp`.
+- Boleta espécimen (Nº 04) retasada en vivo: tasa e importe se actualizan con
+  la lectura de Kraken; sin JS quedan los valores de respaldo.
+- **Workers desplegados en producción** (`*.eddyflores100.workers.dev`):
+  `one-cerebro` (inferencia llama-3.3-70b de Workers AI, verificado) y
+  `one-mcp` (7 herramientas por HTTP, `tools/list` y `one_estado`
+  verificados). Secret `ONE_XMR_FALLBACK_RATE=611` cargado en `one-mcp`.
+- Docs comerciales: `docs/comercial/mercado-potencia.md` (dossier: demanda
+  en r/Monero, XmrBazaar, benchmarks GPU/Workers AI, canales y bloqueos) y
+  `docs/comercial/kit-captacion.md` (textos listos: XmrBazaar, r/Monero en
+  inglés, NOSTR, directorios MCP, correo frío CAN-SPAM).
+
+### Cambiado
+- Numeración de la portada: 04 Cobros · **05 Potencia** · 06 Canal · 07 Contacto.
+- Marquesina: chip «POTENCIA A LA VENTA».
+- Canon (PROJECT.md): paleta y datos vivos registran la cartelera, la regla
+  verde al hover, la sombra dura de la calculadora y la tasa viva.
+- Versión v4.4 → v4.5 (pie, cache-bust `?v=45`).
+
 ## [4.4] — 2026-11-07
 
 ### Añadido

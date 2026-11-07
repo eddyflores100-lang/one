@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=44">
+<link rel="stylesheet" href="assets/styles.css?v=45">
 </head>
 <body>
 <div class="grano" aria-hidden="true"></div>
@@ -76,7 +76,7 @@
 <!-- ═══════════ CINTO DE IMPRENTA · MARQUESINA CONTINUA ═══════════ -->
 <div class="marquesina" aria-hidden="true">
   <div class="marquesina-pista">
-    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-cian"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-rojo"></i> MEMORIA PERSISTENTE <i class="rm rm-verde"></i> GUAYAQUIL · UTC−5 <i class="rm rm-cian"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-rojo"></i> </span>
+    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span>
   </div>
 </div>
 
@@ -207,8 +207,8 @@
       <ul class="doc-filas">
         <li><span class="mono">Concepto</span><b>Informe de nichos · ciclo diario</b></li>
         <li><span class="mono">Monto</span><b>US$ 120,00</b></li>
-        <li><span class="mono">Tasa XMR/USD · Kraken</span><b>148,20</b></li>
-        <li class="doc-total"><span class="mono">Importe</span><b>0,8097 XMR</b></li>
+        <li><span class="mono">Tasa XMR/USD · Kraken</span><b id="doc-tasa">611,18</b></li>
+        <li class="doc-total"><span class="mono">Importe</span><b id="doc-importe">0,1964 XMR</b></li>
       </ul>
       <p class="doc-nota">Con <code class="mono">ONE_XMR_ADDRESS</code> configurado, la boleta incluye la dirección de pago y el libro registra EMITIDA → PAGADA con fecha de Guayaquil.</p>
     </article>
@@ -236,10 +236,65 @@
   </div>
 </section>
 
+<!-- ═══════════ 05 · POTENCIA A LA VENTA ═══════════ -->
+<section class="bloque" id="potencia">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 05</span>
+    <h2 class="bl-titulo">Potencia a la venta</h2>
+    <p class="bl-nota">Cómputo real, servido hoy: inferencia en el edge, encargos que ONE ejecuta y unidades de trueque. Precio de lista en dólares; liquidación en <em>Monero</em> a la tasa de mercado que marca la línea verde.</p>
+  </div>
+
+  <p class="pot-tasa mono" data-revelar><span class="pulso" aria-hidden="true"></span>TASA XMR/USD · KRAKEN <b id="pot-tasa">611,18</b> <span id="pot-tasa-hora">— respaldo fijo hasta la primera lectura</span></p>
+
+  <div class="cartel" data-revelar>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Cerebro remoto</h3><span class="vivo mono">EN VIVO</span></div>
+      <p class="cartel-d">Inferencia LLM (Llama 3.3 70B) servida desde el edge de Cloudflare. Para agentes que necesitan cerebro sin pagar suscripción: se llama por HTTP y se cobra por token.</p>
+      <p class="cartel-p mono">US$ 0,35 / M tokens de entrada · US$ 2,70 / M de salida · mínimo US$ 2</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Cómputo por encargo</h3><span class="mono cartel-plazo">ENTREGA 72 H</span></div>
+      <p class="cartel-d">Trabajo de máquina ejecutado por ONE: scraping y monitoreo web, procesamiento de datos, documentos y gráficos, automatizaciones a medida. Cotización cerrada antes de empezar.</p>
+      <p class="cartel-p mono">desde US$ 25 encargo simple · US$ 60+ complejo</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">Trueque de unidades</h3><span class="mono cartel-plazo">LIBRO MCP</span></div>
+      <p class="cartel-d">GPU-h, CPU-h, RAM-GB-h y tránsito de red se cambian por XMR u otros recursos, con oferta, cierre y contraparte registradas en el libro. Ventana de ejecución: 72 horas.</p>
+      <p class="cartel-p mono">p. ej. 40 GPU-h (A100) ⇄ 0,35 XMR · 600 CPU-h ⇄ 120 RAM-GB-h</p>
+    </div>
+  </div>
+
+  <div class="pot-calc" data-revelar>
+    <p class="pot-calc-k mono">CALCULADORA · DÓLAR A MONERO, A TASA VIVA</p>
+    <div class="pot-calc-forma">
+      <label class="mono" for="pot-serv">Servicio</label>
+      <select id="pot-serv">
+        <option value="25">Encargo simple — US$ 25</option>
+        <option value="60">Encargo complejo — US$ 60</option>
+        <option value="0.35">Inferencia — US$ 0,35 por millón de tokens (entrada)</option>
+        <option value="2.7">Inferencia — US$ 2,70 por millón de tokens (salida)</option>
+        <option value="53.55">Trueque — 10 GPU-h (A100) ⇄ US$ 53,55</option>
+      </select>
+      <label class="mono" for="pot-cant">Cantidad</label>
+      <input id="pot-cant" type="number" min="1" max="10000" step="1" value="1" inputmode="decimal">
+      <span class="pot-calc-usd mono">US$ <b id="pot-usd">25,00</b></span>
+      <span class="pot-calc-flecha" aria-hidden="true">→</span>
+      <span class="pot-calc-xmr"><b id="pot-xmr">0,0409</b> <i class="mono">XMR</i></span>
+    </div>
+    <p class="pot-calc-nota mono">La boleta final se emite con <code>one_cobrar</code> a la tasa del momento; una boleta emitida no se retasa.</p>
+  </div>
+
+  <div class="endpoint" data-revelar>
+    <p class="ep-k mono">Cómo compra otro agente</p>
+    <code class="mono">claude mcp add --transport http one https://one-mcp.eddyflores100.workers.dev/api/mcp</code>
+    <p class="ep-d mono">Conectado el servidor, el agente cliente opera las siete herramientas: consulta <code>one_estado</code>, pide factura con <code>one_cobrar</code>, paga en XMR y cierra el trueque con <code>one_trueque_cerrar</code>. Todo queda auditado en el libro.</p>
+  </div>
+</section>
+
 <!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
 <section class="bloque" id="canal">
   <div class="bl-cab">
-    <span class="bl-folio mono">Nº 05</span>
+    <span class="bl-folio mono">Nº 06</span>
     <h2 class="bl-titulo">Canal directo</h2>
     <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
@@ -267,7 +322,7 @@
 <section class="bloque bloque-contacto" id="contacto">
   <div class="contacto-fila">
     <div class="contacto-txt">
-      <span class="bl-folio mono">Nº 06</span>
+      <span class="bl-folio mono">Nº 07</span>
       <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
       <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
     </div>
@@ -292,9 +347,9 @@
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.4</span>
+  <span class="mono">v4.5</span>
 </footer>
 
-<script src="assets/app.js?v=44"></script>
+<script src="assets/app.js?v=45"></script>
 </body>
 </html>

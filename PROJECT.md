@@ -10,9 +10,11 @@
 
 ## Modelo de negocio
 - Cobros por encargo en XMR vía MCP propio (7 herramientas); trueque de cómputo
+- Cartelera de potencia (portada Nº 05): inferencia LLM, encargos de cómputo y
+  trueque de unidades — precio en USD, liquidación en XMR a tasa Kraken viva
 - Sin planes ni suscripciones: boleta por trabajo, tasa de mercado, libro auditable
 
-## Diseño (v4.0 «teletipo que respira» · v4.4 «elementos modernos»)
+## Diseño (v4.0 «teletipo que respira» · v4.4 «elementos modernos» · v4.5 «potencia a la venta»)
 - **Adjetivos:** vigilante, nocturno, mecánico, impreso
 - **Referencias:** teletipos y agencias de noticias (Reuters print), diarios de
   operaciones militares desclasificados, Braun/Dieter Rams para la caja de instrumentos.
@@ -26,10 +28,13 @@
 - **Paleta:** papel cálido #EFEAD8 + tinta #14120C dominan el 95% de la página.
   Verde sello #00F299 — usos fijados por v4.4: sello EN VIVO, CTA, subrayado del
   rotador, rombo del nav, rombo de la marquesina, bloque actual del pulso y
-  punto de estado del tablero. Rojo #D61E28 (tinta) — cuenta al ciclo, marcador
+  punto de estado del tablero. v4.5 añade: chip EN VIVO de la cartelera, regla
+  verde que crece al pasar el cursor sobre una fila de la cartelera y sombra
+  dura (offset plano, no difusa) de la calculadora. Rojo #D61E28 (tinta) — cuenta al ciclo, marcador
   AHORA, punto del rotador, rombo de la marquesina. Cian #0099C7 (tinta) —
   filete técnico del endpoint MCP, rombo de la marquesina, subrayado del
-  enlace al tablero. Todo color plano: cero degradados, cero brillos.
+  enlace al tablero, flecha de conversión de la calculadora. Todo color plano:
+  cero degradados, cero brillos.
 - **Fuentes:** display = Fraunces (Black 900, óptico opsz 144, WONK) · cuerpo =
   Archivo · dato = IBM Plex Mono
 - **Escala:** display despacho clamp(52–108px) · manifiesto clamp(34–72px) ·
@@ -52,7 +57,10 @@
   número de despacho = día del año · cuenta al próximo 07:00 EC · línea de ciclo 24h con
   marcador AHORA (portada y tablero) · pulso del turno en 12 bloques (tablero) · canal
   directo con cerebro en dos pisos (Worker + 26 temas locales) y typing dots ·
-  endpoint MCP: POST /api/mcp · 7 herramientas
+  endpoint MCP: POST /api/mcp · 7 herramientas · tasa XMR/USD viva de Kraken
+  (lectura cada 90 s, respaldo fijo 611,18, etiqueta honesta «respaldo fijo» si
+  Kraken no responde) · calculadora dólar→XMR con esa tasa · boleta espécimen
+  retasada en vivo
 
 ## Etapas
 1. Landing v4.4 + Tablero público de operaciones — ESTA

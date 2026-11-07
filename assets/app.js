@@ -1,4 +1,4 @@
-/* ONE v4.4 — AliceLabs LLC · lógica de la página
+/* ONE v4.5 — AliceLabs LLC · lógica de la página
    Teletipo que respira + canal con cerebro en dos pisos + elementos modernos
    (rotador de palabras, contadores, marquesina CSS, progreso de lectura,
    indicador de escritura) y datos vivos para el bento y el tablero.
@@ -703,4 +703,59 @@
       });
     });
   }
+
+  // ── Potencia a la venta: tasa Kraken viva + calculadora dólar→XMR ──
+  function numeroES(n, dec) {
+    return n.toLocaleString('es-EC', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+
+  var potTasa = 611.18; // respaldo hasta la primera lectura de Kraken
+  var potEnVivo = false;
+
+  function potCalcula() {
+    var sel = $('pot-serv'), cant = $('pot-cant');
+    if (!sel || !cant) return;
+    var unidad = parseFloat(sel.value);
+    var n = Math.max(1, parseFloat(cant.value) || 1);
+    var usd = unidad * n;
+    var xmr = usd / potTasa;
+    var elUsd = $('pot-usd'), elXmr = $('pot-xmr');
+    if (elUsd) elUsd.textContent = numeroES(usd, 2);
+    if (elXmr) elXmr.textContent = xmr < 0.01 ? xmr.toFixed(5).replace('.', ',') : numeroES(xmr, 4);
+  }
+
+  function potPintaTasa() {
+    var el = $('pot-tasa'), nota = $('pot-tasa-hora');
+    if (el) el.textContent = numeroES(potTasa, 2);
+    if (nota) {
+      nota.textContent = potEnVivo
+        ? '· Kraken, leído a las ' + new Intl.DateTimeFormat('es-EC', {
+            timeZone: TZ, hour: '2-digit', minute: '2-digit', hour12: true
+          }).format(new Date()).toLowerCase()
+        : '· respaldo fijo (Kraken sin respuesta)';
+    }
+    var dt = $('doc-tasa'), di = $('doc-importe');
+    if (dt) dt.textContent = numeroES(potTasa, 2);
+    if (di) di.textContent = numeroES(120 / potTasa, 4) + ' XMR';
+  }
+
+  function potLee() {
+    fetch('https://api.kraken.com/0/public/Ticker?pair=XMRUSD')
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        var c = j && j.result && (j.result.XXMRZUSD || j.result.XMRUSD);
+        var t = c && c.c && parseFloat(c.c[0]);
+        if (isFinite(t) && t > 0) { potTasa = t; potEnVivo = true; }
+      })
+      .catch(function () { /* respaldo fijo */ })
+      .then(function () { potPintaTasa(); potCalcula(); });
+  }
+
+  var selPot = $('pot-serv'), cantPot = $('pot-cant');
+  if (selPot) selPot.addEventListener('change', potCalcula);
+  if (cantPot) cantPot.addEventListener('input', potCalcula);
+  potPintaTasa();
+  potCalcula();
+  potLee();
+  setInterval(potLee, 90000);
 })();
