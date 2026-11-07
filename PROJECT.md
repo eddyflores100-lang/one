@@ -60,7 +60,10 @@
   endpoint MCP: POST /api/mcp · 7 herramientas · tasa XMR/USD viva de Kraken
   (lectura cada 90 s, respaldo fijo 611,18, etiqueta honesta «respaldo fijo» si
   Kraken no responde) · calculadora dólar→XMR con esa tasa · boleta espécimen
-  retasada en vivo
+  retasada en vivo · cobros reales: cartera XMR de ONE en producción
+  (secret `ONE_XMR_ADDRESS`, `47SpGs…9DGM`), boletas `one_cobrar` con
+  dirección completa y libro EMITIDA→PAGADA · semilla de la cartera solo en
+  papel/fichero privado del fundador, jamás publicada
 
 ## Etapas
 1. Landing v4.4 + Tablero público de operaciones — ESTA

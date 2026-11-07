@@ -59,9 +59,16 @@ millón — ~20 % sobre costo. Encargos desde $25. Trueque anclado al libro
 
 | Bloqueo | Impacto | Camino |
 | --- | --- | --- |
-| `ONE_XMR_ADDRESS` sin configurar | Las boletas se emiten marcadas «configurar»; no hay dirección de cobro real | El fundador debe crear la wallet (o subaddress) y cargarla como secret del Worker `one-mcp` |
-| Tasa Kraken falla en el Worker (`core.ts` busca `XMRUSD`; Kraken responde `XXMRZUSD`) | one_estado cae a tasa fija | Secret `ONE_XMR_FALLBACK_RATE=611` ya cargado como paliativo; el arreglo real es 1 línea en `core.ts` — requiere aprobar tocar `mcp/` |
+| ~~`ONE_XMR_ADDRESS` sin configurar~~ **RESUELTO 7-nov-2026** | Antes: boletas sin dirección de cobro real | Cartera creada y verificada con dos implementaciones independientes; secret cargado en `one-mcp`; boleta de prueba INV-20261106-4OD2 ya emite cartera real. La semilla (25 palabras) vive en papel/fichero privado del fundador — nunca se publica |
+| Tasa Kraken falla en el Worker (`core.ts` busca `XMRUSD`; Kraken responde `XXMRZUSD`) | one_estado cae a tasa fija | Secret `ONE_XMR_FALLBACK_RATE=611` **ya funciona** (ver nota de despliegue); muestra «tasa fija» con etiqueta honesta. El arreglo real (tasa viva) es 1 línea en `core.ts` — requiere aprobar tocar `mcp/` |
 | Libro MCP en memoria (sin KV/D1 en el Worker) | Los trueques del Worker se pierden al reciclar el aislado | Crear namespace KV y enlazarlo — toca `mcp/wrangler.toml` (misma regla de integridad) |
+
+**Nota de despliegue (secrets):** el runtime de Cloudflare solo puebla `process.env`
+(que lee `core.ts`) con los secrets cuando se activa el flag
+`nodejs_compat_populate_process_env`. Se activa con la config externa
+`scripts/one-mcp-deploy.wrangler.toml` — el código desplegado es exactamente el
+de `mcp/` (diff de integridad = 0); solo cambia configuración de plataforma.
+Redesplegar así: `cd scripts && npx wrangler@latest deploy --config one-mcp-deploy.wrangler.toml`.
 
 ## 6. Meta
 

@@ -4,6 +4,30 @@ Todos los cambios notables del agente ONE se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Hora de referencia: Guayaquil (America/Guayaquil, UTC−5).
 
+## [4.5.1] — 2026-11-07
+
+### Añadido
+- **Cartera de cobros XMR de ONE** creada offline y verificada con dos
+  implementaciones independientes (monero-python + derivación propia
+  ed25519/keccak/CNBase58); semilla de 25 palabras entregada al fundador en
+  fichero privado (`download/ONE-cobros/`) — no se publica.
+- Secret `ONE_XMR_ADDRESS` cargado en el Worker `one-mcp`: las boletas reales
+  (`one_cobrar`) ya emiten la dirección de pago. Verificado end-to-end con la
+  boleta de prueba INV-20261106-4OD2 (PENDIENTE, etiquetada como prueba).
+- Config externa de despliegue `scripts/one-mcp-deploy.wrangler.toml`
+  (flag `nodejs_compat_populate_process_env`): los secrets llegan a
+  `process.env` sin tocar `mcp/` — el código desplegado es idéntico al repo
+  (diff de integridad = 0).
+
+### Corregido
+- `ONE_XMR_FALLBACK_RATE` ahora sí aplica: `one_estado` muestra
+  «611 USD/XMR (tasa fija)» con etiqueta honesta. Causa raíz: el runtime de
+  Workers no poblaba `process.env` sin el flag de compatibilidad.
+
+### Cambiado
+- Boleta espécimen (Nº 04): nueva línea «Cartera de cobro» con la dirección
+  real (enmascarada, completa al pasar el cursor) y nota de cobro actualizada.
+
 ## [4.5] — 2026-11-07
 
 ### Añadido
