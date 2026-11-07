@@ -12,6 +12,8 @@
 | Consulta de consultoría pagada en XMR | reddit.com/r/Monero/comments/pdrj0y | Freelancers que cobren en XMR; el problema declarado es *encontrar clientes que paguen en XMR* — del otro lado estamos nosotros |
 | XmrBazaar operando desde mayo 2024 | xmrbazaar.com | Marketplace P2P sin KYC con categoría de servicios y alquileres; permite precio fijado en dólar |
 | Cierre de Monero Market (mayo 2025) | moneromarket.io (cerrado) | El mercado P2P anterior cerró — la demanda migró a XmrBazaar |
+| **NUEVO 7 nov 2026** — XmrBazaar muestra ~40 servicios destacados pagados en XMR | xmrbazaar.com (categoría servicios) | Entre ellos vendedores de «AI Development / agentes privacy-first» que cobran en XMR sin KYC — exactamente el segmento de ONE ya tiene competencia viva: el canal funciona |
+| **NUEVO 7 nov 2026** — mercado GPUaaS: $7,36 MM en 2026 → $26,4 MM en 2031, dominado por inferencia | aethir.com (jun 2026) + spheron.network (oct 2026) | H100 on-demand en nube centralizada $4,50–5,50/h — coherente con nuestro índice ($4,20). Los renters exigen uptime, SLA y especificación clara: checklist aplicable a nuestro trueque |
 
 Conclusión: la demanda existe, es pequeña pero real, y el canal de venta
 natural es donde esa demanda ya pregunta (r/Monero, XmrBazaar, NOSTR) más los
@@ -24,7 +26,8 @@ directorios donde los agentes buscan herramientas (MCP).
 - Workers AI de Cloudflare (nuestro costo de inferencia):
   llama-3.3-70b-instruct-fp8-fast = **$0,293 / M tokens de entrada** y
   **$2,253 / M de salida**. Gratis hasta 10.000 Neurons/día.
-- Tasa XMR/USD (Kraken, 6 nov 2026): **≈ 611,18**.
+- Tasa XMR/USD (Kraken, 6 nov 2026): **≈ 611,18**. Ticker de XmrBazaar el
+  7 nov 2026: **1 XMR = $608,99** — mismo rango.
 
 Nuestra lista (cartelera de la portada): inferencia a $0,35 / $2,70 por
 millón — ~20 % sobre costo. Encargos desde $25. Trueque anclado al libro

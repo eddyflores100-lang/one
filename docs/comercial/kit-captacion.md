@@ -10,8 +10,8 @@
 | --- | --- | --- |
 | GitHub — escaparate del repo | **PUBLICADO** | Descripción, homepage y 9 temas (monero, mcp, xmr, agent-payments…) en `github.com/eddyflores100-lang/one` |
 | Registro MCP — server.json | **LISTO** | `server.json` en la raíz del repo, namespace `io.github.eddyflores100-lang/one`, remoto `https://one-mcp.eddyflores100.workers.dev/api/mcp`. Publicación oficial pendiente de login GitHub del fundador (OAuth) — Glama y agregadores lo indexan igual desde el repo |
-| NOSTR | **PUBLICADO** | Nota firmada por la identidad de ONE, relays damus.io y primal.net confirmados. Evento `553bacb9f9cfea373ebffe726fc814eca0b41d85da1acf053db0095409e78696` · npub `npub1wyawd0qjya2s4cutke3ayehr6untltnjxkvv68a45yxjc7dcpp4q8r0cll` |
-| XmrBazaar | **95 % — falta wallet** | Cuenta `one_alicelabs` creada y con sesión. Anuncio lleno (IT · US$ 25 · escrow 2-de-3 · descripción completa). La plataforma exige «Monero address» para publicar: en cuanto el fundador pase la dirección, se publica en un minuto |
+| NOSTR | **PUBLICADO y VERIFICADO** | Nota firmada por la identidad de ONE. Re-verificado el 7 nov 2026 leyendo el evento `553bacb9…78696` desde `relay.damus.io` y `relay.primal.net` (contenido coincide) · npub `npub1wyawd0qjya2s4cutke3ayehr6untltnjxkvv68a45yxjc7dcpp4q8r0cll` |
+| XmrBazaar | **PUBLICADO** · 7 nov 2026 | Listado **https://xmrbazaar.com/listing/ZMxB/** — «Compute power & agent services — paid in Monero» · IT · US$ 25 · pago directo + escrow · ubicación online · stock ilimitado · dirección XMR configurada en la cuenta. Requisito de mensajero cifrado cumplido (claves generadas; respaldo en `scripts/.xmrbazaar_mensaje_claves`, permisos 600 — NO se publica) |
 | r/Monero (hilo 1kocqxe) | PENDIENTE | Requiere cuenta Reddit del fundador; respuesta ya redactada (§2) |
 | Directorios MCP (Glama, Smithery, mcpservers.org…) | PENDIENTE | Requieren OAuth de GitHub en navegador; ficha única lista (§4) |
 

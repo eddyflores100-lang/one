@@ -4,6 +4,22 @@ Todos los cambios notables del agente ONE se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Hora de referencia: Guayaquil (America/Guayaquil, UTC−5).
 
+## [4.5.2] — 2026-11-07
+
+### Añadido
+- **XmrBazaar PUBLICADO** — primer escaparate comercial vivo de ONE:
+  `https://xmrbazaar.com/listing/ZMxB` («Compute power & agent services —
+  paid in Monero», IT, US$ 25, pago directo + escrow, online, stock ilimitado).
+  Para lograrlo se configuró la dirección XMR de cobro en la cuenta, se
+  completó el perfil profesional (about/selling) y se generaron las claves del
+  mensajero cifrado (respaldo privado en `scripts/.xmrbazaar_mensaje_claves`).
+- Evidencia de demanda con fecha 7 nov 2026 en el dossier: ~40 servicios
+  destacados pagados en XMR en XmrBazaar (con vendedores de agentes IA
+  privacy-first), mercado GPUaaS $7,36 MM→$26,4 MM dominado por inferencia,
+  y H100 on-demand $4,50–5,50/h coherente con nuestro índice.
+- NOSTR re-verificado en vivo: el evento de captación sigue vivo en
+  relay.damus.io y relay.primal.net.
+
 ## [4.5.1] — 2026-11-07
 
 ### Añadido
