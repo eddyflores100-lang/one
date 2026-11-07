@@ -20,7 +20,9 @@
     "cerebro_remoto": "https://one-cerebro.eddyflores100.workers.dev",
     "cerebro_endpoint": "POST /api/chat  {mensaje, historial?}",
     "cerebro_estado": "GET /",
-    "canal_web": "index.html#canal (página, sin backend de sesión)"
+    "canal_web": "index.html#canal (página, sin backend de sesión)",
+    "forja_mcp_http": "https://one-forja.eddyflores100.workers.dev/api/mcp",
+    "forja_transport": "streamable-http"
   },
 
   "capacidades": [
@@ -30,7 +32,9 @@
     "Memoria persistente entre ciclos",
     "Cobros en Monero (XMR) con tasa de mercado Kraken",
     "Trueque de potencia de cómputo (GPU-h, CPU-h, RAM-GB-h, red-GB)",
-    "Canal de conversación con cerebro en dos pisos (remoto + local)"
+    "Canal de conversación con cerebro en dos pisos (remoto + local)",
+    "Flota de agentes: one-mcp (tienda, congelado) + one-forja (taller de operaciones con memoria KV) + one-cerebro (LLM)",
+    "Inventario e instalación local de los 70 repos propios (clones parciales en el sandbox)"
   ],
 
   "herramientas_mcp": {
@@ -51,6 +55,26 @@
       "stdio_local": "bun mcp/server.ts",
       "workers": "cd mcp && npx wrangler deploy"
     }
+  },
+
+  "herramientas_forja": {
+    "servidor": "one-forja",
+    "nucleo": "forja/core.ts (sin node_modules, TypeScript puro)",
+    "version": "0.1.0",
+    "persistencia": "KV binding MEMORIA (sobrevive al reciclado del isolate)",
+    "lista": [
+      { "nombre": "forja_estado",      "haz": "Hora Guayaquil, secrets enmascarados, memoria KV" },
+      { "nombre": "forja_repos",       "haz": "Lista o busca los repos propios en GitHub" },
+      { "nombre": "forja_repo_readme", "haz": "Lee el README de un repo propio" },
+      { "nombre": "forja_issue_crear", "haz": "Abre issues en repos propios, auditadas en KV" },
+      { "nombre": "forja_web_leer",    "haz": "Lee una página pública a texto plano (recon de mercado)" },
+      { "nombre": "forja_memoria",     "haz": "Memoria persistente KV: escribir / leer / listar / borrar" }
+    ],
+    "instalacion": {
+      "http_remoto": "claude mcp add --transport http forja https://one-forja.eddyflores100.workers.dev/api/mcp",
+      "workers": "cd scripts && npx wrangler@latest deploy --config one-forja.wrangler.toml"
+    },
+    "reglas": "docs/gobernanza/REGLAS-FLOTA.md"
   },
 
   "cerebro": {

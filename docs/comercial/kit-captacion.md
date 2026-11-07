@@ -4,19 +4,39 @@
 > Emisor legal en toda salida: **AliceLabs LLC · 30 N Gould St, Ste R,
 > Sheridan, WY 82801, EE. UU.** (CAN-SPAM). Bajas: respuesta inmediata.
 
-## 0. Bitácora de publicación (6 nov 2026, Guayaquil)
+## 0. Bitácora de publicación (6-7 nov 2026, Guayaquil)
 
 | Canal | Estado | Detalle |
 | --- | --- | --- |
 | GitHub — escaparate del repo | **PUBLICADO** | Descripción, homepage y 9 temas (monero, mcp, xmr, agent-payments…) en `github.com/eddyflores100-lang/one` |
-| Registro MCP — server.json | **LISTO** | `server.json` en la raíz del repo, namespace `io.github.eddyflores100-lang/one`, remoto `https://one-mcp.eddyflores100.workers.dev/api/mcp`. Publicación oficial pendiente de login GitHub del fundador (OAuth) — Glama y agregadores lo indexan igual desde el repo |
+| Registro MCP — server.json | **LISTO** | `server.json` en la raíz del repo, namespace `io.github.eddyflores100-lang/one`, remoto `https://one-mcp.eddyflores100.workers.dev/api/mcp`. Publicación oficial pendiente de login GitHub del fundador (OAuth) — Glama y agregadores lo indexan igual desde el repo. Forja tiene el suyo: `forja/server.json` (`io.github.eddyflores100-lang/one-forja`) |
 | NOSTR | **PUBLICADO y VERIFICADO** | Nota firmada por la identidad de ONE. Re-verificado el 7 nov 2026 leyendo el evento `553bacb9…78696` desde `relay.damus.io` y `relay.primal.net` (contenido coincide) · npub `npub1wyawd0qjya2s4cutke3ayehr6untltnjxkvv68a45yxjc7dcpp4q8r0cll` |
-| XmrBazaar | **PUBLICADO** · 7 nov 2026 | Listado **https://xmrbazaar.com/listing/ZMxB/** — «Compute power & agent services — paid in Monero» · IT · US$ 25 · pago directo + escrow · ubicación online · stock ilimitado · dirección XMR configurada en la cuenta. Requisito de mensajero cifrado cumplido (claves generadas; respaldo en `scripts/.xmrbazaar_mensaje_claves`, permisos 600 — NO se publica) |
+| XmrBazaar — listado 1 | **PUBLICADO** · 7 nov 2026 | **https://xmrbazaar.com/listing/ZMxB/** — «Compute power & agent services — paid in Monero» · IT · US$ 25 · pago directo + escrow · ubicación online · stock ilimitado · dirección XMR configurada en la cuenta. Requisito de mensajero cifrado cumplido (claves generadas; respaldo en `scripts/.xmrbazaar_mensaje_claves`, permisos 600 — NO se publica) |
+| XmrBazaar — listado 2 | **PUBLICADO** · 7 nov 2026 | **https://xmrbazaar.com/listing/UxmT/** — «AI agent automation: scraping, data & documents — 72 h» · Business · US$ 25 (precio flexible) · directo + escrow · publicado por ONE-FORJA vía Playwright |
+| XmrBazaar — listado 3 | **PUBLICADO** · 7 nov 2026 | **https://xmrbazaar.com/listing/E3zp/** — «LLM API access — Llama 3.3 70B, pay in Monero, from US$ 2» · Assistance · US$ 2 mínimo · directo + escrow |
+| XmrBazaar — higiene | **LIMPIO** | El listado de prueba `pHAc` (título "test") se publicó por accidente durante el sondeo del formulario y fue **eliminado** el mismo día. Perfil: solo los 3 listados de la flota |
 | r/Monero (hilo 1kocqxe) | PENDIENTE | Requiere cuenta Reddit del fundador; respuesta ya redactada (§2) |
 | Directorios MCP (Glama, Smithery, mcpservers.org…) | PENDIENTE | Requieren OAuth de GitHub en navegador; ficha única lista (§4) |
 
+### Recon de demanda (7 nov 2026, leído en vivo desde XmrBazaar)
+
+- Ticker del sitio: **1 XMR = $607.84** (Kraken seguía por encima: la tasa
+  de la boleta siempre es la Kraken del momento).
+- Categoría **Consulting**: **28 listados activos** — el mercado existe.
+  Competencia directa hallada: «Cybersecurity / AI Professional Consulting»,
+  «Business advisory for founders», «Operational Security Services».
+  Ninguno vende agentes con MCP ni facturación auditable: ese es el hueco.
+- Existen **slots Boosted** de pago (posicionamiento) — anotado como palanca
+  futura si un listado no genera mensajes en 2 semanas.
+- Categorías donde la flota ya está: IT, Business, Assistance.
+  La siguiente natural es **Consulting** (consultoría de agentes) — espera
+  a que los tres primeros acumulen reseñas.
+
 Credenciales y sesión de XmrBazaar: `scripts/.xmrbazaar_creds` y
 `scripts/.xmrbazaar_state.json` (ambos con permisos 600, nunca en el repo).
+Scripts de publicación (reutilizables): `scripts/forja_xmrb_playwright.py`
+(publish por asistente), `scripts/forja_xmrb_publicar.py` (referencia),
+`scripts/forja_xmrb_dump.py` (sondeo de formularios).
 
 ## 1. Anuncio para XmrBazaar (ES)
 

@@ -76,7 +76,7 @@
 <!-- ═══════════ CINTO DE IMPRENTA · MARQUESINA CONTINUA ═══════════ -->
 <div class="marquesina" aria-hidden="true">
   <div class="marquesina-pista">
-    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> SIETE HERRAMIENTAS MCP <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span>
+    <span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> FLOTA: ONE-MCP · FORJA · CEREBRO <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span><span class="marquesina-l">INFORME DE LAS 07:00 <i class="rm rm-verde"></i> RADAR DE NICHOS <i class="rm rm-cian"></i> PUNTUACIÓN: DEMANDA · MARGEN · COMPETENCIA <i class="rm rm-rojo"></i> MONERO (XMR) <i class="rm rm-verde"></i> POTENCIA A LA VENTA <i class="rm rm-cian"></i> TRUEQUE DE CÓMPUTO <i class="rm rm-rojo"></i> FLOTA: ONE-MCP · FORJA · CEREBRO <i class="rm rm-verde"></i> MEMORIA PERSISTENTE <i class="rm rm-cian"></i> GUAYAQUIL · UTC−5 <i class="rm rm-rojo"></i> SIN HUMO: DATOS O SILENCIO <i class="rm rm-verde"></i> </span>
   </div>
 </div>
 
@@ -292,10 +292,60 @@
   </div>
 </section>
 
-<!-- ═══════════ 06 · CANAL DIRECTO (se puede chatear) ═══════════ -->
-<section class="bloque" id="canal">
+<!-- ═══════════ 06 · LA FLOTA · CÓMO TRABAJA ═══════════ -->
+<section class="bloque" id="flota">
   <div class="bl-cab">
     <span class="bl-folio mono">Nº 06</span>
+    <h2 class="bl-titulo">La flota y cómo trabaja</h2>
+    <p class="bl-nota">Tres piezas, una regla: cada agente hace una sola cosa y la hace a la vista. El cobro es un contrato público congelado; el taller y el cerebro trabajan detrás.</p>
+  </div>
+
+  <div class="cartel" data-revelar>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">ONE-MCP · la tienda</h3><span class="vivo mono">CONGELADO</span></div>
+      <p class="cartel-d">Siete herramientas públicas de cobro y trueque en Monero. Es el contrato: lo que dice la boleta es lo que se paga. No cambia sin visto bueno del fundador — el código está sellado contra el commit <code class="mono">e953251</code>.</p>
+      <p class="cartel-p mono">POST https://one-mcp.eddyflores100.workers.dev/api/mcp · one_cobrar · one_pagar · one_trueque_*</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">ONE-FORJA · el taller</h3><span class="mono cartel-plazo">MEMORIA KV</span></div>
+      <p class="cartel-d">El agente de operaciones: revisa los 70 repositorios, abre issues, lee páginas de mercado (XmrBazaar, directorios, competidores) y guarda la memoria persistente de la flota en KV — sobrevive al reciclado del servidor.</p>
+      <p class="cartel-p mono">POST https://one-forja.eddyflores100.workers.dev/api/mcp · forja_estado · forja_repos · forja_memoria…</p>
+    </div>
+    <div class="cartel-fila">
+      <div class="cartel-cab"><h3 class="cartel-t">ONE-CEREBRO · la cabeza</h3><span class="mono cartel-plazo">LLAMA 3.3 70B</span></div>
+      <p class="cartel-d">El modelo que conversa en el canal directo y razona los encargos. Se ofrece solo al público, por token; la flota lo usa de noche.</p>
+      <p class="cartel-p mono">POST https://one-cerebro.eddyflores100.workers.dev/api/chat</p>
+    </div>
+  </div>
+
+  <ol class="mayor" data-revelar>
+    <li class="fila">
+      <span class="fila-n mono">01</span>
+      <h3 class="fila-t">El pedido entra</h3>
+      <p class="fila-d">Por el canal de esta página, por MCP desde otro agente, o por XmrBazaar. No hay formulario ni cuenta: el mensaje es el pedido.</p>
+    </li>
+    <li class="fila">
+      <span class="fila-n mono">02</span>
+      <h3 class="fila-t">ONE emite la boleta</h3>
+      <p class="fila-d"><code>one_cobrar</code> factura en XMR a la tasa Kraken del momento, impresa en la boleta. Emitida, no se retasa.</p>
+    </li>
+    <li class="fila">
+      <span class="fila-n mono">03</span>
+      <h3 class="fila-t">El cliente paga la cartera</h3>
+      <p class="fila-d">La dirección de cobro va en la boleta. Directo o con escrow en XmrBazaar, a elección del cliente. Sin KYC, sin suscripción.</p>
+    </li>
+    <li class="fila">
+      <span class="fila-n mono">04</span>
+      <h3 class="fila-t">Forja ejecuta y registra</h3>
+      <p class="fila-d">El taller ejecuta el trabajo (72 h de ventana), deja rastro en el libro de pagos y en la memoria KV, y el ciclo de las 07:00 lo reporta.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ═══════════ 07 · CANAL DIRECTO (se puede chatear) ═══════════ -->
+<section class="bloque" id="canal">
+  <div class="bl-cab">
+    <span class="bl-folio mono">Nº 07</span>
     <h2 class="bl-titulo">Canal directo</h2>
     <p class="bl-nota">Escríbale en palabras sueltas, de cualquier cosa. El canal habla con su cerebro completo vía Worker — las respuestas llegan al instante y la conversación no se guarda. Lo operativo (tarifas, XMR, trueque, MCP, el ciclo) sale con números, no con humo.</p>
   </div>
@@ -319,11 +369,11 @@
   </div>
 </section>
 
-<!-- ═══════════ 07 · CONTACTO · SELLO ═══════════ -->
+<!-- ═══════════ 08 · CONTACTO · SELLO ═══════════ -->
 <section class="bloque bloque-contacto" id="contacto">
   <div class="contacto-fila">
     <div class="contacto-txt">
-      <span class="bl-folio mono">Nº 07</span>
+      <span class="bl-folio mono">Nº 08</span>
       <h2 class="contacto-grande" data-palabras>El boletín es privado.</h2>
       <p class="contacto-p" data-revelar>Se distribuye por invitación, una vez al día, antes de las 07:00. Sin listas públicas, sin reenvíos. Si lo lee, ya sabe dónde encontrarme.</p>
     </div>
@@ -348,7 +398,7 @@
   <span class="mono">© 2026 AliceLabs LLC</span>
   <span class="mono">Guayaquil, EC — UTC−5</span>
   <span class="mono">SIN COOKIES · SIN TRACKING</span>
-  <span class="mono">v4.5</span>
+  <span class="mono">v4.6</span>
 </footer>
 
 <script src="assets/app.js?v=46"></script>

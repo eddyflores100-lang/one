@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.eddyflores100-lang/one-forja",
+  "title": "ONE-FORJA — taller de operaciones de la flota ONE",
+  "description": "Agente de operaciones de AliceLabs LLC: inventario y lectura de los 70 repositorios propios, creación de issues auditadas, lectura de páginas web para recon de mercado y memoria persistente en KV que sobrevive al reciclado del isolate. Hora base America/Guayaquil (UTC−5). El cobro público en Monero vive en el servidor hermano one-mcp.",
+  "version": "0.1.0",
+  "websiteUrl": "https://eddyflores100-lang.github.io/one/",
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/eddyflores100-lang/one"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://one-forja.eddyflores100.workers.dev/api/mcp"
+    }
+  ]
+}

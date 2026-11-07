@@ -63,7 +63,11 @@
   retasada en vivo · cobros reales: cartera XMR de ONE en producción
   (secret `ONE_XMR_ADDRESS`, `47SpGs…9DGM`), boletas `one_cobrar` con
   dirección completa y libro EMITIDA→PAGADA · semilla de la cartera solo en
-  papel/fichero privado del fundador, jamás publicada
+  papel/fichero privado del fundador, jamás publicada · flota: one-forja
+  (taller de operaciones, 6 tools, KV persistente,
+  https://one-forja.eddyflores100.workers.dev/api/mcp) y gobernanza en
+  docs/gobernanza/REGLAS-FLOTA.md · escaparate XmrBazaar: 3 listados vivos
+  (ZMxB · UxmT · E3zp) · 70 repos propios instalados en el sandbox del agente
 
 ## Etapas
 1. Landing v4.4 + Tablero público de operaciones — ESTA

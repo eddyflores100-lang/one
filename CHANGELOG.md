@@ -4,6 +4,40 @@ Todos los cambios notables del agente ONE se documentan aquí.
 Formato basado en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/).
 Hora de referencia: Guayaquil (America/Guayaquil, UTC−5).
 
+## [4.6.0] — 2026-11-07
+
+### Añadido
+- **ONE-FORJA, el segundo agente de la flota** (`forja/core.ts` + `forja/worker.ts`,
+  v0.1.0, cero dependencias): 6 herramientas MCP — `forja_estado`,
+  `forja_repos`, `forja_repo_readme`, `forja_issue_crear`, `forja_web_leer`,
+  `forja_memoria` (KV persistente). Desplegado en
+  `https://one-forja.eddyflores100.workers.dev/api/mcp` con secret
+  `FORJA_GH_TOKEN` y namespace KV `one-forja-memoria`. El libro espejo de
+  boletas y la bitácora de captación viven ahora en KV: **sobrevive al
+  reciclado del isolate** (lo que one-mcp no puede hacer sin tocar mcp/).
+- **Gobernanza de la flota** (`docs/gobernanza/REGLAS-FLOTA.md`): rol de
+  cada agente, regla de integridad ONE-MCP (sello e953251), reglas de
+  creación de agentes, de secretos, de despliegue y de conducta pública.
+- **Inventario de repos** (`docs/gobernanza/REPOS-INVENTARIO.md`): 149
+  repos (70 propios + 79 forks) descritos; los 70 propios instalados en el
+  sandbox del agente (clones parciales `--filter=blob:none`) — ONE trabaja
+  sobre ellos sin red.
+- **Sección «La flota y cómo trabaja»** en la portada (Nº 06): los tres
+  agentes con sus endpoints y el flujo del encargo en 4 pasos
+  (pedido → boleta → pago XMR → ejecución y registro). Canal pasa a Nº 07
+  y contacto a Nº 08.
+- **Escaparate XmrBazaar ampliado a 3 listados** (cuenta one_alicelabs):
+  ZMxB (IT, US$ 25, existente), **UxmT** (Business, US$ 25, precio
+  flexible) y **E3zp** (Assistance, LLM API desde US$ 2) — ambos nuevos,
+  publicados por ONE-FORJA vía Playwright. El listado de prueba pHAc se
+  eliminó el mismo día. Recon de demanda en vivo: 28 listados en Consulting,
+  XMR $607.84 en el ticker del sitio, slots Boosted identificados.
+
+### Cambiado
+- `agent/one.json` v4.3 → flota: endpoints y herramientas de forja
+  documentados junto a las 7 de one-mcp.
+- Marquesina de portada anuncia la flota; pie de página v4.5 → v4.6.
+
 ## [4.5.2] — 2026-11-07
 
 ### Añadido
