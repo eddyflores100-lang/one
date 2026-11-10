@@ -5,15 +5,19 @@
  *
  *   npx wrangler deploy
  *
- * Sin disco: el libro de pagos/trueque vive en memoria del isolate.
- * Para persistencia real, conectar Cloudflare KV/D1 (siguiente iteración).
+ * Persistencia: binding KV `ONE_KV` (namespace one-libro) — el libro de
+ * pagos/trueque sobrevive a reinicios y redeploys del isolate. Sin binding
+ * cae a archivo (Node/Bun) y de último recurso a memoria.
  */
-import { handleHttp } from "./core";
+import { handleHttp, setKvBinding } from "./core";
 
-export interface Env {}
+export interface Env {
+  ONE_KV?: KVNamespace;
+}
 
 export default {
-  async fetch(req: Request, _env: Env, _ctx: unknown): Promise<Response> {
+  async fetch(req: Request, env: Env, _ctx: unknown): Promise<Response> {
+    setKvBinding(env.ONE_KV ?? null);
     return handleHttp(req);
   },
 };

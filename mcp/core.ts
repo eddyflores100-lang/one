@@ -65,7 +65,7 @@ function cwd(): string {
   return (globalThis as any).process?.cwd?.() || ".";
 }
 
-/* ── Persistencia: archivo si hay disco; memoria si no (Workers) ─────── */
+/* ── Persistencia: KV si hay binding; archivo si hay disco; memoria si no ── */
 
 let fsMod: any = false;
 async function fs(): Promise<any> {
@@ -78,6 +78,15 @@ async function fs(): Promise<any> {
   return fsMod;
 }
 
+// Binding KV inyectado por worker.ts (namespace one-libro en Cloudflare).
+// Mantiene el libro de pagos/trueque vivo entre isolates y redeploys.
+let kvBinding: any = null;
+let kvVisto = false;
+export function setKvBinding(kv: any): void {
+  kvBinding = kv ?? null;
+  kvVisto = true;
+}
+
 const memStore = new Map<string, any>();
 
 function dataDir(): string {
@@ -85,6 +94,14 @@ function dataDir(): string {
 }
 
 async function loadJson<T>(name: string, fallback: T): Promise<T> {
+  if (kvVisto && kvBinding) {
+    try {
+      const v = await kvBinding.get(name);
+      if (v) return JSON.parse(v) as T;
+    } catch {
+      /* KV caído: sigue a archivo/memoria */
+    }
+  }
   const f = await fs();
   if (!f) return (memStore.get(name) as T) ?? fallback;
   try {
@@ -95,6 +112,15 @@ async function loadJson<T>(name: string, fallback: T): Promise<T> {
 }
 
 async function saveJson(name: string, val: any): Promise<void> {
+  const cuerpo = JSON.stringify(val, null, 2);
+  if (kvVisto && kvBinding) {
+    try {
+      await kvBinding.put(name, cuerpo);
+      return;
+    } catch {
+      /* KV caído: sigue a archivo/memoria */
+    }
+  }
   const f = await fs();
   if (!f) {
     memStore.set(name, val);
@@ -102,13 +128,14 @@ async function saveJson(name: string, val: any): Promise<void> {
   }
   try {
     await f.mkdir(dataDir(), { recursive: true });
-    await f.writeFile(`${dataDir()}/${name}`, JSON.stringify(val, null, 2), "utf8");
+    await f.writeFile(`${dataDir()}/${name}`, cuerpo, "utf8");
   } catch {
     memStore.set(name, val);
   }
 }
 
 async function modoPersistencia(): Promise<string> {
+  if (kvVisto && kvBinding) return "KV duradero (ONE_KV · one-libro)";
   const f = await fs();
   return f ? "archivo (data/one) con respaldo en memoria" : "memoria (sin disco)";
 }
