@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://one-mcp.eddyflores100.workers.dev/api/mcp"
+      "url": "https://mcp.alicelabs.space/api/mcp"
     }
   ]
 }

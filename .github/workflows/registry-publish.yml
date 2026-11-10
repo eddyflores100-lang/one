@@ -1,0 +1,66 @@
+# ONE — Publish the official MCP registry manifest (root server.json)
+# Publishes the ROOT server.json via the official mcp-publisher CLI,
+# authenticated with GitHub OIDC (no secrets).
+#
+# Usage:
+#   1. Bump root server.json version to the next unpublished version.
+#   2. Actions -> "Publish ONE to MCP registry" -> Run workflow.
+#   3. Verify: https://registry.modelcontextprotocol.io/v0/servers?search=eddyflores100
+#
+# Namespace mapping: OIDC claim repository == eddyflores100-lang/one
+#                    -> io.github.eddyflores100-lang/* (matches server.json name).
+# Supply-chain note: pinned to v1.8.8 by SHA256 (checked below); bump version+hash together.
+
+name: Publish ONE to MCP registry
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: registry-publish-one
+
+jobs:
+  publish:
+    name: MCP registry publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download mcp-publisher (SHA256-pinned)
+        run: |
+          curl -sSL "https://github.com/modelcontextprotocol/registry/releases/download/v1.8.8/mcp-publisher_linux_amd64.tar.gz" -o mcp-publisher.tar.gz
+          echo "09f1fa70ee146b640584274a1a6b2b8a0310b05d4321fa9224e6df6a016d67f4  mcp-publisher.tar.gz" | sha256sum -c -
+          tar xzf mcp-publisher.tar.gz
+
+      - name: Skip if version already published (idempotent re-run)
+        run: |
+          NAME=$(jq -r '.name' server.json)
+          VERSION=$(jq -r '.version' server.json)
+          PUBLISHED=$(curl -s "https://registry.modelcontextprotocol.io/v0/servers?search=eddyflores100" \
+            | jq -r --arg n "$NAME" --arg v "$VERSION" \
+              '[.servers[]? | select(.server.name==$n and .server.version==$v)] | length')
+          echo "local=${NAME}@${VERSION} already_in_registry=${PUBLISHED}"
+          if [ "${PUBLISHED}" != "0" ]; then
+            echo "::notice::${NAME}@${VERSION} already published to the MCP registry - skipping publish."
+            echo "SKIP_PUBLISH=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Login to MCP Registry (GitHub OIDC)
+        if: env.SKIP_PUBLISH != 'true'
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish root server.json
+        if: env.SKIP_PUBLISH != 'true'
+        run: |
+          ./mcp-publisher publish
+          echo "publish accepted"
+
+      - name: Verify published remote
+        run: |
+          sleep 5
+          curl -s "https://registry.modelcontextprotocol.io/v0/servers?search=eddyflores100" | jq -r '.servers[]?.server | [.name, .version, (.remotes[0].url // "")] | @tsv'
